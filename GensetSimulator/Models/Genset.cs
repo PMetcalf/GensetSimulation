@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace GensetSimulator.Models
 {
@@ -41,11 +42,20 @@ namespace GensetSimulator.Models
         /// </summary>
         private void RunGenset(int runCycles)
         {
+            IsOn = true;
+            Console.WriteLine("Starting Genset.");
+
             // Run genset for prescribed count.
             for (int cycle = 0; cycle < runCycles; cycle++)
             {
                 // Generate values for properties.
-            
+                GensetPower = GenerateRandomNumber(990, 1010);
+
+                // Print values (Replace with data export).
+                Console.WriteLine("Power Output: " + GensetPower.ToString() + "kW");
+
+                // Wait (simulated) time.
+                Task.Delay(2000).Wait();
             }
         }
 
