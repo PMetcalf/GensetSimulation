@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GensetSimulator.Models;
+using System;
 
 namespace GensetSimulator
 {
@@ -11,7 +12,20 @@ namespace GensetSimulator
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Starting Genset Simulator.");
+
+            // Initialise new genset.
+            Genset genset = new Genset();
+
+            // [Initialise webservice connection].
+
+            // Start genset / data logging.
+
+            // Run genset / data logging.
+
+            // End genset run / data logging (on interuption, or after time period?).
+
+            // Clean up resources.
         }
     }
 }
