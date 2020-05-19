@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace GensetSimulator.Models
@@ -36,11 +37,16 @@ namespace GensetSimulator.Models
 
 
         /// <summary>
-        /// Generates random values for properties within prescribed ranges.
+        /// Generates random values for properties for a pescribed count.
         /// </summary>
-        private void RunGenset()
+        private void RunGenset(int runCycles)
         {
-
+            // Run genset for prescribed count.
+            for (int cycle = 0; cycle < runCycles; cycle++)
+            {
+                // Generate values for properties.
+            
+            }
         }
 
         /// <summary>
@@ -49,6 +55,31 @@ namespace GensetSimulator.Models
         private void StopGenset()
         {
 
+        }
+
+        /// <summary>
+        /// Generates random number of value greater than min / less than max.
+        /// </summary>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        private int GenerateRandomNumber(int min, int max)
+        {
+            if (min < 0)
+            {
+                min = 0;
+            }
+
+            if (max < 0)
+            {
+                max = 0;
+            }
+
+            // Generate number.
+            Random random = new Random();
+            int number = random.Next(min, max);
+
+            // Return number.
+            return number;
         }
     }
 }
