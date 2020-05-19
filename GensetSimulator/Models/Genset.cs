@@ -33,5 +33,14 @@ namespace GensetSimulator.Models
             IsOn = false;
             GensetPower = 0;
         }
+
+
+        /// <summary>
+        /// Generates random values for properties within prescribed ranges.
+        /// </summary>
+        private void RunGenset()
+        {
+
+        }
     }
 }
