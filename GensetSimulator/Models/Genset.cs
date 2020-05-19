@@ -21,5 +21,17 @@ namespace GensetSimulator.Models
         /// </summary>
         private int gensetPower;
         public int GensetPower { get => gensetPower; set => gensetPower = value; }
+
+        /// <summary>
+        /// Constructor alerts user and sets properties.
+        /// </summary>
+        public Genset()
+        {
+            Console.WriteLine("Genset Created.");
+
+            // Initialise genset properties.
+            IsOn = false;
+            GensetPower = 0;
+        }
     }
 }
