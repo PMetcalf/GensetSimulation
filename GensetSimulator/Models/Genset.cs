@@ -42,5 +42,13 @@ namespace GensetSimulator.Models
         {
 
         }
+
+        /// <summary>
+        /// Stop generating values for properties.
+        /// </summary>
+        private void StopGenset()
+        {
+
+        }
     }
 }
