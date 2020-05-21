@@ -18,7 +18,9 @@ namespace GensetSimulator
             Run();
         }
 
-
+        /// <summary>
+        /// Create genset, wait for user input then start.
+        /// </summary>
         static void Run()
         {
             // Initialise genset.
@@ -42,6 +44,10 @@ namespace GensetSimulator
 
         const string _readPrompt = "Type to Start:";
 
+        /// <summary>
+        /// Read and return console input.
+        /// </summary>
+        /// <returns>ConsoleMessage</returns>
         public static string ReadFromConsole()
         {
             // Show a prompt, and get input:
