@@ -64,9 +64,10 @@ namespace GensetSimulator.Models
         /// <summary>
         /// Stops generator.
         /// </summary>
-        private void StopGenset()
+        public void StopGenset()
         {
-
+            IsOn = false;
+            Console.WriteLine("Stopping Genset.");
         }
 
         /// <summary>

@@ -47,6 +47,11 @@ namespace GensetSimulator
                 {
                     Console.WriteLine(ex.Message);
                 }
+                finally
+                {
+                    // Stop genset.
+                    genset.StopGenset();
+                }
             }
         }
 
