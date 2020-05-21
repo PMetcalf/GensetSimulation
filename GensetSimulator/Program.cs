@@ -20,7 +20,7 @@ namespace GensetSimulator
             // [Initialise webservice connection].
 
             // Run genset / data logging.
-            genset.RunGenset(10);
+            genset.StartGenset(10);
         }
     }
 }
