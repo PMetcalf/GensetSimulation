@@ -33,7 +33,14 @@ namespace GensetSimulator
 
                 try
                 {
-                    genset.StartGenset(5);
+                    Console.WriteLine("Press key to stop");
+                    do
+                    {
+                        while (!Console.KeyAvailable)
+                        {
+                            genset.StartGenset(5);
+                        }
+                    } while (Console.ReadKey(true).Key != ConsoleKey.Escape);                   
                 }
                 catch (Exception ex)
                 {
