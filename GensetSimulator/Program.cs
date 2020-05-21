@@ -31,16 +31,17 @@ namespace GensetSimulator
                 var consoleInput = ReadFromConsole();
                 if (string.IsNullOrWhiteSpace(consoleInput)) continue;
 
+                // Start genset.
+                genset.StartGenset();
+                Console.WriteLine("Press key to stop");
+
                 try
                 {
-                    Console.WriteLine("Press key to stop");
-                    do
+                    while (!Console.KeyAvailable)
                     {
-                        while (!Console.KeyAvailable)
-                        {
-                            genset.StartGenset(5);
-                        }
-                    } while (Console.ReadKey(true).Key != ConsoleKey.Escape);                   
+                        // Run genset.
+                        genset.RunGenset();
+                    }                
                 }
                 catch (Exception ex)
                 {
