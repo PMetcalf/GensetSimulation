@@ -12,7 +12,8 @@ namespace GensetSimulator
         static void Main(string[] args)
         {
             Console.Title = typeof(Program).Name;
-            // We will add some set-up stuff here later...
+
+            // Initialise webservice.
 
             Run();
         }
@@ -20,6 +21,9 @@ namespace GensetSimulator
 
         static void Run()
         {
+            // Initialise genset.
+            Genset genset = new Genset();
+
             while (true)
             {
                 var consoleInput = ReadFromConsole();
@@ -27,15 +31,10 @@ namespace GensetSimulator
 
                 try
                 {
-                    // Execute the command:
-                    string result = Execute(consoleInput);
-
-                    // Write out the result:
-                    WriteToConsole(result);
+                    genset.StartGenset(5);
                 }
                 catch (Exception ex)
                 {
-                    // OOPS! Something went wrong - Write out the problem:
                     WriteToConsole(ex.Message);
                 }
             }
@@ -59,6 +58,7 @@ namespace GensetSimulator
 
 
         const string _readPrompt = "console> ";
+
         public static string ReadFromConsole(string promptMessage = "")
         {
             // Show a prompt, and get input:
