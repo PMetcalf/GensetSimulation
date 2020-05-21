@@ -35,34 +35,17 @@ namespace GensetSimulator
                 }
                 catch (Exception ex)
                 {
-                    WriteToConsole(ex.Message);
+                    Console.WriteLine(ex.Message);
                 }
             }
         }
 
+        const string _readPrompt = "Type to Start:";
 
-        static string Execute(string command)
-        {
-            // We'll make this more interesting shortly:
-            return string.Format("Executed the {0} Command", command);
-        }
-
-
-        public static void WriteToConsole(string message = "")
-        {
-            if (message.Length > 0)
-            {
-                Console.WriteLine(message);
-            }
-        }
-
-
-        const string _readPrompt = "console> ";
-
-        public static string ReadFromConsole(string promptMessage = "")
+        public static string ReadFromConsole()
         {
             // Show a prompt, and get input:
-            Console.Write(_readPrompt + promptMessage);
+            Console.Write(_readPrompt);
             return Console.ReadLine();
         }
     }
