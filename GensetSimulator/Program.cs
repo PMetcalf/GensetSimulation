@@ -19,13 +19,8 @@ namespace GensetSimulator
 
             // [Initialise webservice connection].
 
-            // Start genset / data logging.
-
             // Run genset / data logging.
-
-            // End genset run / data logging (on interuption, or after time period?).
-
-            // Clean up resources.
+            genset.RunGenset(10);
         }
     }
 }

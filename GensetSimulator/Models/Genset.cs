@@ -40,7 +40,7 @@ namespace GensetSimulator.Models
         /// <summary>
         /// Generates random values for properties for a pescribed count.
         /// </summary>
-        private void RunGenset(int runCycles)
+        public void RunGenset(int runCycles)
         {
             IsOn = true;
             Console.WriteLine("Starting Genset.");
