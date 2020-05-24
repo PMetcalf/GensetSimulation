@@ -22,5 +22,23 @@ namespace SimulationWebservice.Services
         {
             this.container = dbClient.GetContainer(dbName, containerName);
         }
+
+        /// <summary>
+        /// Add data item to container.
+        /// </summary>
+        /// <returns></returns>
+        public async Task AddDataAsync()
+        {
+
+        }
+
+        /// <summary>
+        /// Retreives data item from container.
+        /// </summary>
+        /// <returns></returns>
+        private async Task GetDataAsync()
+        {
+
+        }
     }
 }
