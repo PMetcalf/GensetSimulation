@@ -27,6 +27,9 @@ namespace SimulationWebservice
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddSingleton<ICosmosDbService>(InitialiseCosmosClientInstanceAsync(
+                Configuration.GetSection("CosmosDB")).GetAwaiter().GetResult());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,7 +73,7 @@ namespace SimulationWebservice
 
             CosmosDBService dBService = new CosmosDBService(client, databaseName, containerName);
 
-            // Prepare the database.fff
+            // Prepare the database.
             Microsoft.Azure.Cosmos.DatabaseResponse database = await client.CreateDatabaseIfNotExistsAsync(databaseName);
 
             // Prepare the container.
