@@ -1,6 +1,10 @@
 ﻿namespace SimulationWebservice.Services
 {
-    public class ICosmosDbService
+    /// <summary>
+    /// Provides an interface for Cosmos DB services.
+    /// </summary>
+
+    public interface ICosmosDbService
     {
     }
 }
