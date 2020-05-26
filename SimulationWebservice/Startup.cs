@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using SimulationWebservice.Services;
 
 namespace SimulationWebservice
 {
@@ -46,6 +47,15 @@ namespace SimulationWebservice
             {
                 endpoints.MapControllers();
             });
+        }
+
+        /// <summary>
+        /// Create a Cosmos DB and a container with the specified partition key.
+        /// </summary>
+        /// <returns></returns>
+        private static async Task<CosmosDBService> InitialiseCosmosClientInstanceAsync()
+        {
+
         }
     }
 }
