@@ -36,7 +36,7 @@ namespace SimulationWebservice.Services
         /// Retreives data item from container.
         /// </summary>
         /// <returns></returns>
-        private async Task<GensetData> GetDataAsync(string id)
+        public async Task<GensetData> GetDataAsync(string id)
         {
             try
             {

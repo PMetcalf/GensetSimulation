@@ -1,4 +1,7 @@
-﻿namespace SimulationWebservice.Services
+﻿using SimulationWebservice.Models;
+using System.Threading.Tasks;
+
+namespace SimulationWebservice.Services
 {
     /// <summary>
     /// Provides an interface for Cosmos DB services.
@@ -6,5 +9,8 @@
 
     public interface ICosmosDbService
     {
+        Task AddDataAsync(GensetData data);
+
+        Task<GensetData> GetDataAsync(string id);
     }
 }
