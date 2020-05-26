@@ -55,6 +55,13 @@ namespace SimulationWebservice
         /// <returns></returns>
         private static async Task<CosmosDBService> InitialiseCosmosClientInstanceAsync()
         {
+            // Retrieve DB and container parameters.
+
+            // Build the client.
+
+            // Prepare the database.
+
+            // Prepare the container.
 
         }
     }
