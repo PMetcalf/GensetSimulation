@@ -29,16 +29,25 @@ namespace SimulationWebservice.Services
         /// <returns></returns>
         public async Task AddDataAsync(GensetData data)
         {
-            await this.container.CreateItemAsync<GensetData>(data, new PartitionKey(data.Id);
+            await this.container.CreateItemAsync<GensetData>(data, new PartitionKey(data.Id));
         }
 
         /// <summary>
         /// Retreives data item from container.
         /// </summary>
         /// <returns></returns>
-        private async Task GetDataAsync()
+        private async Task<GensetData> GetDataAsync(string id)
         {
+            try
+            {
+                ItemResponse<GensetData> response = await this.container.ReadItemAsync<GensetData>(id, new PartitionKey(id));
 
+                return response.Resource;
+            }
+            catch
+            {
+                return null;
+            }
         }
     }
 }
