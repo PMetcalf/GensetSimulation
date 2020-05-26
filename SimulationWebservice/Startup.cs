@@ -53,9 +53,13 @@ namespace SimulationWebservice
         /// Create a Cosmos DB and a container with the specified partition key.
         /// </summary>
         /// <returns></returns>
-        private static async Task<CosmosDBService> InitialiseCosmosClientInstanceAsync()
+        private static async Task<CosmosDBService> InitialiseCosmosClientInstanceAsync(IConfigurationSection configurationSection)
         {
             // Retrieve DB and container parameters.
+            string databaseName = configurationSection.GetSection("DatabaseName").Value;
+            string containerName = configurationSection.GetSection("ContainerName").Value;
+            string account = configurationSection.GetSection("Account").Value;
+            string key = configurationSection.GetSection("Key").Value;
 
             // Build the client.
 
