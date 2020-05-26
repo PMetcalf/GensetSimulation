@@ -70,7 +70,7 @@ namespace SimulationWebservice
 
             CosmosDBService dBService = new CosmosDBService(client, databaseName, containerName);
 
-            // Prepare the database.
+            // Prepare the database.fff
             Microsoft.Azure.Cosmos.DatabaseResponse database = await client.CreateDatabaseIfNotExistsAsync(databaseName);
 
             // Prepare the container.
