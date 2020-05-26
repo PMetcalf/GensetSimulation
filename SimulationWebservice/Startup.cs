@@ -62,6 +62,11 @@ namespace SimulationWebservice
             string key = configurationSection.GetSection("Key").Value;
 
             // Build the client.
+            Microsoft.Azure.Cosmos.Fluent.CosmosClientBuilder clientBuilder =
+                new Microsoft.Azure.Cosmos.Fluent.CosmosClientBuilder(account, key);
+
+            Microsoft.Azure.Cosmos.CosmosClient client =
+                clientBuilder.WithConnectionModeDirect().Build();
 
             // Prepare the database.
 
