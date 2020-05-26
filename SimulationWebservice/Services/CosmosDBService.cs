@@ -1,6 +1,6 @@
-﻿
-
-using Microsoft.Azure.Cosmos;
+﻿using Microsoft.Azure.Cosmos;
+using SimulationWebservice.Models;
+using System.Threading.Tasks;
 
 namespace SimulationWebservice.Services
 {
@@ -27,9 +27,9 @@ namespace SimulationWebservice.Services
         /// Add data item to container.
         /// </summary>
         /// <returns></returns>
-        public async Task AddDataAsync()
+        public async Task AddDataAsync(GensetData data)
         {
-
+            await this.container.CreateItemAsync<GensetData>(data, new PartitionKey(data.Id);
         }
 
         /// <summary>
