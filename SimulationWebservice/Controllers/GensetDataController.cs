@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SimulationWebservice.Services;
 
 namespace SimulationWebservice.Controllers
 {
@@ -11,6 +12,13 @@ namespace SimulationWebservice.Controllers
     [ApiController]
     public class GensetDataController : ControllerBase
     {
+        private readonly ICosmosDbService _cosmosDbService;
+
+        public GensetDataController(ICosmosDbService cosmosDbService)
+        {
+            _cosmosDbService = cosmosDbService;
+        }
+
         // GET: api/GensetData
         [HttpGet]
         public IEnumerable<string> Get()
