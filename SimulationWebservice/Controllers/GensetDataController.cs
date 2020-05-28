@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using SimulationWebservice.Models;
 using SimulationWebservice.Services;
 
 namespace SimulationWebservice.Controllers
@@ -35,8 +37,28 @@ namespace SimulationWebservice.Controllers
 
         // POST: api/GensetData
         [HttpPost]
-        public void Post([FromBody] string value)
+        public async Task<ActionResult> CreateDataEntryAsync([FromBody] string value)
         {
+            // Create data entry item.
+            GensetData gensetData = new GensetData
+            {
+                Id = DateTime.Now.ToString(),
+                IsOn = true,
+                GensetPower = 100
+            };
+
+            // Post data to database.
+            try
+            {
+                await _cosmosDbService.AddDataAsync(gensetData);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+
+            // return result.
+            return CreatedAtAction("Genset Data POST", new { id = gensetData.Id }, gensetData);
         }
 
         // PUT: api/GensetData/5
