@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 namespace SimulationWebservice.Controllers
 {
     [ApiController]
-    //[Route("[controller]")]
+    [Route("[controller]")]
     //[Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
@@ -35,6 +35,13 @@ namespace SimulationWebservice.Controllers
                 Summary = Summaries[rng.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpPost]
+        public bool CreateDataEntryAsync()
+        {
+            bool worked = true;
+            return worked;
         }
     }
 }
