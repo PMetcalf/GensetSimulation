@@ -1,9 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using SimulationWebservice.Models;
+using SimulationWebservice.Services;
 
 namespace SimulationWebservice.Controllers
 {
@@ -17,11 +20,15 @@ namespace SimulationWebservice.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
+        private readonly ICosmosDbService _cosmosDbService;
+
         private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, ICosmosDbService cosmosDbService)
         {
             _logger = logger;
+
+            _cosmosDbService = cosmosDbService;
         }
 
         [HttpGet]
@@ -38,10 +45,19 @@ namespace SimulationWebservice.Controllers
         }
 
         [HttpPost]
-        public bool CreateDataEntryAsync()
+        public async Task<ActionResult> CreateDataEntryAsync(GensetData gensetData)
         {
-            bool worked = true;
-            return worked;
+            try
+            {
+                await _cosmosDbService.AddDataAsync(gensetData);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+
+            // return result.
+            return CreatedAtAction("Genset Data POST", new { id = gensetData.Id }, gensetData);
         }
     }
 }
