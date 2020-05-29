@@ -40,14 +40,6 @@ namespace SimulationWebservice.Controllers
         [HttpPost]
         public async Task<ActionResult> CreateDataEntryAsync(GensetData gensetData)
         {
-            // Create data entry item.
-            //GensetData gensetData = new GensetData
-            //{
-            //    Id = DateTime.Now.ToString(),
-            //    IsOn = true,
-            //    GensetPower = 100
-            //};
-
             // Post data to database.
             try
             {
