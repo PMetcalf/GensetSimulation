@@ -8,7 +8,8 @@ using Microsoft.Extensions.Logging;
 namespace SimulationWebservice.Controllers
 {
     [ApiController]
-    [Route("[controller]")]
+    //[Route("[controller]")]
+    //[Route("api/[controller]")]
     public class WeatherForecastController : ControllerBase
     {
         private static readonly string[] Summaries = new[]

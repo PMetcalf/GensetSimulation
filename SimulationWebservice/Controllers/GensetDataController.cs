@@ -10,8 +10,9 @@ using SimulationWebservice.Services;
 
 namespace SimulationWebservice.Controllers
 {
-    [Route("api/[controller]")]
+    //[Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]")]
     public class GensetDataController : ControllerBase
     {
         private readonly ICosmosDbService _cosmosDbService;
@@ -37,15 +38,15 @@ namespace SimulationWebservice.Controllers
 
         // POST: api/GensetData
         [HttpPost]
-        public async Task<ActionResult> CreateDataEntryAsync([FromBody] string value)
+        public async Task<ActionResult> CreateDataEntryAsync(GensetData gensetData)
         {
             // Create data entry item.
-            GensetData gensetData = new GensetData
-            {
-                Id = DateTime.Now.ToString(),
-                IsOn = true,
-                GensetPower = 100
-            };
+            //GensetData gensetData = new GensetData
+            //{
+            //    Id = DateTime.Now.ToString(),
+            //    IsOn = true,
+            //    GensetPower = 100
+            //};
 
             // Post data to database.
             try

@@ -23,7 +23,7 @@ namespace SimulationWebservice
             services.AddControllers();
 
             services.AddSingleton<ICosmosDbService>(InitialiseCosmosClientInstanceAsync(
-                Configuration.GetSection("CosmosDB")).GetAwaiter().GetResult());
+                Configuration.GetSection("CosmosDb")).GetAwaiter().GetResult());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
