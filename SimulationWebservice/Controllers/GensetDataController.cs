@@ -31,9 +31,26 @@ namespace SimulationWebservice.Controllers
 
         // GET: api/GensetData/5
         [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        public async Task<string> GetAsync(string id)
         {
-            return "value";
+            GensetData data = new GensetData();
+
+            // Try to retrieve data from database.
+            try
+            {
+                await _cosmosDbService.GetDataAsync(id);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
+
+            // Return data.
+            string returnString = data.Id.ToString() + ": Power :" + data.GensetPower.ToString();
+
+            return returnString;
+
+            //return "value";
         }
 
         // POST: api/GensetData
