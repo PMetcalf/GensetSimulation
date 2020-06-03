@@ -22,7 +22,10 @@ namespace SimulationWebservice.Controllers
             _cosmosDbService = cosmosDbService;
         }
 
-        // GET: api/GensetData
+        /// <summary>
+        /// Default GET method - Will (upon implmentation) return database details.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public string Get()
         {
@@ -31,7 +34,11 @@ namespace SimulationWebservice.Controllers
             return feedbackMessage;
         }
 
-        // GET: api/GensetData/5
+        /// <summary>
+        /// GET method for returning one dataset entry by id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("{id}", Name = "Get")]
         public async Task<string> GetAsync(string id)
         {
@@ -53,7 +60,11 @@ namespace SimulationWebservice.Controllers
             return returnString;
         }
 
-        // POST: api/GensetData
+        /// <summary>
+        /// POST method implementation creating a database Dataset entry.
+        /// </summary>
+        /// <param name="gensetData"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<ActionResult> CreateDataEntryAsync(GensetData gensetData)
         {
