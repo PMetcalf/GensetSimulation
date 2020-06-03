@@ -15,6 +15,12 @@ namespace SimulationWebservice.Models
         public string Id { get; set; }
 
         /// <summary>
+        /// Full-model implementation of Id (genset S/N, datetime).
+        /// </summary>
+        [JsonProperty(PropertyName = "fullId")]
+        public string FullID { get; set; }
+
+        /// <summary>
         /// IsOn identifies if genset is running.
         /// </summary>
         [JsonProperty(PropertyName = "isOn")]
