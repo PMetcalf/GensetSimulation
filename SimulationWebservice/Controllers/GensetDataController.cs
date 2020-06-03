@@ -24,9 +24,11 @@ namespace SimulationWebservice.Controllers
 
         // GET: api/GensetData
         [HttpGet]
-        public IEnumerable<string> Get()
+        public string Get()
         {
-            return new string[] { "value1", "value2" };
+            string feedbackMessage = "All-item GET method not yet implemented.";
+
+            return feedbackMessage;
         }
 
         // GET: api/GensetData/5
