@@ -38,7 +38,7 @@ namespace SimulationWebservice.Controllers
             // Try to retrieve data from database.
             try
             {
-                await _cosmosDbService.GetDataAsync(id);
+                data = await _cosmosDbService.GetDataAsync(id);
             }
             catch (Exception ex)
             {
@@ -49,8 +49,6 @@ namespace SimulationWebservice.Controllers
             string returnString = data.Id.ToString() + ": Power :" + data.GensetPower.ToString();
 
             return returnString;
-
-            //return "value";
         }
 
         // POST: api/GensetData
