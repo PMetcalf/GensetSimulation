@@ -79,7 +79,8 @@ namespace SimulationWebservice.Controllers
             }
 
             // return result.
-            return CreatedAtAction("Genset Data POST", new { id = gensetData.Id }, gensetData);
+            //return CreatedAtAction(nameof(GetTodoItem), new { id = todoItem.Id }, todoItem);
+            return CreatedAtAction(nameof(GetAsync), new { id = gensetData.Id }, gensetData); 
         }
 
         // PUT: api/GensetData/5
