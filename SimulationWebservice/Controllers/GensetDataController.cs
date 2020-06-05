@@ -40,6 +40,7 @@ namespace SimulationWebservice.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}", Name = "Get")]
+        [ActionName("GetAsync")]    // Attribute naming overcomes issue with aspnet core 3.1. 
         public async Task<ActionResult<GensetData>> GetAsync(string id)
         {
             // Retrieve data from database.
@@ -73,7 +74,6 @@ namespace SimulationWebservice.Controllers
             }
 
             // return result.
-            //return CreatedAtAction(nameof(GetTodoItem), new { id = todoItem.Id }, todoItem);
             return CreatedAtAction(nameof(GetAsync), new { id = gensetData.Id }, gensetData); 
         }
 
