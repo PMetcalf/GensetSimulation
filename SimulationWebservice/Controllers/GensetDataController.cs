@@ -66,7 +66,7 @@ namespace SimulationWebservice.Controllers
         /// <param name="gensetData"></param>
         /// <returns></returns>
         [HttpPost]
-        public async Task<ActionResult> CreateDataEntryAsync(GensetData gensetData)
+        public async Task<ActionResult<GensetData>> CreateDataEntryAsync(GensetData gensetData)
         {
             // Post data to database.
             try
