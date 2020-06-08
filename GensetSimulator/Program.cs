@@ -1,10 +1,13 @@
 ﻿using GensetSimulator.Models;
 using System;
+using System.Net.Http;
 
 namespace GensetSimulator
 {
     class Program
     {
+        static HttpClient client = new HttpClient();
+
         /// <summary>
         /// This is the main executable class for the program.
         /// </summary>
