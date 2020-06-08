@@ -17,6 +17,7 @@ namespace GensetSimulator
             Console.Title = typeof(Program).Name;
 
             // Initialise webservice.
+            InitialiseHttpClientInstance();
 
             Run();
         }
