@@ -29,7 +29,7 @@ namespace GensetSimulator
         /// </summary>
         static void InitialiseHttpClientInstance()
         {
-            client.BaseAddress = new Uri("https://localhost:5001/gensetdata");
+            client.BaseAddress = new Uri("https://localhost:5001/");
 
             client.DefaultRequestHeaders.Accept.Clear();
 
@@ -39,7 +39,12 @@ namespace GensetSimulator
 
         static async Task<Uri> SendGensetData(GensetData gensetData)
         {
+            HttpResponseMessage response = await client.PostAsJsonAsync("gensetdata/", gensetData);
 
+            response.EnsureSuccessStatusCode();
+
+            // Return uri of created resource.
+            return response.Headers.Location;
         }
 
         /// <summary>
