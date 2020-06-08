@@ -69,9 +69,14 @@ namespace GensetSimulator
                     while (!Console.KeyAvailable)
                     {
                         // Run genset.
-                        genset.RunGenset();
+                        genset = genset.RunGenset();
 
                         // Collect genset data.
+                        GensetData data = new GensetData
+                        {
+                            IsOn = genset.IsOn,
+                            GensetPower = genset.GensetPower
+                        };
 
                         // Post genset data (generate Id).
                     }                
