@@ -22,6 +22,14 @@ namespace GensetSimulator
         }
 
         /// <summary>
+        /// Initialises http client instance with URIs.
+        /// </summary>
+        static void InitialiseHttpClientInstance()
+        {
+
+        }
+
+        /// <summary>
         /// Create genset, wait for user input then start.
         /// </summary>
         static void Run()
