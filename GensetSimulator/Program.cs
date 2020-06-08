@@ -26,7 +26,12 @@ namespace GensetSimulator
         /// </summary>
         static void InitialiseHttpClientInstance()
         {
+            client.BaseAddress = new Uri("https://localhost:5001/gensetdata");
 
+            client.DefaultRequestHeaders.Accept.Clear();
+
+            client.DefaultRequestHeaders.Accept.Add(
+                new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
         }
 
         /// <summary>
