@@ -49,16 +49,23 @@ namespace GensetSimulator.Models
         /// <summary>
         /// Generates random values for properties for a pescribed count.
         /// </summary>
-        public void RunGenset()
+        public Genset RunGenset()
         {
+            // Create genset.
+            Genset genset = new Genset();
+            genset.IsOn = true;
+
             // Generate values for properties.
-            GensetPower = GenerateRandomNumber(990, 1010);
+            genset.gensetPower = GenerateRandomNumber(990, 1010);
 
             // Print values (Replace with data export).
-            Console.WriteLine("Power Output: " + GensetPower.ToString() + "kW");
+            Console.WriteLine("Power Output: " + genset.gensetPower.ToString() + "kW");
 
             // Wait (simulated) time.
             Task.Delay(2000).Wait();
+
+            // Return genset.
+            return genset;
         }
 
         /// <summary>

@@ -73,7 +73,7 @@ namespace GensetSimulator
 
                         // Collect genset data.
 
-                        // Post genset data.
+                        // Post genset data (generate Id).
                     }                
                 }
                 catch (Exception ex)
