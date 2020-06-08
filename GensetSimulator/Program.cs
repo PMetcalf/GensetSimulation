@@ -1,6 +1,8 @@
 ﻿using GensetSimulator.Models;
+using SimulationWebservice.Models;
 using System;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace GensetSimulator
 {
@@ -35,6 +37,11 @@ namespace GensetSimulator
                 new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
         }
 
+        static async Task<Uri> SendGensetData(GensetData gensetData)
+        {
+
+        }
+
         /// <summary>
         /// Create genset, wait for user input then start.
         /// </summary>
@@ -58,6 +65,10 @@ namespace GensetSimulator
                     {
                         // Run genset.
                         genset.RunGenset();
+
+                        // Collect genset data.
+
+                        // Post genset data.
                     }                
                 }
                 catch (Exception ex)
