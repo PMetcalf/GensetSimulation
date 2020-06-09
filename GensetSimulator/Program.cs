@@ -99,7 +99,11 @@ namespace GensetSimulator
                         GensetData data = new GensetData
                         {
                             IsOn = genset.IsOn,
-                            GensetPower = genset.GensetPower
+                            GensetPower = genset.GensetPower,
+                            FuelFlow_kgs = genset.FuelFlow_kgs,
+                            ShaftSpeed_rpm = genset.ShaftSpeed_rpm,
+                            CompPres_Bar = genset.CompPres_Bar,
+                            TurbineTemp_C = genset.TurbineTemp_C
                         };
 
                         // Generate Id.

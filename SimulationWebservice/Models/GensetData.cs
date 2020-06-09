@@ -44,7 +44,7 @@ namespace SimulationWebservice.Models
         /// Describes compressor outlet pressure in Bar.
         /// </summary>
         [JsonProperty(PropertyName = "compPres_Bar")]
-        public int CompPress_Bar { get; set; }
+        public int CompPres_Bar { get; set; }
 
         /// <summary>
         /// Describes turbine temp in deg C.

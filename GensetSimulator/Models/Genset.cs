@@ -39,8 +39,8 @@ namespace GensetSimulator.Models
         /// <summary>
         /// Describes compressor outlet pressure in Bar.
         /// </summary>
-        private int compPress_Bar;
-        public int CompPress_Bar { get => compPress_Bar; set => compPress_Bar = value; }
+        private int compPres_Bar;
+        public int CompPres_Bar { get => compPres_Bar; set => compPres_Bar = value; }
 
         /// <summary>
         /// Describes turbine temp in deg C.
@@ -83,7 +83,7 @@ namespace GensetSimulator.Models
             genset.GensetPower = GenerateRandomNumber(990, 1010);
             genset.FuelFlow_kgs = GenerateRandomNumber(20, 30);
             genset.ShaftSpeed_rpm = GenerateRandomNumber(30000, 32000);
-            genset.CompPress_Bar = GenerateRandomNumber(30, 38);
+            genset.CompPres_Bar = GenerateRandomNumber(30, 38);
             genset.TurbineTemp_C = GenerateRandomNumber(950, 1050);
 
             // Print values (Replace with data export).
