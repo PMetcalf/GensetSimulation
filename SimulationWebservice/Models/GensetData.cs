@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 
 namespace SimulationWebservice.Models
@@ -28,6 +29,30 @@ namespace SimulationWebservice.Models
         public int GensetPower { get; set; }
 
         /// <summary>
+        /// Describes fuel mass flow rate in kg/s.
+        /// </summary>
+        [JsonProperty(PropertyName = "fuelFlow_kgs")]
+        public int FuelFlow_kgs { get; set; }
+
+        /// <summary>
+        /// Describes shaft speed in rpm.
+        /// </summary>
+        [JsonProperty(PropertyName = "shaftSpeed_rpm")]
+        public int ShaftSpeed_rpm { get; set; }
+
+        /// <summary>
+        /// Describes compressor outlet pressure in Bar.
+        /// </summary>
+        [JsonProperty(PropertyName = "compPres_Bar")]
+        public int CompPress_Bar { get; set; }
+
+        /// <summary>
+        /// Describes turbine temp in deg C.
+        /// </summary>
+        [JsonProperty(PropertyName = "turbineTemp_C")]
+        public int TurbineTemp_C { get; set; }
+
+        /// <summary>
         /// Generates data Id stamp based on genset S/N and datetime.
         /// </summary>
         /// <returns></returns>
@@ -37,7 +62,7 @@ namespace SimulationWebservice.Models
 
             string gensetSN = "Genset_SN_001";
 
-            // Retrieve datetime.
+            // Build date & time part of id stamp.
             string time = DateTime.Now.ToString("yyyy-MM-dd-HH:mm:ss");
 
             // Build dataset Id.
