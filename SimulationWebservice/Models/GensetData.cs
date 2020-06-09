@@ -41,7 +41,7 @@ namespace SimulationWebservice.Models
         {
             string idStamp = null;
 
-            string gensetSN = "Genset_S/N:001";
+            string gensetSN = "Genset_SN_001";
 
             // Retrieve datetime.
             string time = DateTime.Now.ToString();
