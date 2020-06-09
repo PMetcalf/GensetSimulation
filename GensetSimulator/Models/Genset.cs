@@ -25,6 +25,30 @@ namespace GensetSimulator.Models
         public int GensetPower { get => gensetPower; set => gensetPower = value; }
 
         /// <summary>
+        /// Describes fuel mass flow rate in kg/s.
+        /// </summary>
+        private int fuelFlow_kgs;
+        public int FuelFlow_kgs { get => fuelFlow_kgs; set => fuelFlow_kgs = value; }
+
+        /// <summary>
+        /// Describes shaft speed in rpm.
+        /// </summary>
+        private int shaftSpeed_rpm;
+        public int ShaftSpeed_rpm { get => shaftSpeed_rpm; set => shaftSpeed_rpm = value; }
+
+        /// <summary>
+        /// Describes compressor outlet pressure in Bar.
+        /// </summary>
+        private int compPress_Bar;
+        public int CompPress_Bar { get => compPress_Bar; set => compPress_Bar = value; }
+
+        /// <summary>
+        /// Describes turbine temp in deg C.
+        /// </summary>
+        private int turbineTemp_C;
+        public int TurbineTemp_C { get => turbineTemp_C; set => turbineTemp_C = value; }
+
+        /// <summary>
         /// Constructor alerts user and sets properties.
         /// </summary>
         public Genset()
