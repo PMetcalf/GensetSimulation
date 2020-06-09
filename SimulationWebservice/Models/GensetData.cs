@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 
 namespace SimulationWebservice.Models
 {
@@ -31,5 +32,25 @@ namespace SimulationWebservice.Models
         /// </summary>
         [JsonProperty(PropertyName = "gensetPower")]
         public int GensetPower { get; set; }
+
+        /// <summary>
+        /// Generates data Id stamp based on genset S/N and datetime.
+        /// </summary>
+        /// <returns></returns>
+        public string GenerateIdStamp()
+        {
+            string idStamp = null;
+
+            string gensetSN = "Genset_S/N:001";
+
+            // Retrieve datetime.
+            string time = DateTime.Now.ToString();
+
+            // Build dataset Id.
+            idStamp = gensetSN + "_" + time;
+
+            // Return Id.
+            return idStamp;
+        }
     }
 }

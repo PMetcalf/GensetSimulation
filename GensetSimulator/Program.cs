@@ -102,7 +102,7 @@ namespace GensetSimulator
                             GensetPower = genset.GensetPower
                         };
 
-                        // Post genset data (generate Id).
+                        // Generate Id.
 
                     }                
                 }
