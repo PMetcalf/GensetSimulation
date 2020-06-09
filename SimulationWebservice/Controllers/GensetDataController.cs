@@ -23,13 +23,13 @@ namespace SimulationWebservice.Controllers
         }
 
         /// <summary>
-        /// Default GET method - Will (upon implmentation) return database details.
+        /// Default GET method - Provides webservice connection confirmation.
         /// </summary>
         /// <returns></returns>
         [HttpGet]
         public string Get()
         {
-            string feedbackMessage = "All-item GET method not yet implemented.";
+            string feedbackMessage = "Connected to Webservice.";
 
             return feedbackMessage;
         }

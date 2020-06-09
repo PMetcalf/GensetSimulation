@@ -64,6 +64,9 @@ namespace GensetSimulator
                 genset.StartGenset();
                 Console.WriteLine("Press key to stop");
 
+                // Connect to webservice.
+
+
                 try
                 {
                     while (!Console.KeyAvailable)
@@ -79,6 +82,7 @@ namespace GensetSimulator
                         };
 
                         // Post genset data (generate Id).
+
                     }                
                 }
                 catch (Exception ex)
