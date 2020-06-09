@@ -1,6 +1,7 @@
 ﻿using GensetSimulator.Models;
 using SimulationWebservice.Models;
 using System;
+using System.Drawing.Printing;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -21,7 +22,7 @@ namespace GensetSimulator
             // Initialise webservice.
             InitialiseHttpClientInstance();
 
-            Run();
+            RunAsync().GetAwaiter().GetResult();
         }
 
         /// <summary>
@@ -37,7 +38,27 @@ namespace GensetSimulator
                 new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
         }
 
-        static async Task<Uri> SendGensetData(GensetData gensetData)
+        static async Task TestWebserviceConnectionAsync()
+        {
+            try
+            {
+                HttpResponseMessage response = await client.GetAsync("gensetdata/");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string message = await response.Content.ReadAsStringAsync();
+
+                    Console.WriteLine(message);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        static async Task<Uri> SendGensetDataAsync(GensetData gensetData)
         {
             HttpResponseMessage response = await client.PostAsJsonAsync("gensetdata/", gensetData);
 
@@ -50,7 +71,7 @@ namespace GensetSimulator
         /// <summary>
         /// Create genset, wait for user input then start.
         /// </summary>
-        static void Run()
+        static async Task RunAsync()
         {
             // Initialise genset.
             Genset genset = new Genset();
@@ -65,7 +86,7 @@ namespace GensetSimulator
                 Console.WriteLine("Press key to stop");
 
                 // Connect to webservice.
-
+                await TestWebserviceConnectionAsync();
 
                 try
                 {
