@@ -80,7 +80,11 @@ namespace GensetSimulator.Models
             genset.IsOn = true;
 
             // Generate values for properties.
-            genset.gensetPower = GenerateRandomNumber(990, 1010);
+            genset.GensetPower = GenerateRandomNumber(990, 1010);
+            genset.FuelFlow_kgs = GenerateRandomNumber(20, 30);
+            genset.ShaftSpeed_rpm = GenerateRandomNumber(30000, 32000);
+            genset.CompPress_Bar = GenerateRandomNumber(30, 38);
+            genset.TurbineTemp_C = GenerateRandomNumber(950, 1050);
 
             // Print values (Replace with data export).
             Console.WriteLine("Power Output: " + genset.gensetPower.ToString() + "kW");
