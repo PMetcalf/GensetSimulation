@@ -103,6 +103,9 @@ namespace GensetSimulator
                         };
 
                         // Generate Id.
+                        data.Id = data.GenerateIdStamp();
+
+                        // Send data to webservice.
 
                     }                
                 }
