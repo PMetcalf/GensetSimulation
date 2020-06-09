@@ -106,7 +106,8 @@ namespace GensetSimulator
                         data.Id = data.GenerateIdStamp();
 
                         // Send data to webservice.
-
+                        var url = await SendGensetDataAsync(data);
+                        Console.WriteLine($"Created at {url}");
                     }                
                 }
                 catch (Exception ex)
