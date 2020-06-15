@@ -93,7 +93,7 @@ namespace GensetSimulator
                     while (!Console.KeyAvailable)
                     {
                         // Run genset.
-                        genset = genset.RunGenset();
+                        genset = genset.RunGenset(genset);
 
                         // Collect genset data.
                         GensetData data = new GensetData

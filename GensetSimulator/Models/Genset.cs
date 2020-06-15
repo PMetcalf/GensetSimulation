@@ -73,10 +73,9 @@ namespace GensetSimulator.Models
         /// <summary>
         /// Generates random values for properties for a pescribed count.
         /// </summary>
-        public Genset RunGenset()
+        public Genset RunGenset(Genset genset)
         {
-            // Create genset.
-            Genset genset = new Genset();
+            // Set running state.
             genset.IsOn = true;
 
             // Generate values for properties.
