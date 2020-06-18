@@ -13,6 +13,12 @@ namespace GensetSimulator.Models
     class Genset
     {
         /// <summary>
+        /// Identifies genset serial number.
+        /// </summary>
+        private string s_N;
+        public string S_N { get => s_N; set => s_N = value; }
+
+        /// <summary>
         /// Bool determines if genset is running.
         /// </summary>
         private bool isOn;
