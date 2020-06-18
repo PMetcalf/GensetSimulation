@@ -99,6 +99,7 @@ namespace GensetSimulator
                         GensetData data = new GensetData
                         {
                             IsOn = genset.IsOn,
+                            sN = genset.SN,
                             GensetPower = genset.GensetPower,
                             FuelFlow_kgs = genset.FuelFlow_kgs,
                             ShaftSpeed_rpm = genset.ShaftSpeed_rpm,
