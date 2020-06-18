@@ -84,6 +84,9 @@ namespace GensetSimulator.Models
             // Set running state.
             genset.IsOn = true;
 
+            // Set S/N.
+            genset.S_N = "Gen_001";
+
             // Generate values for properties.
             genset.GensetPower = GenerateRandomNumber(990, 1010);
             genset.FuelFlow_kgs = GenerateRandomNumber(20, 30);
