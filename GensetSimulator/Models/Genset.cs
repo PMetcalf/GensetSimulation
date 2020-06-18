@@ -15,8 +15,8 @@ namespace GensetSimulator.Models
         /// <summary>
         /// Identifies genset serial number.
         /// </summary>
-        private string s_N;
-        public string S_N { get => s_N; set => s_N = value; }
+        private string sN;
+        public string SN { get => sN; set => sN = value; }
 
         /// <summary>
         /// Bool determines if genset is running.
@@ -85,7 +85,7 @@ namespace GensetSimulator.Models
             genset.IsOn = true;
 
             // Set S/N.
-            genset.S_N = "Gen_001";
+            genset.SN = "Gen_001";
 
             // Generate values for properties.
             genset.GensetPower = GenerateRandomNumber(990, 1010);

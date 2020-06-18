@@ -17,6 +17,12 @@ namespace SimulationWebservice.Models
         public string Id { get; set; }
 
         /// <summary>
+        /// Used to identify genset serial number.
+        /// </summary>
+        [JsonProperty(PropertyName = "sN")]
+        public string sN { get; set; }
+
+        /// <summary>
         /// IsOn identifies if genset is running.
         /// </summary>
         [JsonProperty(PropertyName = "isOn")]
