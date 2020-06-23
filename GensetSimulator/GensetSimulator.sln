@@ -12,6 +12,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notebooks", "Notebooks", "{
 		..\..\..\..\..\Users\ASUS-PC\Desktop\2.0-pm-baseline_models.ipynb = ..\..\..\..\..\Users\ASUS-PC\Desktop\2.0-pm-baseline_models.ipynb
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{C21F4F95-9ACC-40D8-8F46-B34ACADD0219}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "data_acquisition", "data_acquisition", "{546E212F-0429-4F87-A177-81C1DC11087E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BMRSDataWebService", "..\BMRSDataWebService\BMRSDataWebService.csproj", "{34010697-A51D-4432-A6DB-8B68E5CF4215}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -26,9 +32,17 @@ Global
 		{F547FCD1-FCFE-4803-A068-5485501EE3DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F547FCD1-FCFE-4803-A068-5485501EE3DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F547FCD1-FCFE-4803-A068-5485501EE3DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{34010697-A51D-4432-A6DB-8B68E5CF4215}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{34010697-A51D-4432-A6DB-8B68E5CF4215}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{34010697-A51D-4432-A6DB-8B68E5CF4215}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{34010697-A51D-4432-A6DB-8B68E5CF4215}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{546E212F-0429-4F87-A177-81C1DC11087E} = {C21F4F95-9ACC-40D8-8F46-B34ACADD0219}
+		{34010697-A51D-4432-A6DB-8B68E5CF4215} = {546E212F-0429-4F87-A177-81C1DC11087E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3ABBF30A-95E5-4AB2-A42B-F592DCCB6215}
