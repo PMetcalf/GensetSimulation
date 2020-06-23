@@ -8,6 +8,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SimulationWebservice", "..\SimulationWebservice\SimulationWebservice.csproj", "{F547FCD1-FCFE-4803-A068-5485501EE3DA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Notebooks", "Notebooks", "{D308887E-4FD4-4ADE-8BAC-3977E0AF3562}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\..\..\Users\ASUS-PC\Desktop\2.0-pm-baseline_models.ipynb = ..\..\..\..\..\Users\ASUS-PC\Desktop\2.0-pm-baseline_models.ipynb
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
