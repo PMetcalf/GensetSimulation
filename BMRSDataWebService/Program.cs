@@ -15,6 +15,8 @@ namespace BMRSDataWebService
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
+
+            //await getBMRSData();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
