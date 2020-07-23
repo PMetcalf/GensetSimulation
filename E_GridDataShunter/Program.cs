@@ -11,9 +11,10 @@ namespace E_GridDataShunter
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Data Collection Started ...");
 
             // Initialise http client.
+            InitialiseClientBMRSData();
 
             // Request data.
 
@@ -22,6 +23,15 @@ namespace E_GridDataShunter
             // Send data to database.
         }
 
-        ///
+        /// <summary>
+        /// Initialises http client instance for BMRS interaction.
+        /// </summary>
+        static void InitialiseClientBMRSData()
+        {
+            clientBMRSData.BaseAddress = new Uri("https://api.bmreports.com/BMRS/");
+
+            // [TASK] Investigate if should include API key.
+            clientBMRSData.DefaultRequestHeaders.Accept.Clear();
+        }
     }
 }
