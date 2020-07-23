@@ -14,9 +14,11 @@ namespace E_GridDataShunter
             Console.WriteLine("Data Collection Started ...");
 
             // Request data.
-            await GetBMRSData();
+            string returnedData = await GetBMRSDataAsync();
 
-            // Process data?
+            Console.WriteLine(returnedData);
+
+            // Process data into JSON.
 
             // Send data to database.
         }
@@ -24,12 +26,12 @@ namespace E_GridDataShunter
         /// <summary>
         /// Retrieves data from BMRS service using http Get.
         /// </summary>
-        static async Task GetBMRSData()
+        static async Task<string> GetBMRSDataAsync()
         {
             try
             {
                 // Get request string
-                string request_string = "https://api.bmreports.com/BMRS/B1630/V1?APIKey=ittvxvqico9tta1&SettlementDate=2020-06-25&Period=1&ServiceType=csv";
+                string request_string = "https://api.bmreports.com/BMRS/B1620/V1?APIKey=ittvxvqico9tta1&SettlementDate=2020-06-25&Period=10&ServiceType=csv";
 
                 HttpResponseMessage response = await client.GetAsync(request_string);
 
@@ -38,12 +40,14 @@ namespace E_GridDataShunter
                 // Create response body
                 string responseBody = await response.Content.ReadAsStringAsync();
 
-                Console.WriteLine(responseBody);
+                return responseBody;
             }
             catch (Exception ex)
             {
                 Console.WriteLine("\nException Caught!");
                 Console.WriteLine("Message :{0} ", ex.Message);
+
+                return ex.Message.ToString();
             }
         }
     }
