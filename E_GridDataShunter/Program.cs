@@ -1,4 +1,6 @@
-﻿using System;
+﻿using E_GridDataShunter.Models;
+using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -49,6 +51,28 @@ namespace E_GridDataShunter
 
                 return ex.Message.ToString();
             }
+        }
+
+        /// <summary>
+        /// Converts bmrs csv data into list of JSON data elements.
+        /// </summary>
+        /// <param name="bmrsData"></param>
+        /// <returns></returns>
+        static List<B1620_data_model> ReturnDataAsJSON(string bmrsData)
+        {
+            // Create empty list of data models
+
+            // Remove first line from input string
+
+            // Iterate over each line in input string
+
+                // Create JSON object
+
+                // Set Id parameter
+
+                // Add to list of data models
+
+            // Return data model
         }
     }
 }
