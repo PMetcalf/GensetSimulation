@@ -1,6 +1,7 @@
 ﻿using E_GridDataShunter.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -20,9 +21,10 @@ namespace E_GridDataShunter
 
             Console.WriteLine(returnedData);
 
-            // Process data into JSON.
+            // Process data into JSON objects.
+            List<B1620_data_model> serialisedDataList = ReturnDataAsJSON(returnedData);
 
-            // Send data to database.
+            // Send each JSON data object to database.
         }
 
         /// <summary>
@@ -61,18 +63,38 @@ namespace E_GridDataShunter
         static List<B1620_data_model> ReturnDataAsJSON(string bmrsData)
         {
             // Create empty list of data models
+            List<B1620_data_model> b1620List = new List<B1620_data_model>();
 
-            // Remove first line from input string
+            // Create intermediate list of input strings?
+            string[] lineSeparators = new string[] { "\n" };
+            string[] linesArray;
+
+            linesArray = bmrsData.Split(lineSeparators, StringSplitOptions.None);
+            List<string> linesList = linesArray.ToList<string>();
+
+            // Remove headers
+            //for (int i = 0; i < 4; i++)
+            //{
+            //    linesList = linesList.pop
+            //}
+
+            List<string> resultsList = new List<string>();
+
+            foreach (var line in linesList)
+            {
+                resultsList.Add(line.Trim());
+            }
 
             // Iterate over each line in input string
 
-                // Create JSON object
+            // Create JSON object
 
-                // Set Id parameter
+            // Set Id parameter
 
-                // Add to list of data models
+            // Add to list of data models
 
             // Return data model
+            return b1620List;
         }
     }
 }
