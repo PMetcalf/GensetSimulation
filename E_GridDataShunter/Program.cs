@@ -72,11 +72,21 @@ namespace E_GridDataShunter
             linesArray = bmrsData.Split(lineSeparators, StringSplitOptions.None);
             List<string> linesList = linesArray.ToList<string>();
 
-            // Remove headers
-            //for (int i = 0; i < 4; i++)
-            //{
-            //    linesList = linesList.pop
-            //}
+            // Remove unwanted info
+            for (int i = 0; i < linesList.Count; i++)
+            {
+                string line = linesList[i];
+
+                if (line.Contains("*"))
+                {
+                    linesList.RemoveAt(i);
+                }
+
+                if (line.Contains("<EOF>"))
+                {
+                    linesList.RemoveAt(i);
+                }
+            }
 
             List<string> resultsList = new List<string>();
 
