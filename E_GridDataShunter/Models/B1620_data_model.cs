@@ -40,7 +40,7 @@ namespace E_GridDataShunter.Models
         public string SetDate { get; set; }
 
         [JsonProperty(PropertyName = "setPeriod")]
-        public string setPeriod { get; set; }
+        public string SetPeriod { get; set; }
 
         [JsonProperty(PropertyName = "powType")]
         public string PowType { get; set; }

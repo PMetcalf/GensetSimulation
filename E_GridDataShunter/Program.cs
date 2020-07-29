@@ -24,11 +24,6 @@ namespace E_GridDataShunter
             // Process data into JSON objects.
             List<B1620_data_model> serialisedDataList = ReturnDataAsJSON(returnedData);
 
-            B1620_data_model data = serialisedDataList.First();
-
-            string test1 = data.DocType;
-            string test2 = data.BusType;
-
             // Send each JSON data object to database.
         }
 
@@ -105,27 +100,46 @@ namespace E_GridDataShunter
             {
                 try
                 {
-                    // Create a string array based on the line
-                    string[] lineSeparator = new string[] { "," };
-                    string[] lineArray;
-
-                    lineArray = line.Split(lineSeparator, StringSplitOptions.None);
-
-                    // Create JSON object
-                    B1620_data_model dataElement = new B1620_data_model
+                    if (!line.Contains("*"))
                     {
-                        DocType = lineArray[0],
-                        BusType = linesArray[1]
-                    };
+                        // Create a string array based on the line
+                        string[] lineSeparator = new string[] { "," };
+                        string[] lineArray;
 
-                    // Set Id parameter
+                        lineArray = line.Split(lineSeparator, StringSplitOptions.None);
 
-                    // Add to list of data models
-                    b1620List.Add(dataElement);
+                        // Create JSON object
+                        B1620_data_model dataElement = new B1620_data_model
+                        {
+                            DocType = lineArray[0],
+                            BusType = lineArray[1],
+                            ProType = lineArray[2],
+                            TimeId = lineArray[3],
+                            Quantity = lineArray[4],
+                            CurveType = lineArray[5],
+                            Resolution = lineArray[6],
+                            SetDate = lineArray[7],
+                            SetPeriod = lineArray[8],
+                            PowType = lineArray[9],
+                            ActFlag = lineArray[10],
+                            DocId = lineArray[11],
+                            DocRevNum = lineArray[12]
+                        };
 
+                        string powerType = lineArray[9];
+                        powerType = powerType.Replace("\"", "");
+
+                        // Set Id parameter
+                        dataElement.Id = powerType + "-" + lineArray[7] + "-" + lineArray[8];
+
+                        // Add to list of data models
+                        b1620List.Add(dataElement);
+                    }
                 }
-                catch (Exception)
+                catch (Exception ex)
                 {
+                    Console.WriteLine("\nException Caught trying to create JSON!");
+                    Console.WriteLine("Message :{0} ", ex.Message);
                 }
             }
 
