@@ -96,14 +96,29 @@ namespace E_GridDataShunter
             }
 
             // Iterate over each line in input string
+            foreach (var line in resultsList)
+            {
+                try
+                {
+                    // Create a string array based on the line
+                    string[] lineSeparator = new string[] { "," };
+                    string[] lineArray;
 
-            // Create JSON object
+                    lineArray = line.Split(lineSeparator, StringSplitOptions.None);
 
-            // Set Id parameter
+                    // Create JSON object
 
-            // Add to list of data models
 
-            // Return data model
+                    // Set Id parameter
+
+                    // Add to list of data models
+
+                }
+                catch (Exception)
+                {
+                }
+            }
+
             return b1620List;
         }
     }
