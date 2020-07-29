@@ -24,6 +24,11 @@ namespace E_GridDataShunter
             // Process data into JSON objects.
             List<B1620_data_model> serialisedDataList = ReturnDataAsJSON(returnedData);
 
+            B1620_data_model data = serialisedDataList.First();
+
+            string test1 = data.DocType;
+            string test2 = data.BusType;
+
             // Send each JSON data object to database.
         }
 
@@ -107,11 +112,16 @@ namespace E_GridDataShunter
                     lineArray = line.Split(lineSeparator, StringSplitOptions.None);
 
                     // Create JSON object
-
+                    B1620_data_model dataElement = new B1620_data_model
+                    {
+                        DocType = lineArray[0],
+                        BusType = linesArray[1]
+                    };
 
                     // Set Id parameter
 
                     // Add to list of data models
+                    b1620List.Add(dataElement);
 
                 }
                 catch (Exception)
