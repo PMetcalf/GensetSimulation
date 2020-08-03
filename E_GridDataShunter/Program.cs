@@ -16,15 +16,17 @@ namespace E_GridDataShunter
         {
             Console.WriteLine("Data Collection Started ...");
 
-            // Request data.
+            // Request data
             string returnedData = await GetBMRSDataAsync();
 
             Console.WriteLine(returnedData);
 
-            // Process data into JSON objects.
+            // Process data into JSON objects
             List<B1620_data_model> serialisedDataList = ReturnDataAsJSON(returnedData);
 
-            // Send each JSON data object to database.
+            // Point http client to database webservice
+
+            // Send each JSON data object to database
         }
 
         /// <summary>
@@ -144,6 +146,18 @@ namespace E_GridDataShunter
             }
 
             return b1620List;
+        }
+
+        /// <summary>
+        /// Points http client to database webservice (for data POST / GET)
+        /// </summary>
+        static void PointHttpClientToDatabase()
+        {
+            // Set base address
+
+            // Clear default headers
+
+            // Add default headers for database interaction
         }
     }
 }
