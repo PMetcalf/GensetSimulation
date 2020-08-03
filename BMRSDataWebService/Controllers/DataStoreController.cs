@@ -18,11 +18,12 @@ namespace BMRSDataWebService.Controllers
         }
 
         /// <summary>
-        /// Http GET returning one dataset by ID.
+        /// Http GET method, returning one dataset by ID.
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet]
+        [HttpGet("{id}", Name = "Get")]
+        [ActionName("GetAsync")]    // Attribute naming overcomes bug in aspnet core 3.1
         public async Task<ActionResult<B1620_data_model>> GetDataAsync(string id)
         {
             // Retrieve data asynchronously via database service
