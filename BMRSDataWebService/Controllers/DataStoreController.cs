@@ -27,10 +27,19 @@ namespace BMRSDataWebService.Controllers
         public async Task<ActionResult<B1620_data_model>> GetDataAsync(string id)
         {
             // Retrieve data asynchronously via database service
+            B1620_data_model data = await cosmosDbService.GetDataAsync(id);
 
             // Handle missing data
+            if (data == null)
+            {
+                return NotFound();
+            }
 
             // Return result
+            else
+            {
+                return data;
+            }
         }
     }
 }
