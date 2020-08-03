@@ -173,6 +173,11 @@ namespace E_GridDataShunter
                 new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
         }
 
+        /// <summary>
+        /// Sends data in json format to database via http post 
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
         static async Task<Uri> SendDataToDatabaseAsync(B1620_data_model data)
         {
             HttpResponseMessage response = await client.PostAsJsonAsync("datastore/", data);
