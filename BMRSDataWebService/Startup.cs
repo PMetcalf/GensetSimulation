@@ -56,7 +56,19 @@ namespace BMRSDataWebService
         /// <returns></returns>
         private static async Task<CosmosDBService> InitialiseCosmosClientInstanceAsync(IConfigurationSection configurationSection)
         {
+            // Set connection parameters
+            string databaseName;
+            string containerName;
+            string account;
+            string key;
 
+            // Build client and services
+            Microsoft.Azure.Cosmos.Fluent.CosmosClientBuilder clientBuilder =
+                new Microsoft.Azure.Cosmos.Fluent.CosmosClientBuilder(account, key); 
+
+            // Initialise database, if required
+
+            // Build the database container
         }
     }
 }
