@@ -41,5 +41,15 @@ namespace BMRSDataWebService.Controllers
                 return data;
             }
         }
+
+        /// <summary>
+        /// Http Post method, adding data to database
+        /// </summary>
+        /// <param name="data"></param>
+        /// <returns></returns>
+        public async Task<ActionResult<B1620_data_model>> PostDataEntryAsync(B1620_data_model data)
+        {
+
+        }
     }
 }
