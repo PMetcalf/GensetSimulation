@@ -57,18 +57,27 @@ namespace BMRSDataWebService
         private static async Task<CosmosDBService> InitialiseCosmosClientInstanceAsync(IConfigurationSection configurationSection)
         {
             // Set connection parameters
-            string databaseName;
-            string containerName;
-            string account;
-            string key;
+            string databaseName = configurationSection.GetSection("DatabaseName").Value;
+            string containerName = configurationSection.GetSection("ContainerName").Value;
+            string account = configurationSection.GetSection("Account").Value;
+            string key = configurationSection.GetSection("Key").Value;
 
             // Build client and services
             Microsoft.Azure.Cosmos.Fluent.CosmosClientBuilder clientBuilder =
-                new Microsoft.Azure.Cosmos.Fluent.CosmosClientBuilder(account, key); 
+                new Microsoft.Azure.Cosmos.Fluent.CosmosClientBuilder(account, key);
+
+            Microsoft.Azure.Cosmos.CosmosClient client =
+                clientBuilder.WithConnectionModeDirect().Build();
+
+            CosmosDBService dBService = new CosmosDBService(client, databaseName, containerName);
 
             // Initialise database, if required
+            Microsoft.Azure.Cosmos.DatabaseResponse database = await client.CreateDatabaseIfNotExistsAsync(databaseName);
 
             // Build the database container
+            await database.Database.CreateContainerIfNotExistsAsync(containerName, "/id");
+
+            return dBService;
         }
     }
 }
