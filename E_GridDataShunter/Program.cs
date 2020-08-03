@@ -25,6 +25,7 @@ namespace E_GridDataShunter
             List<B1620_data_model> serialisedDataList = ReturnDataAsJSON(returnedData);
 
             // Point http client to database webservice
+            PointHttpClientToDatabase();
 
             // Send each JSON data object to database
         }
