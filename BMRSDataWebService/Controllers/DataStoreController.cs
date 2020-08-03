@@ -20,6 +20,17 @@ namespace BMRSDataWebService.Controllers
         }
 
         /// <summary>
+        /// Default Http Get - Provides simple feedback message
+        /// </summary>
+        /// <returns></returns>
+        public string Get()
+        {
+            string feedbackMessage = "Webservice Active.";
+
+            return feedbackMessage;
+        }
+
+        /// <summary>
         /// Http GET method, returning one dataset by ID.
         /// </summary>
         /// <param name="id"></param>
