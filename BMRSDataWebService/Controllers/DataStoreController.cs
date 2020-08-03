@@ -1,6 +1,8 @@
 ﻿using BMRSDataWebService.Services;
 using E_GridDataShunter.Models;
 using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace BMRSDataWebService.Controllers
@@ -47,9 +49,21 @@ namespace BMRSDataWebService.Controllers
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
+        [HttpPost]
         public async Task<ActionResult<B1620_data_model>> PostDataEntryAsync(B1620_data_model data)
         {
+            // Post data to database
+            try
+            {
+                await cosmosDbService.AddDataAsync(data);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex);
+            }
 
+            // Return result
+            return CreatedAtAction(nameof(GetDataAsync), new { id = data.Id }, data);
         }
     }
 }
