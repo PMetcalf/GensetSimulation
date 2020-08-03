@@ -154,10 +154,14 @@ namespace E_GridDataShunter
         static void PointHttpClientToDatabase()
         {
             // Set base address
+            client.BaseAddress = new Uri("https://localhost:5001/");
 
             // Clear default headers
+            client.DefaultRequestHeaders.Accept.Clear();
 
             // Add default headers for database interaction
+            client.DefaultRequestHeaders.Accept.Add(
+                new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
         }
     }
 }
