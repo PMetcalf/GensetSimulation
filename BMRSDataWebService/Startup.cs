@@ -27,6 +27,9 @@ namespace BMRSDataWebService
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddSingleton<ICosmosDbService>(InitialiseCosmosClientInstanceAsync(
+                Configuration.GetSection("CosmosDb")).GetAwaiter().GetResult());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
