@@ -4,8 +4,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:51139",
-      "sslPort": 44382
+      "applicationUrl": "http://localhost:50251",
+      "sslPort": 44333
     }
   },
   "profiles": {
@@ -20,11 +20,11 @@
     "BMRSDataWebService": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "b1620_data_model",
+      "launchUrl": "datastore",
       "applicationUrl": "https://localhost:5001;http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     }
-  }
+    }
 }
