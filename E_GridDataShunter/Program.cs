@@ -28,6 +28,14 @@ namespace E_GridDataShunter
             PointHttpClientToDatabase();
 
             // Send each JSON data object to database
+            foreach (var dataElement in serialisedDataList)
+            {
+                // Send to database
+                var url = await SendDataToDatabaseAsync(dataElement);
+
+                // Report outcome
+                Console.WriteLine($"Created at {url}");
+            }
         }
 
         /// <summary>
@@ -163,6 +171,16 @@ namespace E_GridDataShunter
             // Add default headers for database interaction
             client.DefaultRequestHeaders.Accept.Add(
                 new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+        }
+
+        static async Task<Uri> SendDataToDatabaseAsync(B1620_data_model data)
+        {
+            HttpResponseMessage response = await client.PostAsJsonAsync("datastore/", data);
+
+            response.EnsureSuccessStatusCode();
+
+            // Return uri of created resource
+            return response.Headers.Location;
         }
     }
 }
