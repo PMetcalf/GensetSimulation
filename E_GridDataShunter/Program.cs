@@ -11,7 +11,7 @@ namespace E_GridDataShunter
     {
         // Http clients used for collecting and sending data.
         static HttpClient bmrsClient = new HttpClient();
-        static HttpClient databaseConnection = new HttpClient();
+        static HttpClient databaseClient = new HttpClient();
 
         static async Task Main(string[] args)
         {
@@ -26,7 +26,7 @@ namespace E_GridDataShunter
             List<B1620_data_model> serialisedDataList = ReturnDataAsJSON(returnedData);
 
             // Point http client to database webservice
-            PointHttpClientToDatabase();
+            InitialiseDatabaseClient();
 
             // Send each JSON data object to database
             foreach (var dataElement in serialisedDataList)
@@ -161,16 +161,16 @@ namespace E_GridDataShunter
         /// <summary>
         /// Points http client to database webservice (for data POST / GET)
         /// </summary>
-        static void PointHttpClientToDatabase()
+        static void InitialiseDatabaseClient()
         {
             // Set base address
-            bmrsClient.BaseAddress = new Uri("https://localhost:5001/");
+            databaseClient.BaseAddress = new Uri("https://localhost:5001/");
 
             // Clear default headers
-            bmrsClient.DefaultRequestHeaders.Accept.Clear();
+            databaseClient.DefaultRequestHeaders.Accept.Clear();
 
             // Add default headers for database interaction
-            bmrsClient.DefaultRequestHeaders.Accept.Add(
+            databaseClient.DefaultRequestHeaders.Accept.Add(
                 new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
         }
 
