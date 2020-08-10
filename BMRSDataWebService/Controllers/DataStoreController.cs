@@ -74,7 +74,7 @@ namespace BMRSDataWebService.Controllers
             }
 
             // Return result
-            return CreatedAtAction(nameof(GetDataAsync), new { id = data.Id }, data);
+            return CreatedAtAction("GET", new { id = data.Id }, data);
         }
     }
 }
