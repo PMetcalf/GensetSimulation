@@ -9,8 +9,9 @@ namespace E_GridDataShunter
 {
     class Program
     {
-        // Http client used for collecting and sending data.
-        static HttpClient client = new HttpClient();
+        // Http clients used for collecting and sending data.
+        static HttpClient bmrsClient = new HttpClient();
+        static HttpClient databaseConnection = new HttpClient();
 
         static async Task Main(string[] args)
         {
@@ -48,7 +49,7 @@ namespace E_GridDataShunter
                 // Get request string
                 string request_string = "https://api.bmreports.com/BMRS/B1620/V1?APIKey=ittvxvqico9tta1&SettlementDate=2020-06-25&Period=10&ServiceType=csv";
 
-                HttpResponseMessage response = await client.GetAsync(request_string);
+                HttpResponseMessage response = await bmrsClient.GetAsync(request_string);
 
                 response.EnsureSuccessStatusCode();
 
@@ -163,13 +164,13 @@ namespace E_GridDataShunter
         static void PointHttpClientToDatabase()
         {
             // Set base address
-            client.BaseAddress = new Uri("https://localhost:5001/");
+            bmrsClient.BaseAddress = new Uri("https://localhost:5001/");
 
             // Clear default headers
-            client.DefaultRequestHeaders.Accept.Clear();
+            bmrsClient.DefaultRequestHeaders.Accept.Clear();
 
             // Add default headers for database interaction
-            client.DefaultRequestHeaders.Accept.Add(
+            bmrsClient.DefaultRequestHeaders.Accept.Add(
                 new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
         }
 
@@ -180,7 +181,7 @@ namespace E_GridDataShunter
         /// <returns></returns>
         static async Task<Uri> SendDataToDatabaseAsync(B1620_data_model data)
         {
-            HttpResponseMessage response = await client.PostAsJsonAsync("datastore/", data);
+            HttpResponseMessage response = await bmrsClient.PostAsJsonAsync("datastore/", data);
 
             response.EnsureSuccessStatusCode();
 
