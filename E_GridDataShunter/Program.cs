@@ -51,7 +51,7 @@ namespace E_GridDataShunter
             try
             {
                 // Get request string
-                string request_string = "https://api.bmreports.com/BMRS/B1620/V1?APIKey=ittvxvqico9tta1&SettlementDate=2020-06-25&Period=10&ServiceType=csv";
+                string request_string = "https://api.bmreports.com/BMRS/B1620/V1?APIKey=ittvxvqico9tta1&SettlementDate=2020-06-25&Period=5&ServiceType=csv";
 
                 HttpResponseMessage response = await bmrsClient.GetAsync(request_string);
 
@@ -146,7 +146,7 @@ namespace E_GridDataShunter
                         powerType = powerType.Replace("\"", "");
 
                         // Set Id parameter
-                        dataElement.Id = powerType + "-" + lineArray[7] + "-" + lineArray[8];
+                        dataElement.Id = lineArray[7] + "-" + lineArray[8] + "-" + powerType;
 
                         // Add to list of data models
                         b1620List.Add(dataElement);
