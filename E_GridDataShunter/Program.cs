@@ -72,6 +72,23 @@ namespace E_GridDataShunter
         }
 
         /// <summary>
+        /// Returns BMRS GET Uri with specified date and period.
+        /// </summary>
+        /// <param name="date"></param>
+        /// <param name="period"></param>
+        /// <returns></returns>
+        private Uri BuildBMRSDataUri(DateTime date, int period)
+        {
+            // Create the base
+
+            // Set default parameters
+
+            // Add date and time
+
+            // return Uri
+        }
+
+        /// <summary>
         /// Converts bmrs csv data into list of JSON data elements.
         /// </summary>
         /// <param name="bmrsData"></param>
