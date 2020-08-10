@@ -22,11 +22,15 @@ namespace E_GridDataShunter
 
             Console.WriteLine(returnedData);
 
+            Console.WriteLine("Serialising data ...");
+
             // Process data into JSON objects
             List<B1620_data_model> serialisedDataList = ReturnDataAsJSON(returnedData);
 
             // Point http client to database webservice
             InitialiseDatabaseClient();
+
+            Console.WriteLine("Posting data elements to database ...");
 
             // Send each JSON data object to database
             foreach (var dataElement in serialisedDataList)
