@@ -181,7 +181,7 @@ namespace E_GridDataShunter
         /// <returns></returns>
         static async Task<Uri> SendDataToDatabaseAsync(B1620_data_model data)
         {
-            HttpResponseMessage response = await bmrsClient.PostAsJsonAsync("datastore/", data);
+            HttpResponseMessage response = await databaseClient.PostAsJsonAsync("datastore/", data);
 
             response.EnsureSuccessStatusCode();
 
