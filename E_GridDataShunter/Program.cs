@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace E_GridDataShunter
 {
@@ -17,8 +18,12 @@ namespace E_GridDataShunter
         {
             Console.WriteLine("Data Collection Started ...");
 
+            // Wrap in foreach iterating over periods 
+
             // Request data
-            string returnedData = await GetBMRSDataAsync();
+            DateTime date = new DateTime(2020, 8, 11);
+            int period = 1;
+            string returnedData = await GetBMRSDataAsync(date, period);
 
             Console.WriteLine(returnedData);
 
@@ -46,14 +51,14 @@ namespace E_GridDataShunter
         /// <summary>
         /// Retrieves data from BMRS service using http Get.
         /// </summary>
-        static async Task<string> GetBMRSDataAsync()
+        static async Task<string> GetBMRSDataAsync(DateTime date, int period)
         {
             try
             {
-                // Get request string
-                string request_string = "https://api.bmreports.com/BMRS/B1620/V1?APIKey=ittvxvqico9tta1&SettlementDate=2020-06-25&Period=5&ServiceType=csv";
-
-                HttpResponseMessage response = await bmrsClient.GetAsync(request_string);
+                // Create uri
+                Uri bmrsUri = BuildBMRSDataUri(date, period);
+                
+                HttpResponseMessage response = await bmrsClient.GetAsync(bmrsUri);
 
                 response.EnsureSuccessStatusCode();
 
@@ -77,15 +82,25 @@ namespace E_GridDataShunter
         /// <param name="date"></param>
         /// <param name="period"></param>
         /// <returns></returns>
-        private Uri BuildBMRSDataUri(DateTime date, int period)
+        static Uri BuildBMRSDataUri(DateTime date, int period)
         {
+            UriBuilder uriBuilder = new UriBuilder();
+
             // Create the base
+            uriBuilder.Scheme = "https";
 
             // Set default parameters
+            uriBuilder.Host = "api.bmreports.com/BMRS/B1620";
+            uriBuilder.Path = "V1";
 
             // Add date and time
+            string uriDate = date.Date.ToString("yyyy-MM-dd");
+            string uriPeriod = period.ToString();
+            uriBuilder.Query = $"APIKey=ittvxvqico9tta1&SettlementDate={uriDate}&Period={uriPeriod}&ServiceType=csv";
 
             // return Uri
+            Uri uri = uriBuilder.Uri;
+            return uri;
         }
 
         /// <summary>
