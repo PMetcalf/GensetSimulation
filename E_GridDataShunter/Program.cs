@@ -18,34 +18,38 @@ namespace E_GridDataShunter
         {
             Console.WriteLine("Data Collection Started ...");
 
-            // Wrap in foreach iterating over periods 
-
-            // Request data
-            DateTime date = new DateTime(2020, 8, 11);
-            int period = 1;
-            string returnedData = await GetBMRSDataAsync(date, period);
-
-            Console.WriteLine(returnedData);
-
-            Console.WriteLine("Serialising data ...");
-
-            // Process data into JSON objects
-            List<B1620_data_model> serialisedDataList = ReturnDataAsJSON(returnedData);
-
             // Point http client to database webservice
             InitialiseDatabaseClient();
 
-            Console.WriteLine("Posting data elements to database ...");
+            // Wrap in foreach iterating over dates 
 
-            // Send each JSON data object to database
-            foreach (var dataElement in serialisedDataList)
+            DateTime date = new DateTime(2020, 8, 11);
+            
+            // Iterate over periods in day (50 periods)
+            for (int period = 1; period < 51; period++)
             {
-                // Send to database
-                var url = await SendDataToDatabaseAsync(dataElement);
+                // Request data
+                string returnedData = await GetBMRSDataAsync(date, period);
 
-                // Report outcome
-                Console.WriteLine($"Created at {url}");
-            }
+                Console.WriteLine(returnedData);
+
+                Console.WriteLine("Serialising data ...");
+
+                // Process data into JSON objects
+                List<B1620_data_model> serialisedDataList = ReturnDataAsJSON(returnedData);
+
+                Console.WriteLine("Posting data elements to database ...");
+
+                // Send each JSON data object to database
+                foreach (var dataElement in serialisedDataList)
+                {
+                    // Send to database
+                    var url = await SendDataToDatabaseAsync(dataElement);
+
+                    // Report outcome
+                    Console.WriteLine($"Created at {url}");
+                }
+            }            
         }
 
         /// <summary>
