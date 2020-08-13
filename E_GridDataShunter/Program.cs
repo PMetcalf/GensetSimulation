@@ -26,28 +26,33 @@ namespace E_GridDataShunter
             DateTime date = new DateTime(2020, 8, 11);
             
             // Iterate over periods in day (50 periods)
-            for (int period = 1; period < 51; period++)
+            for (int period = 49; period < 51; period++)
             {
                 // Request data
                 string returnedData = await GetBMRSDataAsync(date, period);
 
+                Console.WriteLine("BMRS Response (Raw) ...");
                 Console.WriteLine(returnedData);
 
-                Console.WriteLine("Serialising data ...");
-
-                // Process data into JSON objects
-                List<B1620_data_model> serialisedDataList = ReturnDataAsJSON(returnedData);
-
-                Console.WriteLine("Posting data elements to database ...");
-
-                // Send each JSON data object to database
-                foreach (var dataElement in serialisedDataList)
+                // If response contains data, serialise and send to cloud
+                if (returnedData.Contains("Success But No data available") == false)
                 {
-                    // Send to database
-                    var url = await SendDataToDatabaseAsync(dataElement);
+                    Console.WriteLine("Serialising data ...");
 
-                    // Report outcome
-                    Console.WriteLine($"Created at {url}");
+                    // Process data into JSON objects
+                    List<B1620_data_model> serialisedDataList = ReturnDataAsJSON(returnedData);
+
+                    Console.WriteLine("Posting data elements to database ...");
+
+                    // Send each JSON data object to database
+                    foreach (var dataElement in serialisedDataList)
+                    {
+                        // Send to database
+                        var url = await SendDataToDatabaseAsync(dataElement);
+
+                        // Report outcome
+                        Console.WriteLine($"Created at {url}");
+                    }
                 }
             }            
         }
