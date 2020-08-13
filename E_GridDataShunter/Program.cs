@@ -22,45 +22,53 @@ namespace E_GridDataShunter
             // Point http client to database webservice
             InitialiseDatabaseClient();
 
-            DateTime startDate = new DateTime(2020, 7, 1);
-
-            // Iterate over one month from start date
-            for (int day = 0; day < 32; day++)
+            try
             {
-                // Iterate date based on day
-                DateTime date = startDate.AddDays(day);
 
-                // Iterate over periods in day (50 periods)
-                for (int period = 1; period < 51; period++)
+                DateTime startDate = new DateTime(2020, 7, 1);
+
+                // Iterate over one month from start date
+                for (int day = 0; day < 32; day++)
                 {
-                    // Request data
-                    string returnedData = await GetBMRSDataAsync(date, period);
+                    // Iterate date based on day
+                    DateTime date = startDate.AddDays(day);
 
-                    Console.WriteLine("BMRS Response (Raw) ...");
-                    Console.WriteLine(returnedData);
-
-                    // If response contains data, serialise and send to cloud
-                    if (returnedData.Contains("Success But No data available") == false)
+                    // Iterate over periods in day (50 periods)
+                    for (int period = 1; period < 51; period++)
                     {
-                        Console.WriteLine("Serialising data ...");
+                        // Request data
+                        string returnedData = await GetBMRSDataAsync(date, period);
 
-                        // Process data into JSON objects
-                        List<B1620_data_model> serialisedDataList = ReturnDataAsJSON(returnedData);
+                        Console.WriteLine("BMRS Response (Raw) ...");
+                        Console.WriteLine(returnedData);
 
-                        Console.WriteLine("Posting data elements to database ...");
-
-                        // Send each JSON data object to database
-                        foreach (var dataElement in serialisedDataList)
+                        // If response contains data, serialise and send to cloud
+                        if (returnedData.Contains("Success But No data available") == false)
                         {
-                            // Send to database
-                            var statusCode = await SendDataToDatabaseAsync(dataElement);
+                            Console.WriteLine("Serialising data ...");
 
-                            // Report outcome
-                            Console.WriteLine($"uploading {dataElement.Id} : StatusCode: {statusCode}");
+                            // Process data into JSON objects
+                            List<B1620_data_model> serialisedDataList = ReturnDataAsJSON(returnedData);
+
+                            Console.WriteLine("Posting data elements to database ...");
+
+                            // Send each JSON data object to database
+                            foreach (var dataElement in serialisedDataList)
+                            {
+                                // Send to database
+                                var statusCode = await SendDataToDatabaseAsync(dataElement);
+
+                                // Report outcome
+                                Console.WriteLine($"uploading {dataElement.Id} : StatusCode: {statusCode}");
+                            }
                         }
                     }
                 }
-            }          
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex);
+            }
         }
 
         /// <summary>
