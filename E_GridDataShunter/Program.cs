@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Xml;
@@ -48,10 +49,10 @@ namespace E_GridDataShunter
                     foreach (var dataElement in serialisedDataList)
                     {
                         // Send to database
-                        var url = await SendDataToDatabaseAsync(dataElement);
+                        var statusCode = await SendDataToDatabaseAsync(dataElement);
 
                         // Report outcome
-                        Console.WriteLine($"Created at {url}");
+                        Console.WriteLine($"{dataElement.Id} : StatusCode: {statusCode}");
                     }
                 }
             }            
@@ -231,14 +232,14 @@ namespace E_GridDataShunter
         /// </summary>
         /// <param name="data"></param>
         /// <returns></returns>
-        static async Task<Uri> SendDataToDatabaseAsync(B1620_data_model data)
+        static async Task<HttpStatusCode> SendDataToDatabaseAsync(B1620_data_model data)
         {
             HttpResponseMessage response = await databaseClient.PostAsJsonAsync("datastore/", data);
 
             //response.EnsureSuccessStatusCode();
 
             // Return uri of created resource
-            return response.Headers.Location;
+            return response.StatusCode;
         }
     }
 }
