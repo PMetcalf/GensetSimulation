@@ -26,7 +26,7 @@ namespace E_GridDataShunter
             DateTime date = new DateTime(2020, 8, 11);
             
             // Iterate over periods in day (50 periods)
-            for (int period = 8; period < 51; period++)
+            for (int period = 12; period < 51; period++)
             {
                 // Request data
                 string returnedData = await GetBMRSDataAsync(date, period);
@@ -183,11 +183,18 @@ namespace E_GridDataShunter
                             DocRevNum = lineArray[12]
                         };
 
+                        // Clean raw data
                         string powerType = lineArray[9];
                         powerType = powerType.Replace("\"", "");
 
+                        string period = lineArray[8].ToString();
+                        if (period.Length == 1)
+                        {
+                            period = "0" + period;
+                        }
+
                         // Set Id parameter
-                        dataElement.Id = lineArray[7] + "-" + lineArray[8] + "-" + powerType;
+                        dataElement.Id = lineArray[7] + "-P" + period + "-" + powerType;
 
                         // Add to list of data models
                         b1620List.Add(dataElement);
