@@ -26,7 +26,7 @@ namespace E_GridDataShunter
             DateTime date = new DateTime(2020, 8, 11);
             
             // Iterate over periods in day (50 periods)
-            for (int period = 49; period < 51; period++)
+            for (int period = 8; period < 51; period++)
             {
                 // Request data
                 string returnedData = await GetBMRSDataAsync(date, period);
