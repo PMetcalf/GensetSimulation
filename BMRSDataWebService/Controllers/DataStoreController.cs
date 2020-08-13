@@ -74,12 +74,13 @@ namespace BMRSDataWebService.Controllers
 
                 if (ex.Message.Contains("409"))
                 {
+                    // Is OK if data is already in database
                     return Conflict(new { id = data.Id });
                 }
             }
 
             // Return result
-            return CreatedAtAction("GET", new { id = data.Id }, data);
+            return CreatedAtAction("Get", new { id = data.Id }, data);
         }
     }
 }

@@ -23,7 +23,7 @@ namespace E_GridDataShunter
 
             // Wrap in foreach iterating over dates 
 
-            DateTime date = new DateTime(2020, 8, 11);
+            DateTime date = new DateTime(2020, 8, 10);
             
             // Iterate over periods in day (50 periods)
             for (int period = 1; period < 51; period++)
@@ -235,7 +235,7 @@ namespace E_GridDataShunter
         {
             HttpResponseMessage response = await databaseClient.PostAsJsonAsync("datastore/", data);
 
-            response.EnsureSuccessStatusCode();
+            //response.EnsureSuccessStatusCode();
 
             // Return uri of created resource
             return response.Headers.Location;
