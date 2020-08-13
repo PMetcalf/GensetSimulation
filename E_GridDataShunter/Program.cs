@@ -52,7 +52,7 @@ namespace E_GridDataShunter
                         var statusCode = await SendDataToDatabaseAsync(dataElement);
 
                         // Report outcome
-                        Console.WriteLine($"{dataElement.Id} : StatusCode: {statusCode}");
+                        Console.WriteLine($"uploading {dataElement.Id} : StatusCode: {statusCode}");
                     }
                 }
             }            
