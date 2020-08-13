@@ -71,6 +71,11 @@ namespace BMRSDataWebService.Controllers
             catch (Exception ex)
             {
                 Debug.WriteLine(ex);
+
+                if (ex.Message.Contains("409"))
+                {
+                    return Conflict(new { id = data.Id });
+                }
             }
 
             // Return result
