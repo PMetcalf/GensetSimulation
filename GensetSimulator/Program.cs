@@ -1,10 +1,16 @@
 ﻿using GensetSimulator.Models;
+using SimulationWebservice.Models;
 using System;
+using System.Drawing.Printing;
+using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace GensetSimulator
 {
     class Program
     {
+        static HttpClient client = new HttpClient();
+
         /// <summary>
         /// This is the main executable class for the program.
         /// </summary>
@@ -14,14 +20,58 @@ namespace GensetSimulator
             Console.Title = typeof(Program).Name;
 
             // Initialise webservice.
+            InitialiseHttpClientInstance();
 
-            Run();
+            RunAsync().GetAwaiter().GetResult();
+        }
+
+        /// <summary>
+        /// Initialises http client instance with URIs.
+        /// </summary>
+        static void InitialiseHttpClientInstance()
+        {
+            client.BaseAddress = new Uri("https://localhost:5001/");
+
+            client.DefaultRequestHeaders.Accept.Clear();
+
+            client.DefaultRequestHeaders.Accept.Add(
+                new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+        }
+
+        static async Task TestWebserviceConnectionAsync()
+        {
+            try
+            {
+                HttpResponseMessage response = await client.GetAsync("gensetdata/");
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string message = await response.Content.ReadAsStringAsync();
+
+                    Console.WriteLine(message);
+                }
+            }
+            catch (Exception ex)
+            {
+
+                throw;
+            }
+        }
+
+        static async Task<Uri> SendGensetDataAsync(GensetData gensetData)
+        {
+            HttpResponseMessage response = await client.PostAsJsonAsync("gensetdata/", gensetData);
+
+            response.EnsureSuccessStatusCode();
+
+            // Return uri of created resource.
+            return response.Headers.Location;
         }
 
         /// <summary>
         /// Create genset, wait for user input then start.
         /// </summary>
-        static void Run()
+        static async Task RunAsync()
         {
             // Initialise genset.
             Genset genset = new Genset();
@@ -35,12 +85,34 @@ namespace GensetSimulator
                 genset.StartGenset();
                 Console.WriteLine("Press key to stop");
 
+                // Connect to webservice.
+                await TestWebserviceConnectionAsync();
+
                 try
                 {
                     while (!Console.KeyAvailable)
                     {
                         // Run genset.
-                        genset.RunGenset();
+                        genset = genset.RunGenset(genset);
+
+                        // Collect genset data.
+                        GensetData data = new GensetData
+                        {
+                            IsOn = genset.IsOn,
+                            sN = genset.SN,
+                            GensetPower = genset.GensetPower,
+                            FuelFlow_kgs = genset.FuelFlow_kgs,
+                            ShaftSpeed_rpm = genset.ShaftSpeed_rpm,
+                            CompPres_Bar = genset.CompPres_Bar,
+                            TurbineTemp_C = genset.TurbineTemp_C
+                        };
+
+                        // Generate Id.
+                        data.Id = data.GenerateIdStamp();
+
+                        // Send data to webservice.
+                        var url = await SendGensetDataAsync(data);
+                        Console.WriteLine($"Created at {url}");
                     }                
                 }
                 catch (Exception ex)

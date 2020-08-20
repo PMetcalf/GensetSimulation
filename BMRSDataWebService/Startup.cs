@@ -1,12 +1,12 @@
 using System.Threading.Tasks;
+using BMRSDataWebService.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using SimulationWebservice.Services;
 
-namespace SimulationWebservice
+namespace BMRSDataWebService
 {
     public class Startup
     {
@@ -47,18 +47,19 @@ namespace SimulationWebservice
         }
 
         /// <summary>
-        /// Create a Cosmos DB and a container with the specified partition key.
+        /// Initialises Cosmos DB client connection and container.
         /// </summary>
+        /// <param name="configurationSection"></param>
         /// <returns></returns>
         private static async Task<CosmosDBService> InitialiseCosmosClientInstanceAsync(IConfigurationSection configurationSection)
         {
-            // Retrieve DB and container parameters.
+            // Set connection parameters
             string databaseName = configurationSection.GetSection("DatabaseName").Value;
             string containerName = configurationSection.GetSection("ContainerName").Value;
             string account = configurationSection.GetSection("Account").Value;
             string key = configurationSection.GetSection("Key").Value;
 
-            // Build the client and services.
+            // Build client and services
             Microsoft.Azure.Cosmos.Fluent.CosmosClientBuilder clientBuilder =
                 new Microsoft.Azure.Cosmos.Fluent.CosmosClientBuilder(account, key);
 
@@ -67,10 +68,10 @@ namespace SimulationWebservice
 
             CosmosDBService dBService = new CosmosDBService(client, databaseName, containerName);
 
-            // Prepare the database.
+            // Initialise database, if required
             Microsoft.Azure.Cosmos.DatabaseResponse database = await client.CreateDatabaseIfNotExistsAsync(databaseName);
 
-            // Prepare the container.
+            // Build the database container
             await database.Database.CreateContainerIfNotExistsAsync(containerName, "/id");
 
             return dBService;
