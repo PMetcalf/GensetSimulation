@@ -24,7 +24,7 @@ CONTAINER_ID = "DataElement"
 #DATABASE_ID = config.settings['database_id']
 #CONTAINER_ID = config.settings['container_id']
 
-def intialise_client_routine():
+def intialise_client():
     """Initialise Client Routine
     ======================================
     Initialise and return database connection client.
