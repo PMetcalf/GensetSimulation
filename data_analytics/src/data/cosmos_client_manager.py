@@ -6,7 +6,7 @@ This file connection and CRUD operations with the Cosmos DB storing data.
 '''
 
 # Module Importations
-import azure.cosmos.cosmos_client as client
+import azure.cosmos.cosmos_client as cosmos_client
 import azure.cosmos.exceptions as exceptions
 from azure.cosmos.partition_key import PartitionKey
 
@@ -35,7 +35,9 @@ def intialise_client_routine():
     Returns:
         client (client) - Database connection client.
     """
-    pass
+    client = cosmos_client.CosmosClient(HOST, {'masterKey': MASTER_KEY})
+
+    return client
 
 def return_container():
     """Return Container
