@@ -39,6 +39,20 @@ def intialise_client():
 
     return client
 
+def return_database():
+    """Return Database
+    ======================================
+    Returns database via client.
+    
+    Args:
+        client (client) - Database connection client.
+        
+    Returns:
+        database (database) - Database.
+    """
+    pass
+
+
 def return_container():
     """Return Container
     ======================================
