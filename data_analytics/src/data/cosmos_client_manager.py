@@ -57,24 +57,34 @@ def return_database(client):
 
         return database
 
+    # Manage if database cannot be found
     except exceptions.CosmosResourceNotFoundError:
         print("Database with id \'{0}\' was not found".format(DATABASE_ID))
 
 
-def return_container():
+def return_container(database):
     """Return Container
     ======================================
     Returns database container for CRUD operations.
     
     Args:
-        client (client) - Database connection client.
+        database (database) - Database with client connection.
         
     Returns:
         container (container) - Container.
     """
-    pass
+    # Try to find and return container
+    try:
+        container = database.get_container_client(CONTAINER_ID)
+        print("Container with id \'{0}\' was found, link is {1}".format(CONTAINER_ID, container.container_link))
 
-def read_items():
+        return container
+
+    # Manage if container cannot be found
+    except exceptions.CosmosResourceNotFoundError:
+        print("Container with id \'{0}\' wasn not found".format(CONTAINER_ID))
+
+def read_items(container):
     """Read Items
     ======================================
     Returns full list of items from container.
@@ -83,9 +93,18 @@ def read_items():
         container (container) - Container.
         
     Returns:
-        list (list) - List of items found in container.
+        item_list (list) - List of items found in container.
     """
-    pass
+    print('Reading all items in container')
+
+    # Read all items from container
+    item_list = list(container.read_all_items(max_item_count=10))
+
+    # Count items
+    print('Found {0} items'.format(item_list.__len__()))
+
+    # Return list
+    return item_list
 
 def query_items():
     """Query Items
