@@ -39,7 +39,7 @@ def intialise_client():
 
     return client
 
-def return_database():
+def return_database(client):
     """Return Database
     ======================================
     Returns database via client.
@@ -50,7 +50,15 @@ def return_database():
     Returns:
         database (database) - Database.
     """
-    pass
+    # Try to find and return database
+    try:
+        database = client.get_database_client(DATABASE_ID)
+        print("Database with id \'{0}\' was found, link is {1}".format(DATABASE_ID, database.database_link))
+
+        return database
+
+    except exceptions.CosmosResourceNotFoundError:
+        print("Database with id \'{0}\' was not found".format(DATABASE_ID))
 
 
 def return_container():
