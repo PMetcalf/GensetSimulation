@@ -33,7 +33,7 @@ def intialise_client():
         None.
         
     Returns:
-        client (client) - Database connection client.
+        client (CosmosClient) - Database connection client.
     """
     client = cosmos_client.CosmosClient(HOST, {'masterKey': MASTER_KEY})
 
@@ -45,10 +45,10 @@ def return_database(client):
     Returns database via client.
     
     Args:
-        client (client) - Database connection client.
+        client (CosmosClient) - Database connection client.
         
     Returns:
-        database (database) - Database.
+        database (DatabaseProxy) - Database.
     """
     # Try to find and return database
     try:
@@ -68,10 +68,10 @@ def return_container(database):
     Returns database container for CRUD operations.
     
     Args:
-        database (database) - Database with client connection.
+        database (DatabaseProxy) - Database with client connection.
         
     Returns:
-        container (container) - Container.
+        container (ContainerProxy) - Container.
     """
     # Try to find and return container
     try:
@@ -90,33 +90,33 @@ def read_items(container):
     Returns full list of items from container.
     
     Args:
-        container (container) - Container.
+        container (ContainerProxy) - Container.
         
     Returns:
-        item_list (list) - List of items found in container.
+        items_dict (dict) - List of items found in container.
     """
     print('Reading all items in container')
 
     # Read all items from container
-    item_list = list(container.read_all_items(max_item_count=10))
+    items_dict = list(container.read_all_items(max_item_count=10))
 
     # Count items
-    print('Found {0} items'.format(item_list.__len__()))
+    print('Found {0} items'.format(items_dict.__len__()))
 
-    # Return list
-    return item_list
+    # Return dict of items
+    return items_dict
 
 def query_items():
     """Query Items
     ======================================
-    Returns list of items associated with query from container.
+    Returns dict of items associated with query from container.
     
     Args:
-        container (container) - Container.
-        query (string) - Query, usually ID, associated with query.
+        container (ContainerProxy) - Container.
+        query (str) - Query, usually ID, associated with query.
         
     Returns:
-        list (list) - List of items found from query.
+        items_dict (dict) - Dict of items found from query.
     """
     pass
 
