@@ -9,6 +9,7 @@ This file connection and CRUD operations with the Cosmos DB storing data.
 import azure.cosmos.cosmos_client as cosmos_client
 import azure.cosmos.exceptions as exceptions
 from azure.cosmos.partition_key import PartitionKey
+import pandas as pd
 
 # Project Modules
 #import config
@@ -120,15 +121,20 @@ def query_items():
     """
     pass
 
-def convert_to_dataframe():
+def convert_to_dataframe(items_dict):
     """Convert to Dataframe
     ======================================
-    Converts list of raw database items into dataframe.
+    Converts dict of raw database items into dataframe.
     
     Args:
-        list (list) - List of items from database container.
+        items_dict (dict) - Dict of items from database container.
         
     Returns:
         df (dataframe) - Dataframe containing items from container list.
     """
-    pass
+    
+    # Convert directly into dataframe
+    df_items = pd.DataFrame(items_dict)
+
+    # Return dataframe
+    return df_items
