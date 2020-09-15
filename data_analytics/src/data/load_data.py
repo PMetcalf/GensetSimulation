@@ -6,8 +6,10 @@ This file supports load and save operations.
 '''
 
 # Module Importations
+import pandas as pd
 
 # CONSTANTS
+DF_SAVE_STRING = 'C:\Developer\PMetcalf\GensetSimulation\GensetSimulation\data_analytics\data\interim\interim_data.pkl'
 
 def convert_dict_to_dataframe(items_dict):
     """Convert to Dataframe
@@ -29,8 +31,35 @@ def convert_dict_to_dataframe(items_dict):
     # Return dataframe
     return df_items
 
-def save_local_dataframe():
-    pass
+def save_local_dataframe(df):
+    """Save Local Dataframe
+    ======================================
+    Saves dataframe locally using pickle format.
+    
+    Args:
+        df (DataFrame) - Dataframe to be pickled locally.
+        
+    Returns:
+        None.
+    """
+    df.to_pickle(DF_SAVE_STRING)
+
+    print("Saved dataframe locally ...")
 
 def load_local_dataframe():
-    pass
+    """Save Local Dataframe
+    ======================================
+    Saves dataframe locally using pickle format.
+    
+    Args:
+        None.
+        
+    Returns:
+        df (DataFrame) - Dataframe loaded from local pickle.
+    """
+
+    df_new = pd.read_pickle(DF_SAVE_STRING)
+ 
+    print("Loaded local dataframe ...")
+
+    return df_new  
