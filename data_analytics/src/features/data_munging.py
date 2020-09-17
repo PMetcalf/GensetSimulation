@@ -23,11 +23,15 @@ def remove_unused_columns(df_original):
    # Create copy of original dataframe
     df_modified = df_original.copy()
 
+    print("Removing unused columns ...")
+
     # Remove column names from dataframe
     df_modified = df_modified.drop("_rid", axis = 1)
     df_modified = df_modified.drop("_self", axis = 1)
     df_modified = df_modified.drop("_etag", axis = 1)
     df_modified = df_modified.drop("_attachments", axis = 1)
     
+    print("Unused columns removed.")
+
     # Return dataframe copy
     return df_modified     
