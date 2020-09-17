@@ -35,3 +35,21 @@ def remove_unused_columns(df_original):
 
     # Return dataframe copy
     return df_modified
+
+def remove_quotations():
+    """Remove quotations
+    ======================================
+    Removes quotations around string objects.
+    
+    Args:
+        quotation_string (str) - String to have quotations removed.
+        
+    Returns:
+        dequoted_string (str) - String with quotations removed.
+    """
+
+    # Remove quotations
+
+    # Return string
+
+    pass
