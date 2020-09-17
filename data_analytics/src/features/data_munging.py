@@ -36,7 +36,7 @@ def remove_unused_columns(df_original):
     # Return dataframe copy
     return df_modified
 
-def remove_quotations():
+def remove_quotations(quotation_string):
     """Remove quotations
     ======================================
     Removes quotations around string objects.
@@ -49,7 +49,7 @@ def remove_quotations():
     """
 
     # Remove quotations
+    dequoted_string = quotation_string.strip('"')
 
     # Return string
-
-    pass
+    return dequoted_string
