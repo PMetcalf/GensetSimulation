@@ -54,7 +54,7 @@ def remove_quotations(quotation_string):
     # Return string
     return dequoted_string
 
-def convert_string_to_float():
+def convert_string_to_float(numeric_string):
     """Convert String to Float
     ======================================
     Converts a (numeric) string object to floating point number.
@@ -67,7 +67,7 @@ def convert_string_to_float():
     """
 
     # Convert string
+    numeric_float = float(numeric_string)
 
     # Return float
-
-    pass
+    return numeric_float
