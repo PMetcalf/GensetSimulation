@@ -37,7 +37,7 @@ def remove_unused_columns(df_original):
     return df_modified
 
 def remove_quotations(quotation_string):
-    """Remove quotations
+    """Remove Quotations
     ======================================
     Removes quotations around string objects.
     
@@ -53,3 +53,21 @@ def remove_quotations(quotation_string):
 
     # Return string
     return dequoted_string
+
+def convert_string_to_float():
+    """Convert String to Float
+    ======================================
+    Converts a (numeric) string object to floating point number.
+    
+    Args:
+        numeric_string (str) - String to be converted.
+        
+    Returns:
+        numeric_float (float) - float cast from string.
+    """
+
+    # Convert string
+
+    # Return float
+
+    pass
