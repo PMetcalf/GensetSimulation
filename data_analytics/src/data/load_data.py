@@ -62,4 +62,7 @@ def load_local_dataframe():
  
     print("Loaded local dataframe ...")
 
+    # Print information about dataframe
+    print(df_new.info())
+
     return df_new  
