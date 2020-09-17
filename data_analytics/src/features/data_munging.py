@@ -34,4 +34,4 @@ def remove_unused_columns(df_original):
     print("Unused columns removed.")
 
     # Return dataframe copy
-    return df_modified     
+    return df_modified
