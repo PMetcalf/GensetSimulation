@@ -71,3 +71,34 @@ def convert_string_to_float(numeric_string):
 
     # Return float
     return numeric_float
+
+def return_datetime_id():
+    """Return Datetime Id
+    ======================================
+    Returns a datetime id based on date and settlement period from data instance.
+    
+    Args:
+        setDate (str) - Settlement date.
+        setPeriod (str) - Settlement period.
+        
+    Returns:
+        datetime_id (str) - Datetime (UTC) stamp returned as a string.
+    """
+
+    # Determine if date is GMT or BST (impacts UTC hour)
+
+        # If GMT-winter
+
+            # Look-up UTC hour from period
+
+            # Return date-setPeriod concatenation
+
+        # If BST
+
+            # Look-up UTC hour from period
+
+            # Correct date, if required (Periods 1 & 2)
+
+            # Return date-setPeriod concatenation
+
+    pass
