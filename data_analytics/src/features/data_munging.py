@@ -110,31 +110,3 @@ def return_datetime_id(setDate, setPeriod):
 
     # Return datetime
     return datetime_date
-
-
-
-
-    # Convert date string to time
-
-
-    # Determine year
-
-    # Look up GMT/BST dates for year
-
-    # Determine if date is GMT or BST (impacts UTC hour)
-
-        # If GMT-winter
-
-            # Look-up UTC hour from period
-
-            # Return date-setPeriod concatenation
-
-        # If BST
-
-            # Look-up UTC hour from period
-
-            # Correct date, if required (Periods 1 & 2)
-
-            # Return date-setPeriod concatenation
-
-    pass
