@@ -7,6 +7,7 @@ This file supports data cleaning and preprocessing operations.
 
 # Module Importations
 import pandas as pd
+from dateutil import parser
 
 def remove_unused_columns(df_original):
     """Remove Unused Columns
@@ -101,14 +102,14 @@ def return_datetime_id(setDate, setPeriod):
 
     setTime = setPeriods[setPeriod]
 
-    return setTime
-
     # Create datetime string
+    datetime_string = setDate + " " + setTime
 
     # Convert to datetime
+    datetime_date = parser.parse(datetime_string)
 
     # Return datetime
-
+    return datetime_date
 
 
 
