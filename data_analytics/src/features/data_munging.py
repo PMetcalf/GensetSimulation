@@ -72,18 +72,51 @@ def convert_string_to_float(numeric_string):
     # Return float
     return numeric_float
 
-def return_datetime_id():
+def return_datetime_id(setDate, setPeriod):
     """Return Datetime Id
     ======================================
     Returns a datetime id based on date and settlement period from data instance.
     
     Args:
         setDate (str) - Settlement date.
-        setPeriod (str) - Settlement period.
+        setPeriod (float) - Settlement period.
         
     Returns:
         datetime_id (str) - Datetime (UTC) stamp returned as a string.
     """
+
+    # Convert settlement period to hour
+    setPeriods = {
+        1.0 : '0000', 2.0 : '0000', 3.0 : '0000', 4.0 : '0000', 5.0 : '0000',
+        6.0 : '0000', 7.0 : '0000', 8.0 : '0000', 9.0 : '0000', 10.0 : '0000',
+        11.0 : '0000', 12.0 : '0000', 13.0 : '0000', 14.0 : '0000', 15.0 : '0000',
+        16.0 : '0000', 17.0 : '0000', 18.0 : '0000', 19.0 : '0000', 20.0 : '0000',
+        21.0 : '0000', 22.0 : '0000', 23.0 : '0000', 24.0 : '0000', 25.0 : '0000',
+        26.0 : '0000', 27.0 : '0000', 28.0 : '0000', 29.0 : '0000', 30.0 : '0000',
+        31.0 : '0000', 32.0 : '0000', 33.0 : '0000', 34.0 : '0000', 35.0 : '0000',
+        36.0 : '0000', 37.0 : '0000', 38.0 : '0000', 39.0 : '0000', 40.0 : '0000',
+        41.0 : '0000', 42.0 : '0000', 43.0 : '0000', 44.0 : '0000', 45.0 : '0000',
+        46.0 : '0000', 47.0 : '0000', 48.0 : '0000', 49.0 : '0000', 50.0 : '0000'
+    }
+
+    setTime = setPeriods[setPeriod]
+
+    # Create datetime string
+
+    # Convert to datetime
+
+    # Return datetime
+
+
+
+
+
+    # Convert date string to time
+
+
+    # Determine year
+
+    # Look up GMT/BST dates for year
 
     # Determine if date is GMT or BST (impacts UTC hour)
 
