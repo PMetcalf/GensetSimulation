@@ -25,7 +25,7 @@ namespace E_GridDataShunter
             try
             {
                 // Collect data from this date
-                DateTime startDate = new DateTime(2020, 7, 1);
+                DateTime startDate = new DateTime(2020, 6, 1);
 
                 // Iterate over one month from start date
                 for (int day = 0; day < 32; day++)
