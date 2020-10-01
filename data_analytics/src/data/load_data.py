@@ -46,6 +46,24 @@ def save_local_dataframe(df):
 
     print("Saved dataframe locally ...")
 
+def save_dash_dataframe(df):
+    """Save Local Dataframe
+    ======================================
+    Saves dataframe for dash development using pickle format.
+    
+    Args:
+        df (DataFrame) - Dataframe to be pickled locally.
+        
+    Returns:
+        None.
+    """
+
+    DASH_STRING = 'C:\Developer\PMetcalf\GensetSimulation\GensetSimulation\data_analytics\data\interim\dash_data.pkl'
+
+    df.to_pickle(DASH_STRING)
+
+    print("Saved dataframe for Dash ...")
+
 def load_local_dataframe():
     """Save Local Dataframe
     ======================================
