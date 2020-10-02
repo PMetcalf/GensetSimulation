@@ -21,21 +21,26 @@ colors = {
 # see https://plotly.com/python/px-arguments/ for more options
 df_new = pd.read_pickle(DF_SAVE_STRING)
 
-fig = px.scatter(df_new, x="setDatetime", y="quantity", color="powType")
+fig = px.scatter(df_new, x = "setDatetime", y = "quantity", color = "powType",
+                 labels = {
+                     "setDatetime": "Date",
+                     "quantity": "Generation (MW)",
+                     "powType": "Generation Type"
+                 })
 
 fig.update_layout(
     font_color = colors['text']
     )
 
 app.layout = html.Div(children=[
-    html.H1(children='Hello Dash',
+    html.H1(children='Electricity Grid Analytics',
             style = {
-                'textAlign': 'center',
+                'textAlign': 'left',
                 'color': colors['text']
                 }
             ),
     html.Div(children = 'UK Electricity Generation Data', style = {
-        'textAlign': 'center',
+        'textAlign': 'left',
         'color': colors['text']
         }),
     dcc.Graph(
