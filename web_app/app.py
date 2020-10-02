@@ -8,9 +8,13 @@ DF_SAVE_STRING = 'D:\Developer Area\e-grid_analytics\data_analytics\data\interim
 
 app = dash.Dash(__name__)
 
+#colors = {
+#    'background':'#111111',
+#    'text':'002366'
+#    }
+
 colors = {
-    'background':'#111111',
-    'text':'#7FDBFF'
+    'text':'#002366'
     }
 
 # assume you have a "long-form" data frame
@@ -20,19 +24,17 @@ df_new = pd.read_pickle(DF_SAVE_STRING)
 fig = px.scatter(df_new, x="setDatetime", y="quantity", color="powType")
 
 fig.update_layout(
-    plot_bgcolor = colors['background'],
-    paper_bgcolor = colors['background'],
     font_color = colors['text']
     )
 
-app.layout = html.Div(style = {'backgroundColor': colors['background']}, children=[
+app.layout = html.Div(children=[
     html.H1(children='Hello Dash',
             style = {
                 'textAlign': 'center',
                 'color': colors['text']
                 }
             ),
-    html.Div(children = 'Dash: A web application framework for Python.', style = {
+    html.Div(children = 'UK Electricity Generation Data', style = {
         'textAlign': 'center',
         'color': colors['text']
         }),
