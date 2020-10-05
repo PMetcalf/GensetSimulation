@@ -17,6 +17,9 @@ colors = {
 df_new = pd.read_pickle(DF_SAVE_STRING)
 
 def build_banner():
+    """
+    Builds banner displayed across all tabs at top of page.
+    """
     return html.Div(
         id="banner",
         className="banner",
@@ -24,8 +27,8 @@ def build_banner():
             html.Div(
                 id="banner-text",
                 children=[
-                    html.H5("Manufacturing SPC Dashboard"),
-                    html.H6("Process Control and Exception Reporting"),
+                    html.H5('Electricity Grid Analytics'),
+                    html.H6('UK Electricity Generation Data'),
                 ],
             ),
             html.Div(
@@ -34,7 +37,6 @@ def build_banner():
                     html.Button(
                         id="learn-more-button", children="LEARN MORE", n_clicks=0
                     ),
-                    html.Img(id="logo", src=app.get_asset_url("dash-logo-new.png")),
                 ],
             ),
         ],
@@ -62,16 +64,6 @@ app.layout = html.Div(
     id = "main-app-container",
     children=[
         build_banner(),
-        html.H1(children='Electricity Grid Analytics',
-                style = {
-                    'textAlign': 'left',
-                    'color': colors['text']
-                    }
-                ),
-        html.Div(children = 'UK Electricity Generation Data', style = {
-            'textAlign': 'left',
-            'color': colors['text']
-            }),
         dcc.Graph(
             id = 'example-graph',
             figure = fig
