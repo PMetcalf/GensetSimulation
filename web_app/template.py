@@ -19,6 +19,7 @@ server = app.server
 app.config["suppress_callback_exceptions"] = True
 
 APP_PATH = str(pathlib.Path(__file__).parent.resolve())
+
 df = pd.read_csv(os.path.join(APP_PATH, os.path.join("data", "spc_data.csv")))
 
 params = list(df)
