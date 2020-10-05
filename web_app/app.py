@@ -8,13 +8,8 @@ DF_SAVE_STRING = 'D:\Developer Area\e-grid_analytics\data_analytics\data\interim
 
 app = dash.Dash(__name__)
 
-#colors = {
-#    'background':'#111111',
-#    'text':'002366'
-#    }
-
 colors = {
-    'text':'#002366'
+    'text':'#002366'    # Royal Blue
     }
 
 # assume you have a "long-form" data frame
@@ -26,11 +21,18 @@ fig = px.scatter(df_new, x = "setDatetime", y = "quantity", color = "powType",
                      "setDatetime": "Date",
                      "quantity": "Generation (MW)",
                      "powType": "Generation Type"
-                 })
+                 },
+                 height=600)
 
 fig.update_layout(
-    font_color = colors['text']
-    )
+    font_color = colors['text'],
+    legend = dict(
+        orientation = "h",
+        yanchor = "bottom",
+        y = 1.02,
+        xanchor = "left",
+        x = 0
+        ))
 
 app.layout = html.Div(children=[
     html.H1(children='Electricity Grid Analytics',
