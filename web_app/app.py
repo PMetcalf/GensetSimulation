@@ -131,11 +131,8 @@ app.layout = html.Div(
                 html.Div(id = "app-content"),
                 ],
             ),
-        dcc.Graph(
-            id = 'example-graph',
-            figure = fig
-        )
-])
+        ]
+    )
 
 if __name__ == '__main__':
     app.run_server(debug=True)
