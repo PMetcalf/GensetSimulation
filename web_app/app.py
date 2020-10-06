@@ -18,7 +18,7 @@ df_new = pd.read_pickle(DF_SAVE_STRING)
 
 def build_banner():
     """
-    Builds banner displayed across all tabs at top of page.
+    Builds banner displayed at top of page.
     """
     return html.Div(
         id="banner",
@@ -39,6 +39,31 @@ def build_banner():
                     ),
                 ],
             ),
+        ],
+    )
+
+def build_tab():
+    """
+    Builds tab used to contain data visualisation collections.
+    """
+    return html.Div(
+        id = "tab",
+        className = "tab",
+        children = [
+            dcc.Tabs(
+                id = "app-tabs",
+                value = "tab1",
+                className = "custom-tabs",
+                children = [
+                    dcc.Tab(
+                        id = "Time-series-tab",
+                        label = "Time Series Data",
+                        value = "tab1",
+                        className = "custom-tab",
+                        selected_className = "custom-tab--selected",
+                    ),
+                ],
+            )
         ],
     )
 
@@ -64,6 +89,13 @@ app.layout = html.Div(
     id = "main-app-container",
     children=[
         build_banner(),
+        html.Div(
+            id = "app-container",
+            children = [
+                build_tab(),
+                html.Div(id = "app-content"),
+                ],
+            ),
         dcc.Graph(
             id = 'example-graph',
             figure = fig
