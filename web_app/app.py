@@ -67,6 +67,20 @@ def build_tab():
         ],
     )
 
+def render_tab_content():
+    """
+    Render content of tab upon request.
+    """
+    return (
+        html.Div(
+            id = "graphs-container",
+            children = [
+                build_top_panel(),
+                build_chart_panel()
+                ],
+            ),
+        )
+
 fig = px.scatter(df_new, x = "setDatetime", y = "quantity", color = "powType",
                  labels = {
                      "setDatetime": "Date",
