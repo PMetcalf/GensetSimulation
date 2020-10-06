@@ -121,7 +121,33 @@ def build_side_panel():
             ],
         )
 
-
+def generate_piechart():
+    """
+    Build and return a piechart.
+    """
+    return dcc.Graph(
+        id="piechart",
+        figure={
+            "data": [
+                {
+                    "labels": ['Solar', 'Wind', 'Hydro'],
+                    "values": [15, 12, 18],
+                    "type": "pie",
+                    "marker": {"line": {"color": "white", "width": 1}},
+                    "hoverinfo": "label",
+                    "textinfo": "label",
+                }
+            ],
+            "layout": {
+                "margin": dict(l=20, r=20, t=20, b=20),
+                "showlegend": True,
+                "paper_bgcolor": "rgba(0,0,0,0)",
+                "plot_bgcolor": "rgba(0,0,0,0)",
+                "font": {"color": "white"},
+                "autosize": True,
+            },
+        },
+        )
 
 @app.callback(
     [Output("app-content", "children")],
