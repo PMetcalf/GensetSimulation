@@ -9,10 +9,6 @@ DF_SAVE_STRING = 'D:\Developer Area\e-grid_analytics\data_analytics\data\interim
 
 app = dash.Dash(__name__)
 
-colors = {
-    'text':'#002366'    # Royal Blue
-    }
-
 # assume you have a "long-form" data frame
 # see https://plotly.com/python/px-arguments/ for more options
 df_new = pd.read_pickle(DF_SAVE_STRING)
@@ -22,12 +18,10 @@ fig = px.scatter(df_new, x = "setDatetime", y = "quantity", color = "powType",
                      "setDatetime": "Date",
                      "quantity": "Generation (MW)",
                      "powType": "Generation Type"
-                 },
-                 height=600
+                     },
                  )
 
 fig.update_layout(
-    font_color = colors['text'],
     paper_bgcolor = "rgba(0,0,0,0)",
     plot_bgcolor = "rgba(0,0,0,0)",
     legend = dict(
@@ -109,6 +103,7 @@ def build_side_panel():
     """
     return html.Div(
         id = "top-section-container",
+        #className = "row",
         children = [
             # Energy Piechart
             html.Div(
