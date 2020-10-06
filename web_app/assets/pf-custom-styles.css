@@ -142,7 +142,7 @@ body {
     cursor: pointer;
 }
 
-#Specs-tab.custom-tab, #Control-chart-tab.custom-tab {
+#Specs-tab.custom-tab, #Time-series-tab.custom-tab {
     background-color: #161a28;
     letter-spacing: 1px;
     color: inherit;
@@ -156,7 +156,7 @@ body {
     height: 18px;
 }
 
-#Specs-tab.custom-tab--selected, #Control-chart-tab.custom-tab--selected {
+#Specs-tab.custom-tab--selected, #Time-series-tab.custom-tab--selected {
     border-bottom: #91dfd2 solid 4px !important;
 }
 
@@ -164,7 +164,7 @@ body {
     margin-right: 3px;
 }
 
-#Control-chart-tab.custom-tab {
+#Time-series-tab.custom-tab {
     margin-left: 3px;
 }
 
@@ -792,7 +792,7 @@ body {
         margin-right: 0;
     }
 
-    #Control-chart-tab.custom-tab {
+    #Time-series-tab.custom-tab {
         margin-left: 0;
     }
 }

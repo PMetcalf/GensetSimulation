@@ -103,7 +103,6 @@ def build_side_panel():
     """
     return html.Div(
         id = "top-section-container",
-        #className = "row",
         children = [
             # Energy Piechart
             html.Div(
