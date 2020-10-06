@@ -103,11 +103,10 @@ def build_chart_panel():
         )
 
 @app.callback(
-    [Output("app-content", "children"), Output("interval-component", "n_intervals")],
+    [Output("app-content", "children")],
     [Input("app-tabs", "value")],
-    # [State("n-interval-stage", "data")],
 )
-def render_tab_content():
+def render_tab_content(tab_switch):
     """
     Render content of tab upon request.
     """
