@@ -51,27 +51,27 @@ def build_banner():
                 id="banner-text",
                 children=[
                     html.H5('Electricity Grid Analytics'),
-                    html.H6('UK Electricity Generation Data'),
+                    html.H6('UK Electrical Generation Data'),
                 ],
             ),
             html.Div(
                 id="banner-logo",
                 children=[
                     html.Button(
-                        id="learn-more-button", children="LEARN MORE", n_clicks=0
+                        id="cloudforest-button", children="Cloudforest", n_clicks=0
                     ),
                 ],
             ),
         ],
     )
 
-def build_tab():
+def build_tabs():
     """
     Builds tab used to contain data visualisation collections.
     """
     return html.Div(
-        id = "tab",
-        className = "tab",
+        id = "tabs",
+        className = "tabs",
         children = [
             dcc.Tabs(
                 id = "app-tabs",
@@ -103,6 +103,26 @@ def build_chart_panel():
             ]
         )
 
+def build_side_panel():
+    """
+    Builds panel containing piecharts.
+    """
+    return html.Div(
+        id = "top-section-container",
+        children = [
+            # Energy Piechart
+            html.Div(
+                id = "ooc-piechart-outer",
+                classname = "four columns",
+                children = [
+                    generate_piechart(),
+                    ],
+                ),
+            ],
+        )
+
+
+
 @app.callback(
     [Output("app-content", "children")],
     [Input("app-tabs", "value")],
@@ -114,9 +134,10 @@ def render_tab_content(tab_switch):
     return (
         html.Div(
             id = "graphs-container",
+            classname = "row",
             children = [
-                #build_top_panel(),
-                build_chart_panel()
+                build_chart_panel(),
+                build_side_panel(),
                 ],
             ),
         )
@@ -128,7 +149,7 @@ app.layout = html.Div(
         html.Div(
             id = "app-container",
             children = [
-                build_tab(),
+                build_tabs(),
                 html.Div(id = "app-content"),
                 ],
             ),
