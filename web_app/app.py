@@ -1,6 +1,7 @@
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
+from dash.dependencies import Input, Output, State
 import plotly.express as px
 import pandas as pd
 
@@ -67,6 +68,11 @@ def build_tab():
         ],
     )
 
+@app.callback(
+    [Output("app-content", "children"), Output("interval-component", "n_intervals")],
+    [Input("app-tabs", "value")],
+    # [State("n-interval-stage", "data")],
+)
 def render_tab_content():
     """
     Render content of tab upon request.
