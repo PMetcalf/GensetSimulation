@@ -23,10 +23,13 @@ fig = px.scatter(df_new, x = "setDatetime", y = "quantity", color = "powType",
                      "quantity": "Generation (MW)",
                      "powType": "Generation Type"
                  },
-                 height=600)
+                 height=600
+                 )
 
 fig.update_layout(
     font_color = colors['text'],
+    paper_bgcolor = "rgba(0,0,0,0)",
+    plot_bgcolor = "rgba(0,0,0,0)",
     legend = dict(
         orientation = "h",
         yanchor = "bottom",
