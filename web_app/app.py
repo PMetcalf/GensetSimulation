@@ -36,7 +36,8 @@ fig.update_layout(
         y = 1.02,
         xanchor = "left",
         x = 0
-        ))
+        )
+    )
 
 def build_banner():
     """
