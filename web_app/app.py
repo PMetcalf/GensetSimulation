@@ -17,6 +17,24 @@ colors = {
 # see https://plotly.com/python/px-arguments/ for more options
 df_new = pd.read_pickle(DF_SAVE_STRING)
 
+fig = px.scatter(df_new, x = "setDatetime", y = "quantity", color = "powType",
+                 labels = {
+                     "setDatetime": "Date",
+                     "quantity": "Generation (MW)",
+                     "powType": "Generation Type"
+                 },
+                 height=600)
+
+fig.update_layout(
+    font_color = colors['text'],
+    legend = dict(
+        orientation = "h",
+        yanchor = "bottom",
+        y = 1.02,
+        xanchor = "left",
+        x = 0
+        ))
+
 def build_banner():
     """
     Builds banner displayed at top of page.
@@ -68,6 +86,19 @@ def build_tab():
         ],
     )
 
+def build_chart_panel():
+    """
+    Builds chart panel with data visualisations.
+    """
+    return html.Div(
+        id = "control-chart-container",
+        children = [
+            dcc.Graph(
+                id = "time-series-chart",
+                figure = fig)
+            ]
+        )
+
 @app.callback(
     [Output("app-content", "children"), Output("interval-component", "n_intervals")],
     [Input("app-tabs", "value")],
@@ -81,29 +112,11 @@ def render_tab_content():
         html.Div(
             id = "graphs-container",
             children = [
-                build_top_panel(),
+                #build_top_panel(),
                 build_chart_panel()
                 ],
             ),
         )
-
-fig = px.scatter(df_new, x = "setDatetime", y = "quantity", color = "powType",
-                 labels = {
-                     "setDatetime": "Date",
-                     "quantity": "Generation (MW)",
-                     "powType": "Generation Type"
-                 },
-                 height=600)
-
-fig.update_layout(
-    font_color = colors['text'],
-    legend = dict(
-        orientation = "h",
-        yanchor = "bottom",
-        y = 1.02,
-        xanchor = "left",
-        x = 0
-        ))
 
 app.layout = html.Div(
     id = "main-app-container",
