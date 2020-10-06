@@ -113,7 +113,7 @@ def build_side_panel():
             # Energy Piechart
             html.Div(
                 id = "ooc-piechart-outer",
-                classname = "four columns",
+                className = "four columns",
                 children = [
                     generate_piechart(),
                     ],
@@ -160,7 +160,7 @@ def render_tab_content(tab_switch):
     return (
         html.Div(
             id = "graphs-container",
-            classname = "row",
+            className = "row",
             children = [
                 build_chart_panel(),
                 build_side_panel(),
