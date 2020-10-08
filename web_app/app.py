@@ -9,29 +9,7 @@ DF_SAVE_STRING = 'D:\Developer Area\e-grid_analytics\data_analytics\data\interim
 
 app = dash.Dash(__name__)
 
-# assume you have a "long-form" data frame
-# see https://plotly.com/python/px-arguments/ for more options
 df_new = pd.read_pickle(DF_SAVE_STRING)
-
-#fig = px.scatter(df_new, x = "setDatetime", y = "quantity", color = "powType",
-#                 labels = {
-#                     "setDatetime": "Date",
-#                     "quantity": "Generation (MW)",
-#                     "powType": "Generation Type"
-#                     },
-#                 )
-
-#fig.update_layout(
-#    paper_bgcolor = "rgba(0,0,0,0)",
-#    plot_bgcolor = "rgba(0,0,0,0)",
-#    legend = dict(
-#        orientation = "h",
-#        yanchor = "bottom",
-#        y = 1.02,
-#        xanchor = "left",
-#        x = 0
-#        )
-#    )
 
 def build_banner():
     """
@@ -91,30 +69,42 @@ def build_chart_panel():
     return html.Div(
         id = "control-chart-container",
         children = [
-            dcc.Graph(
-                id = "time-series-chart",
-                figure = px.scatter(df_new, x = "setDatetime", y = "quantity", color = "powType",
+            generate_time_series_scatter()
+            ]
+        )
+
+def generate_time_series_scatter():
+    """
+    Generates time-series scatter graph.
+    """
+
+    # Create figure using plotly express
+    fig = px.scatter(df_new, x = "setDatetime", y = "quantity", color = "powType",
                  labels = {
                      "setDatetime": "Date",
                      "quantity": "Generation (MW)",
                      "powType": "Generation Type"
                      },
-                 ))
-            ]
+                 )
+    
+    # Adjust figure styling
+    fig.update_layout(
+        paper_bgcolor = "rgba(0,0,0,0)",
+        plot_bgcolor = "rgba(0,0,0,0)",
+        legend = dict(
+            orientation = "h",
+            yanchor = "bottom",
+            y = 1.02,
+            xanchor = "left",
+            x = 0
+            )
         )
 
-#def build_chart_panel():
-#    """
-#    Builds chart panel with data visualisations.
-#    """
-#    return html.Div(
-#        id = "control-chart-container",
-#        children = [
-#            dcc.Graph(
-#                id = "time-series-chart",
-#                figure = fig)
-#            ]
-#        )
+    # Wrap and return figure
+    return dcc.Graph(
+        id = "time-series-chart",
+        figure = fig
+        )
 
 def build_side_panel():
     """
