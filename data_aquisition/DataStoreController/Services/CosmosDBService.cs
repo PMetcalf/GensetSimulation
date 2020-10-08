@@ -1,8 +1,8 @@
 ﻿using Microsoft.Azure.Cosmos;
-using E_GridDataShunter.Models;
+using DataStoreController.Models;
 using System.Threading.Tasks;
 
-namespace BMRSDataWebService.Services
+namespace DataStoreController.Services
 {
     /// <summary>
     /// Connect and use Azure Cosmos DB, including CRUD operations.

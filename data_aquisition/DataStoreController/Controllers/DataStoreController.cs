@@ -1,11 +1,11 @@
-﻿using BMRSDataWebService.Services;
-using E_GridDataShunter.Models;
+﻿using DataStoreController.Services;
+using DataStoreController.Models;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace BMRSDataWebService.Controllers
+namespace DataStoreController.Controllers
 {
     //[Route("api/[controller]")]
     [ApiController]
