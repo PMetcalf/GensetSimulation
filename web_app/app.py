@@ -107,7 +107,7 @@ def build_side_panel():
             # Energy Piechart
             html.Div(
                 id = "ooc-piechart-outer",
-                className = "four columns",
+                className = "three columns",
                 children = [
                     generate_piechart(),
                     ],
@@ -133,7 +133,6 @@ def generate_piechart():
                 }
             ],
             "layout": {
-                "margin": dict(l=20, r=20, t=20, b=20),
                 "showlegend": True,
                 "paper_bgcolor": "rgba(0,0,0,0)",
                 "plot_bgcolor": "rgba(0,0,0,0)",
