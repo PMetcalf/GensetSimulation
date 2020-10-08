@@ -62,6 +62,15 @@ def build_tabs():
         ],
     )
 
+def generate_section_banner(title):
+    """
+    Returns a styled section banner with title.
+    """
+    return html.Div(
+        className = "section-banner",
+        children = title
+                    )
+
 def build_chart_panel():
     """
     Builds chart panel with data visualisations.
