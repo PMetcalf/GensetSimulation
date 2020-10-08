@@ -13,25 +13,25 @@ app = dash.Dash(__name__)
 # see https://plotly.com/python/px-arguments/ for more options
 df_new = pd.read_pickle(DF_SAVE_STRING)
 
-fig = px.scatter(df_new, x = "setDatetime", y = "quantity", color = "powType",
-                 labels = {
-                     "setDatetime": "Date",
-                     "quantity": "Generation (MW)",
-                     "powType": "Generation Type"
-                     },
-                 )
+#fig = px.scatter(df_new, x = "setDatetime", y = "quantity", color = "powType",
+#                 labels = {
+#                     "setDatetime": "Date",
+#                     "quantity": "Generation (MW)",
+#                     "powType": "Generation Type"
+#                     },
+#                 )
 
-fig.update_layout(
-    paper_bgcolor = "rgba(0,0,0,0)",
-    plot_bgcolor = "rgba(0,0,0,0)",
-    legend = dict(
-        orientation = "h",
-        yanchor = "bottom",
-        y = 1.02,
-        xanchor = "left",
-        x = 0
-        )
-    )
+#fig.update_layout(
+#    paper_bgcolor = "rgba(0,0,0,0)",
+#    plot_bgcolor = "rgba(0,0,0,0)",
+#    legend = dict(
+#        orientation = "h",
+#        yanchor = "bottom",
+#        y = 1.02,
+#        xanchor = "left",
+#        x = 0
+#        )
+#    )
 
 def build_banner():
     """
@@ -93,9 +93,28 @@ def build_chart_panel():
         children = [
             dcc.Graph(
                 id = "time-series-chart",
-                figure = fig)
+                figure = px.scatter(df_new, x = "setDatetime", y = "quantity", color = "powType",
+                 labels = {
+                     "setDatetime": "Date",
+                     "quantity": "Generation (MW)",
+                     "powType": "Generation Type"
+                     },
+                 ))
             ]
         )
+
+#def build_chart_panel():
+#    """
+#    Builds chart panel with data visualisations.
+#    """
+#    return html.Div(
+#        id = "control-chart-container",
+#        children = [
+#            dcc.Graph(
+#                id = "time-series-chart",
+#                figure = fig)
+#            ]
+#        )
 
 def build_side_panel():
     """
