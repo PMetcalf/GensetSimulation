@@ -1,8 +1,10 @@
 {
   "ExpandedNodes": [
     "",
+    "\\data_aquisition",
+    "\\data_aquisition\\WebApplication3",
     "\\WebApplication2"
   ],
-  "SelectedNode": "\\WebApplication2\\WebApplication2.sln",
+  "SelectedNode": "\\data_aquisition\\WebApplication3\\WebApplication3.sln",
   "PreviewInSolutionExplorer": false
 }
