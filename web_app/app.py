@@ -129,7 +129,6 @@ def build_side_panel():
             # Energy Piechart
             html.Div(
                 id = "ooc-piechart-outer",
-                #className = "three columns",
                 children = [
                     generate_section_banner("Energy Mix"),
                     generate_piechart(),
@@ -142,6 +141,39 @@ def generate_piechart():
     """
     Build and return a piechart.
     """
+
+    # df for prototyping
+    labels = ['Wind Offshore','Solar','Wind Onshore','Hydro']
+    values = [4500, 2500, 1053, 500]
+    d = { 'Generation': labels, 'Amount': values}
+    df_1 = pd.DataFrame(d)
+   
+    # Create figure using plotly express
+    fig = px.pie(df_1, 
+                 values = "Amount", 
+                 names = "Generation", 
+                 color = "Generation")
+    
+    # Adjust figure styling
+    fig.update_layout(
+        paper_bgcolor = "rgba(0,0,0,0)",
+        plot_bgcolor = "rgba(0,0,0,0)",
+        font_color = "white",
+        legend = dict(
+            orientation = "h",
+            yanchor = "bottom",
+            y = 1.02,
+            xanchor = "left",
+            x = 0,
+            )
+        )
+
+    # Wrap and return figure
+    return dcc.Graph(
+        id = "time-series-chart",
+        figure = fig
+        )
+
     return dcc.Graph(
         id="piechart",
         figure={
