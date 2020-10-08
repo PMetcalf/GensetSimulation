@@ -102,12 +102,13 @@ def generate_time_series_scatter():
     fig.update_layout(
         paper_bgcolor = "rgba(0,0,0,0)",
         plot_bgcolor = "rgba(0,0,0,0)",
+        font_color = "white",
         legend = dict(
             orientation = "h",
             yanchor = "bottom",
             y = 1.02,
             xanchor = "left",
-            x = 0
+            x = 0,
             )
         )
 
