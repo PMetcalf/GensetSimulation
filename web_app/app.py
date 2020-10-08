@@ -159,42 +159,12 @@ def generate_piechart():
         paper_bgcolor = "rgba(0,0,0,0)",
         plot_bgcolor = "rgba(0,0,0,0)",
         font_color = "white",
-        legend = dict(
-            orientation = "h",
-            yanchor = "bottom",
-            y = 1.02,
-            xanchor = "left",
-            x = 0,
-            )
         )
 
     # Wrap and return figure
     return dcc.Graph(
-        id = "time-series-chart",
+        id = "piechart",
         figure = fig
-        )
-
-    return dcc.Graph(
-        id="piechart",
-        figure={
-            "data": [
-                {
-                    "labels": ['Solar', 'Wind', 'Hydro'],
-                    "values": [15, 12, 18],
-                    "type": "pie",
-                    "marker": {"line": {"color": "white", "width": 1}},
-                    "hoverinfo": "label",
-                    "textinfo": "label",
-                }
-            ],
-            "layout": {
-                "showlegend": True,
-                "paper_bgcolor": "rgba(0,0,0,0)",
-                "plot_bgcolor": "rgba(0,0,0,0)",
-                "font": {"color": "white"},
-                "autosize": True,
-            },
-        },
         )
 
 @app.callback(
