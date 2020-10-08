@@ -78,6 +78,7 @@ def build_chart_panel():
     return html.Div(
         id = "control-chart-container",
         children = [
+            generate_section_banner("Energy Generation"),
             generate_time_series_scatter()
             ]
         )
@@ -127,6 +128,7 @@ def build_side_panel():
                 id = "ooc-piechart-outer",
                 className = "three columns",
                 children = [
+                    generate_section_banner("Energy Mix"),
                     generate_piechart(),
                     ],
                 ),
