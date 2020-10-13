@@ -1,10 +1,10 @@
 {
   "ExpandedNodes": [
     "",
-    "\\data_aquisition",
-    "\\data_aquisition\\WebApplication3",
-    "\\WebApplication2"
+    "\\daq",
+    "\\data_analytics",
+    "\\data_aquisition"
   ],
-  "SelectedNode": "\\daq",
+  "SelectedNode": "\\data_analytics",
   "PreviewInSolutionExplorer": false
 }
