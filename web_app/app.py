@@ -7,7 +7,9 @@ import pandas as pd
 
 DF_SAVE_STRING = 'D:\Developer Area\e-grid_analytics\data_analytics\data\interim\dash_data.pkl'
 
-app = dash.Dash(__name__)
+app = dash.Dash(__name__,
+                meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],
+)
 
 df_new = pd.read_pickle(DF_SAVE_STRING)
 
@@ -16,21 +18,21 @@ def build_banner():
     Builds banner displayed at top of page.
     """
     return html.Div(
-        id="banner",
-        className="banner",
-        children=[
+        id = "banner",
+        className = "banner",
+        children = [
             html.Div(
-                id="banner-text",
-                children=[
+                id = "banner-text",
+                children = [
                     html.H5('Electricity Grid Analytics'),
                     html.H6('UK Electrical Generation Data'),
                 ],
             ),
             html.Div(
-                id="banner-logo",
-                children=[
+                id = "banner-logo",
+                children = [
                     html.Button(
-                        id="cloudforest-button", children="Cloudforest", n_clicks=0
+                        id = "cloudforest-button", children="Cloudforest", n_clicks=0
                     ),
                 ],
             ),
@@ -47,7 +49,7 @@ def build_tabs():
         children = [
             dcc.Tabs(
                 id = "app-tabs",
-                value = "tab1",
+                value = "tab2",
                 className = "custom-tabs",
                 children = [
                     dcc.Tab(
