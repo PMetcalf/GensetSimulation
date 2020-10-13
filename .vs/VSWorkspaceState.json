@@ -2,9 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\daq",
-    "\\data_analytics",
-    "\\data_aquisition"
+    "\\daq\\BMRSDataWebService",
+    "\\daq\\BMRSDataWebService\\Controllers",
+    "\\daq\\BMRSDataWebService\\Properties",
+    "\\daq\\BMRSDataWebService\\Services",
+    "\\daq\\E_GridDataShunter",
+    "\\daq\\E_GridDataShunter\\Models",
+    "\\data_aquisition",
+    "\\data_aquisition\\DatabaseController"
   ],
-  "SelectedNode": "\\data_analytics",
+  "SelectedNode": "\\data_aquisition\\DatabaseController\\DatabaseController.sln",
   "PreviewInSolutionExplorer": false
 }

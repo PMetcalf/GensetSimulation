@@ -5,7 +5,7 @@ using System;
 using System.Diagnostics;
 using System.Threading.Tasks;
 
-namespace BMRSDataWebService.Controllers
+namespace DatabaseController.Controllers
 {
     //[Route("api/[controller]")]
     [ApiController]
