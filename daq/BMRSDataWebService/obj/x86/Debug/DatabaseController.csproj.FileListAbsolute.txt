@@ -1,2 +1,0 @@
-D:\Developer Area\e-grid_analytics\daq\BMRSDataWebService\obj\x86\Debug\DatabaseController.csprojAssemblyReference.cache
-D:\Developer Area\e-grid_analytics\daq\BMRSDataWebService\obj\x86\Debug\DatabaseController.csproj.CoreCompileInputs.cache
