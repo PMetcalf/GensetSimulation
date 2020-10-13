@@ -1,7 +1,7 @@
-﻿using E_GridDataShunter.Models;
+﻿using DatabaseController.Models;
 using System.Threading.Tasks;
 
-namespace BMRSDataWebService.Services
+namespace DatabaseController.Services
 {
     /// <summary>
     /// Provides an interface for Cosmos DB services.
