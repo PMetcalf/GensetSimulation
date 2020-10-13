@@ -59,7 +59,7 @@ def build_tabs():
                         className = "custom-tab",
                         selected_className = "custom-tab--selected",
                     ),
-                    dcc.Tab(
+                    dcc.Tab(    # Remove once solution validated
                         id = "Prediction-tab",
                         label = "Prediction Data",
                         value = "tab2",
@@ -186,18 +186,20 @@ def render_tab_content(tab_switch):
     """
     return (
         html.Div(
-            id = "graphs-container",
+            id = "status-container",
             #className = "row",
             children = [
-                build_chart_panel(),
-                build_side_panel(),
+                html.Div(
+                    id = "graphs-container",
+                    children = [build_chart_panel(), build_side_panel()],
+                    ),                
                 ],
             ),
         )
 
 app.layout = html.Div(
-    id = "main-app-container",
-    children=[
+    id = "big-app-container",
+    children = [
         build_banner(),
         html.Div(
             id = "app-container",
