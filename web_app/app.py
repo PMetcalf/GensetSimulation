@@ -77,7 +77,7 @@ def build_chart_panel():
     """
     return html.Div(
         id = "control-chart-container",
-        className = "eight columns",
+        #className = "eight columns",
         children = [
             generate_section_banner("Energy Generation"),
             generate_time_series_scatter()
@@ -124,7 +124,7 @@ def build_side_panel():
     """
     return html.Div(
         id = "top-section-container",
-        className = "four columns",
+        #className = "four columns",
         children = [
             # Energy Piechart
             html.Div(
@@ -178,7 +178,7 @@ def render_tab_content(tab_switch):
     return (
         html.Div(
             id = "graphs-container",
-            className = "row",
+            #className = "row",
             children = [
                 build_chart_panel(),
                 build_side_panel(),
