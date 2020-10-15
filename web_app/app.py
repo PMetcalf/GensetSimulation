@@ -4,10 +4,10 @@ import dash_html_components as html
 from dash.dependencies import Input, Output, State
 import plotly.express as px
 import pandas as pd
-import sys
+#import sys
 
-sys.path.append('D:\Developer Area\e-grid_analytics\web_app\business_logic')
-import business_logic.app_data_munging 
+#sys.path.append('D:\Developer Area\e-grid_analytics\web_app\business_logic')
+import app_data_munging as munging 
 
 DF_SAVE_STRING = 'D:\Developer Area\e-grid_analytics\data_analytics\data\interim\dash_data.pkl'
 
@@ -198,7 +198,7 @@ def generate_aggregate_piechart():
     """
 
     # df for prototyping
-    aggregate_df = app_data_munging.return_aggregate_df()
+    aggregate_df = munging.return_aggregate_df(df_new)
    
     # Create figure using plotly express
     fig = px.pie(aggregate_df, 
