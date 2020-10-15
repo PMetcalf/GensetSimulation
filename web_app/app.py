@@ -98,12 +98,20 @@ def generate_time_series_scatter():
     Generates time-series scatter graph.
     """
 
+    # Set legend names
+    colorsIdx = {
+        'Solar': 'Solar',
+        'Wind Onshore': 'Onshore Wind',
+        'Wind Offshore': 'Offshore Wind',
+        'Hydro Run-of-river and poundage': 'Hydro',
+        'Hydro Pumped Storage': 'Pumped Hydro'
+        }
+
     # Create figure using plotly express
     fig = px.scatter(df_new, x = "setDatetime", y = "quantity", color = "powType",
                  labels = {
                      "setDatetime": "Date",
                      "quantity": "Generation (MW)",
-                     "powType": "Generation Type"
                      },
                  )
     
