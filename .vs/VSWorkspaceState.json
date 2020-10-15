@@ -2,12 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\data_analytics",
-    "\\data_analytics\\notebooks",
-    "\\data_aquisition",
-    "\\data_aquisition\\DatabaseController",
-    "\\data_aquisition\\GridDataAcquisitionConsoleApp",
-    "\\web_app"
+    "\\data_analytics\\data",
+    "\\data_analytics\\data\\interim",
+    "\\data_analytics\\src",
+    "\\data_analytics\\src\\data",
+    "\\data_analytics\\src\\features",
+    "\\web_app",
+    "\\web_app\\assets",
+    "\\web_app\\business_logic"
   ],
-  "SelectedNode": "\\web_app\\template.py",
+  "SelectedNode": "\\data_analytics\\data\\interim\\interim_data.pkl",
   "PreviewInSolutionExplorer": false
 }
