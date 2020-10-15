@@ -137,18 +137,18 @@ def build_side_panel():
         children = [
             # Energy Piechart
             html.Div(
-                id = "ooc-piechart-outer",
+                id = "rem-piechart-outer",
                 className = "four columns",
                 children = [
-                    generate_section_banner("Chart 1"),
+                    generate_section_banner("Renewable Energy Mix"),
                     generate_piechart(),
                     ],
                 ),
             html.Div(
-                id = "ooc-piechart-outer",
+                id = "aam-piechart-outer",
                 className = "four columns",
                 children = [
-                    generate_section_banner("Chart 2"),
+                    generate_section_banner("Aggregated Annual Mix"),
                     generate_piechart(),
                     ],
                 ),
