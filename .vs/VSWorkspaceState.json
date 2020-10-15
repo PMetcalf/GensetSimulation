@@ -8,9 +8,8 @@
     "\\data_analytics\\src\\data",
     "\\data_analytics\\src\\features",
     "\\web_app",
-    "\\web_app\\assets",
-    "\\web_app\\business_logic"
+    "\\web_app\\assets"
   ],
-  "SelectedNode": "\\data_analytics\\data\\interim\\interim_data.pkl",
+  "SelectedNode": "\\web_app\\.gitkeep",
   "PreviewInSolutionExplorer": false
 }

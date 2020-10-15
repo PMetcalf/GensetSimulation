@@ -9,7 +9,8 @@ This file supports load and save operations.
 import pandas as pd
 
 # CONSTANTS
-DF_SAVE_STRING = r'D:\Developer Area\e-grid_analytics\data_analytics\data\interim\dash_data.pkl'
+DF_SAVE_STRING = r'D:\Developer Area\e-grid_analytics\data_analytics\data\interim\interim_data.pkl'
+DASH_STRING = r'D:\Developer Area\e-grid_analytics\data_analytics\data\interim\dash_data.pkl'
 
 def convert_dict_to_dataframe(items_dict):
     """Convert to Dataframe
@@ -58,7 +59,7 @@ def save_dash_dataframe(df):
         None.
     """
 
-    DASH_STRING = r'D:\Developer Area\e-grid_analytics\data_analytics\data\interim\dash_data.pkl'
+    #DASH_STRING = r'D:\Developer Area\e-grid_analytics\data_analytics\data\interim\dash_data.pkl'
 
     df.to_pickle(DASH_STRING)
 
@@ -83,4 +84,27 @@ def load_local_dataframe():
     # Print information about dataframe
     print(df_new.info())
 
-    return df_new  
+    return df_new
+
+def load_dash_dataframe():
+    """Save Dash Dataframe
+    ======================================
+    Saves dataframe locally using pickle format.
+    
+    Args:
+        None.
+        
+    Returns:
+        df (DataFrame) - Dataframe loaded from local pickle.
+    """
+
+    #DASH_SAVE_STRING = 
+
+    df_new = pd.read_pickle(DASH_STRING)
+ 
+    print("Loaded Dash dataframe ...")
+
+    # Print information about dataframe
+    print(df_new.info())
+
+    return df_new    
