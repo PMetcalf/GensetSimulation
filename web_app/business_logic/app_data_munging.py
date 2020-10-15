@@ -24,6 +24,13 @@ def return_aggregate_df(df_original):
     df_time_series = df_original.copy()
 
     # Create dict for generation types and aggregate total
+    aggregated_generation = {
+        "Solar": 0,
+        "Wind Offshore": 0,
+        "Wind Onshore": 0,
+        "Hydro Run-of-river and poundage": 0,
+        "Hydro Pumped Storage": 0
+        }
 
     # Iterate over time-series dataframe and populate aggregate dict
 
