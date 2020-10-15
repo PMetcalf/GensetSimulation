@@ -38,6 +38,9 @@ def return_aggregate_df(df_original):
 
     # Convert aggregate dict to dataframe
     aggregate_df = pd.DataFrame.from_dict(aggregated_generation, orient = 'index')
+    
+    aggregate_df.index.rename('powType', inplace=True)
+    aggregate_df.columns = ['quantity']
 
     # Return dataframe
     return aggregate_df
