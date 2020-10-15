@@ -4,6 +4,10 @@ import dash_html_components as html
 from dash.dependencies import Input, Output, State
 import plotly.express as px
 import pandas as pd
+import sys
+
+sys.path.append('D:\Developer Area\e-grid_analytics\web_app\business_logic')
+import business_logic.app_data_munging 
 
 DF_SAVE_STRING = 'D:\Developer Area\e-grid_analytics\data_analytics\data\interim\dash_data.pkl'
 
@@ -149,7 +153,7 @@ def build_side_panel():
                 className = "four columns",
                 children = [
                     generate_section_banner("Aggregated Annual Mix"),
-                    generate_piechart(),
+                    generate_aggregate_piechart(),
                     ],
                 ),
             ],
@@ -186,6 +190,37 @@ def generate_piechart():
         id = "piechart",
         figure = fig
         )
+
+
+def generate_aggregate_piechart():
+    """
+    Build and return an aggregate piechart.
+    """
+
+    # df for prototyping
+    aggregate_df = app_data_munging.return_aggregate_df()
+   
+    # Create figure using plotly express
+    fig = px.pie(aggregate_df, 
+                 values = "Amount", 
+                 names = "Generation", 
+                 color = "Generation")
+    
+    # Adjust figure styling
+    fig.update_layout(
+        autosize = True,
+        margin = dict(l=50, r=120, t=50, b=120),
+        paper_bgcolor = "rgba(0,0,0,0)",
+        plot_bgcolor = "rgba(0,0,0,0)",
+        font_color = "white",
+        )
+
+    # Wrap and return figure
+    return dcc.Graph(
+        id = "piechart",
+        figure = fig
+        )
+
 
 @app.callback(
     [Output("app-content", "children")],
