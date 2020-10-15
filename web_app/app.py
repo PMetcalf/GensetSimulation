@@ -174,6 +174,8 @@ def generate_piechart():
     
     # Adjust figure styling
     fig.update_layout(
+        autosize = True,
+        margin = dict(l=50, r=120, t=50, b=120),
         paper_bgcolor = "rgba(0,0,0,0)",
         plot_bgcolor = "rgba(0,0,0,0)",
         font_color = "white",
