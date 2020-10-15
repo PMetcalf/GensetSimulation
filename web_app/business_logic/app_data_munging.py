@@ -8,7 +8,7 @@ This file supports data cleaning and processing operations for the app.
 # Module Importations
 import pandas as pd
 
-def return_aggregate_df():
+def return_aggregate_df(df_original):
     """Return Aggregate Dataframe
     ======================================
     Returns a new dataframe of aggregated generation.
@@ -21,6 +21,7 @@ def return_aggregate_df():
     """
 
     # Copy time-series dataframe
+    df_time_series = df_original.copy()
 
     # Create dict for generation types and aggregate total
 
