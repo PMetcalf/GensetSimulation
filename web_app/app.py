@@ -133,13 +133,22 @@ def build_side_panel():
     """
     return html.Div(
         id = "top-section-container",
-        #className = "four columns",
+        className="row",
         children = [
             # Energy Piechart
             html.Div(
                 id = "ooc-piechart-outer",
+                className = "four columns",
                 children = [
-                    generate_section_banner("Energy Mix"),
+                    generate_section_banner("Chart 1"),
+                    generate_piechart(),
+                    ],
+                ),
+            html.Div(
+                id = "ooc-piechart-outer",
+                className = "four columns",
+                children = [
+                    generate_section_banner("Chart 2"),
                     generate_piechart(),
                     ],
                 ),
