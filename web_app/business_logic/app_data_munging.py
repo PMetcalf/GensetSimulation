@@ -42,7 +42,7 @@ def return_aggregate_df(df_original):
         aggregated_generation[key] = generation_sum
 
     # Convert aggregate dict to dataframe
+    aggregate_df = pd.DataFrame.from_dict(aggregated_generation)
 
     # Return dataframe
-
-    pass
+    return aggregate_df
