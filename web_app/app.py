@@ -59,13 +59,13 @@ def build_tabs():
                         className = "custom-tab",
                         selected_className = "custom-tab--selected",
                     ),
-                    dcc.Tab(    # Remove once solution validated
-                        id = "Prediction-tab",
-                        label = "Prediction Data",
-                        value = "tab2",
-                        className = "custom-tab",
-                        selected_className = "custom-tab--selected",
-                    ),
+                 #   dcc.Tab(    # Remove once solution validated
+                  #      id = "Prediction-tab",
+                  #      label = "Prediction Data",
+                  #      value = "tab2",
+                  #      className = "custom-tab",
+                  #      selected_className = "custom-tab--selected",
+                    #),
                 ],
             )
         ],
