@@ -9,7 +9,7 @@ This file supports load and save operations.
 import pandas as pd
 
 # CONSTANTS
-DF_SAVE_STRING = 'C:\Developer\PMetcalf\GensetSimulation\GensetSimulation\data_analytics\data\interim\interim_data.pkl'
+DF_SAVE_STRING = r'D:\Developer Area\e-grid_analytics\data_analytics\data\interim\dash_data.pkl'
 
 def convert_dict_to_dataframe(items_dict):
     """Convert to Dataframe
@@ -58,7 +58,7 @@ def save_dash_dataframe(df):
         None.
     """
 
-    DASH_STRING = 'C:\Developer\PMetcalf\GensetSimulation\GensetSimulation\data_analytics\data\interim\dash_data.pkl'
+    DASH_STRING = r'D:\Developer Area\e-grid_analytics\data_analytics\data\interim\dash_data.pkl'
 
     df.to_pickle(DASH_STRING)
 
