@@ -86,7 +86,7 @@ def build_chart_panel():
     """
     return html.Div(
         id = "control-chart-container",
-        #className = "eight columns",
+        className = "eight columns",
         children = [
             generate_section_banner("Energy Generation"),
             generate_time_series_scatter()
