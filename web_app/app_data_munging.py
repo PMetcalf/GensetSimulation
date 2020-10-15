@@ -41,8 +41,6 @@ def return_aggregate_df(df_original):
 
         aggregated_generation[key] = generation_sum
 
-    print(aggregated_generation)
-
     # Convert aggregate dict to dataframe
     aggregate_df = pd.DataFrame.from_dict(aggregated_generation, orient = 'index')
     
