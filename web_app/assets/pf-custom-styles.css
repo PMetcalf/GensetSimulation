@@ -179,7 +179,7 @@ body {
 /* Main Dashboard Tab
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
-#top-section-container {
+#aggregates-container {
     height: 40rem;
     flex-direction: row;
     display: flex;
@@ -688,7 +688,7 @@ body {
         margin: 2rem;
     }
 
-    #status-container, #top-section-container {
+    #status-container, #aggregates-container {
         flex-direction: column;
         height: auto;
     }
@@ -703,7 +703,7 @@ body {
         width: 100%;
     }
 
-    #top-section-container > div {
+    #aggregates-container > div {
         width: 100%;
         height: auto;
     }

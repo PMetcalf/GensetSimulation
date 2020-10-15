@@ -132,7 +132,7 @@ def build_side_panel():
     Builds panel containing piecharts.
     """
     return html.Div(
-        id = "top-section-container",
+        id = "aggregates-container",
         className="row",
         children = [
             # Energy Piechart
