@@ -118,7 +118,8 @@ def generate_time_series_scatter():
             y = 1.02,
             xanchor = "left",
             x = 0,
-            )
+            ),
+        legend_title_text =""
         )
 
     # Wrap and return figure
