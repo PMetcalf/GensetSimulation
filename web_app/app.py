@@ -85,10 +85,10 @@ def build_chart_panel():
     Builds chart panel with data visualisations.
     """
     return html.Div(
-        id = "control-chart-container",
+        id = "timeseries-chart-container",
         className = "eight columns",
         children = [
-            generate_section_banner("Energy Generation"),
+            generate_section_banner("Generation Time Series"),
             generate_time_series_scatter()
             ]
         )
