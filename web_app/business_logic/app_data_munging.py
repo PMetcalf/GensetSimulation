@@ -33,6 +33,13 @@ def return_aggregate_df(df_original):
         }
 
     # Iterate over time-series dataframe and populate aggregate dict
+    for key in aggregated_generation:
+
+        df_generation = df_time_series['PowType' == key]
+
+        generation_sum = df_generation['Quantity'].sum()
+
+        aggregated_generation[key] = generation_sum
 
     # Convert aggregate dict to dataframe
 
