@@ -30,12 +30,14 @@ def return_aggregate_df(df_original):
 
         df_generation = df_time_series[df_time_series['powType'] == key]
 
-        generation_sum = df_generation['Quantity'].sum()
+        generation_sum = df_generation['quantity'].sum()
 
         aggregated_generation[key] = generation_sum
 
+    print(aggregated_generation)
+
     # Convert aggregate dict to dataframe
-    aggregate_df = pd.DataFrame.from_dict(aggregated_generation)
+    aggregate_df = pd.DataFrame.from_dict(aggregated_generation, orient = 'index')
 
     # Return dataframe
     return aggregate_df

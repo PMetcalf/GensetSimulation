@@ -37,7 +37,7 @@ def return_aggregate_df(df_original):
 
         df_generation = df_time_series['PowType' == key]
 
-        generation_sum = df_generation['Quantity'].sum()
+        generation_sum = df_generation['quantity'].sum()
 
         aggregated_generation[key] = generation_sum
 
