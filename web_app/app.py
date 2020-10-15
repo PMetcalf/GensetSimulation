@@ -202,9 +202,9 @@ def generate_aggregate_piechart():
    
     # Create figure using plotly express
     fig = px.pie(aggregate_df, 
-                 values = "Amount", 
-                 names = "Generation", 
-                 color = "Generation")
+                 values = "quantity", 
+                 names = aggregate_df.index, 
+                 color = aggregate_df.index)
     
     # Adjust figure styling
     fig.update_layout(
