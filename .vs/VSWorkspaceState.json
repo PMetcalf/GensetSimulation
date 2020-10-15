@@ -1,16 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\daq",
-    "\\daq\\BMRSDataWebService",
-    "\\daq\\BMRSDataWebService\\Controllers",
-    "\\daq\\BMRSDataWebService\\Properties",
-    "\\daq\\BMRSDataWebService\\Services",
-    "\\daq\\E_GridDataShunter",
-    "\\daq\\E_GridDataShunter\\Models",
+    "\\data_analytics",
+    "\\data_analytics\\notebooks",
     "\\data_aquisition",
-    "\\data_aquisition\\DatabaseController"
+    "\\data_aquisition\\DatabaseController",
+    "\\data_aquisition\\GridDataAcquisitionConsoleApp",
+    "\\web_app"
   ],
-  "SelectedNode": "\\data_aquisition\\DatabaseController\\appsettings.json",
+  "SelectedNode": "\\web_app\\template.py",
   "PreviewInSolutionExplorer": false
 }
