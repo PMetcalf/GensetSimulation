@@ -9,7 +9,7 @@ import pandas as pd
 #sys.path.append('D:\Developer Area\e-grid_analytics\web_app\business_logic')
 import app_data_munging as munging 
 
-DF_SAVE_STRING = 'D:\Developer Area\e-grid_analytics\data_analytics\data\interim\dash_data.pkl'
+DF_SAVE_STRING = 'D:\Developer Area\e-grid_analytics\web_app\data\dash_data.pkl'
 
 app = dash.Dash(__name__,
                 meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],

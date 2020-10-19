@@ -4,12 +4,13 @@
     "\\data_analytics",
     "\\data_analytics\\data",
     "\\data_analytics\\data\\interim",
+    "\\data_analytics\\notebooks",
     "\\data_analytics\\src",
     "\\data_analytics\\src\\data",
     "\\data_analytics\\src\\features",
     "\\web_app",
     "\\web_app\\assets"
   ],
-  "SelectedNode": "\\web_app\\.gitkeep",
+  "SelectedNode": "\\data_analytics\\src\\data\\test_unit.py",
   "PreviewInSolutionExplorer": false
 }
