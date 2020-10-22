@@ -24,10 +24,10 @@ namespace GridDataAcquisitionConsoleApp
             try
             {
                 // Collect data from this date
-                DateTime startDate = new DateTime(2020, 8, 1);
+                DateTime startDate = new DateTime(2020, 3, 1);
 
                 // Iterate over one month from start date
-                for (int day = 0; day < 32; day++)
+                for (int day = 0; day < 95; day++)
                 {
                     // Iterate date based on day
                     DateTime date = startDate.AddDays(day);

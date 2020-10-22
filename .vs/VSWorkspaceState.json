@@ -2,15 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\data_analytics",
-    "\\data_analytics\\data",
-    "\\data_analytics\\data\\interim",
-    "\\data_analytics\\notebooks",
     "\\data_analytics\\src",
     "\\data_analytics\\src\\data",
     "\\data_analytics\\src\\features",
+    "\\data_aquisition",
+    "\\data_aquisition\\DatabaseController",
+    "\\data_aquisition\\GridDataAcquisitionConsoleApp",
     "\\web_app",
-    "\\web_app\\assets"
+    "\\web_app\\data"
   ],
-  "SelectedNode": "\\data_analytics\\src\\data\\test_unit.py",
+  "SelectedNode": "\\data_aquisition\\DatabaseController\\DatabaseController.csproj",
   "PreviewInSolutionExplorer": false
 }
