@@ -1,15 +1,16 @@
+import os
+import pathlib
+
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output, State
 import plotly.express as px
 import pandas as pd
-#import sys
 
-#sys.path.append('D:\Developer Area\e-grid_analytics\web_app\business_logic')
 import app_data_munging as munging 
 
-DF_SAVE_STRING = 'D:\Developer Area\e-grid_analytics\web_app\data\dash_data.pkl'
+#DF_SAVE_STRING = 'D:\Developer Area\e-grid_analytics\web_app\data\dash_data.pkl'
 
 app = dash.Dash(__name__,
                 meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],
@@ -17,7 +18,9 @@ app = dash.Dash(__name__,
 
 server = app.server
 
-df_new = pd.read_pickle(DF_SAVE_STRING)
+APP_PATH = str(pathlib.Path(__file__).parent.resolve())
+
+df_new = pd.read_pickle(os.path.join(APP_PATH, os.path.join("data", "dash_data.pkl")))
 
 def build_banner():
     """
