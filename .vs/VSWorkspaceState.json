@@ -3,14 +3,15 @@
     "",
     "\\data_analytics",
     "\\data_analytics\\src",
-    "\\data_analytics\\src\\data",
     "\\data_analytics\\src\\features",
-    "\\data_aquisition",
     "\\data_aquisition\\DatabaseController",
     "\\data_aquisition\\GridDataAcquisitionConsoleApp",
     "\\web_app",
+    "\\web_app\\.azure",
+    "\\web_app\\.venv",
+    "\\web_app\\.venv\\Lib\\site-packages",
     "\\web_app\\data"
   ],
-  "SelectedNode": "\\data_aquisition\\DatabaseController\\DatabaseController.csproj",
+  "SelectedNode": "\\web_app\\requirements.txt",
   "PreviewInSolutionExplorer": false
 }

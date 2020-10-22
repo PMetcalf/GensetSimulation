@@ -14,6 +14,8 @@ app = dash.Dash(__name__,
 
 server = app.server
 
+#hmm
+
 APP_PATH = str(pathlib.Path(__file__).parent.resolve())
 
 df_new = pd.read_pickle(os.path.join(APP_PATH, os.path.join("data", "dash_data.pkl")))
