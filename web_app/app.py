@@ -140,12 +140,77 @@ def build_table_panel():
     """
     return html.Div(
         id = "table-container",
-        className = "eight columns",
+        className = "row",
         children = [
-            generate_section_banner("Generation Summary Statistics"),
-            generate_time_series_scatter()
+            html.Div(
+                id = "metric-summary",
+                className = "eight columns",
+                children = [
+                    generate_section_banner("Generation Summary Statistics"),
+                    html.Div(
+                        id = "metric-div",
+                        children = [
+                            generate_metric_list_header(),
+                            html.Div(
+                                id = "metric-rows",
+                                children = [
+                                    generate_metric_row_helper(1),
+                                    generate_metric_row_helper(2)
+                                    ]
+                                )
+                            ]
+                        )
+                    ]
+                )
             ]
         )
+
+def generate_metric_list_header():
+    return generate_metric_row(
+        "metric_header",
+        {"height": "3rem", "margin": "1rem 0", "textAlign": "center"},
+        {"id": "m_header_1", "children": html.Div("Generation Type")},
+        {"id": "m_header_2", "children": html.Div("Mean/Daily")},
+        {"id": "m_header_3", "children": html.Div("Aggregate per Annum")},
+        {"id": "m_header_4", "children": html.Div("% Contribution")},
+    )
+
+def generate_metric_row(id, style, col1, col2, col3, col4):
+    if style is None:
+        style = {"height": "8rem", "width": "100%"}
+
+    return html.Div(
+        id = id,
+        className = "row metric-row",
+        style = style,
+        children = [
+            html.Div(
+                id = col1["id"],
+                className = "one column",
+                style = {"margin-right": "2.5rem", "minWidth": "50px"},
+                children = col1["children"],
+            ),
+            html.Div(
+                id = col2["id"],
+                style = {"textAlign": "center"},
+                className = "one column",
+                children = col2["children"],
+            ),
+            html.Div(
+                id = col3["id"],
+                style = {"textAlign": "center"},
+                className = "one column",
+                children = col3["children"],
+            ),
+            html.Div(
+                id = col4["id"],
+                style = {"display": "flex", "textAlign": "center"},
+                className = "one column",
+                children = col4["children"],
+            ),
+        ],
+    )
+
 
 def build_side_panel():
     """
