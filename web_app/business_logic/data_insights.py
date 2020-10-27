@@ -8,6 +8,19 @@ This file supports data calculation and processing operations.
 # Module Importations
 import pandas as pd
 
+def return_summary_df(df_original, start_date, end_date):
+    """Return Summary Dataframe
+    ======================================
+    Returns a new dataframe summarising generation data.
+    
+    Args:
+        df_original (DataFrame) - Dataframe with time-series generation data.
+        
+    Returns:
+        df_aggregated (DataFrame) - New dataframe containing aggregated data.
+    """
+    pass
+
 def return_aggregate_df(df_original):
     """Return Aggregate Dataframe
     ======================================
@@ -55,7 +68,6 @@ def return_aggregate_df(df_original):
 
     # Return dataframe
     return aggregate_df
-
 
 def return_renewable_aggregate_df(df_original):
     """Return Renewable Aggregate Dataframe
