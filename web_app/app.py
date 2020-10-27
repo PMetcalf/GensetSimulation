@@ -162,39 +162,6 @@ def build_side_panel():
             ],
         )
 
-def generate_piechart():
-    """
-    Build and return a piechart.
-    """
-
-    # df for prototyping
-    labels = ['Wind Offshore','Solar','Wind Onshore','Hydro']
-    values = [4500, 2500, 1053, 500]
-    d = { 'Generation': labels, 'Amount': values}
-    df_1 = pd.DataFrame(d)
-   
-    # Create figure using plotly express
-    fig = px.pie(df_1, 
-                 values = "Amount", 
-                 names = "Generation", 
-                 color = "Generation")
-    
-    # Adjust figure styling
-    fig.update_layout(
-        autosize = True,
-        margin = dict(l=50, r=120, t=50, b=120),
-        paper_bgcolor = "rgba(0,0,0,0)",
-        plot_bgcolor = "rgba(0,0,0,0)",
-        font_color = "white",
-        )
-
-    # Wrap and return figure
-    return dcc.Graph(
-        id = "piechart",
-        figure = fig
-        )
-
-
 def generate_renewable_aggregate_piechart():
     """
     Build and return a renewable aggregate piechart.
