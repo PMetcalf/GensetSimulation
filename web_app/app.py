@@ -154,8 +154,8 @@ def build_table_panel():
                             html.Div(
                                 id = "metric-rows",
                                 children = [
-                                    generate_metric_row_helper(1),
-                                    generate_metric_row_helper(2)
+                                    generate_metric_row_helper("Solar"),
+                                    generate_metric_row_helper("Wind Offshore")
                                     ]
                                 )
                             ]
@@ -177,6 +177,33 @@ def generate_metric_list_header():
         {"id": "m_header_3", "children": html.Div("Aggregate per Annum")},  # Column 3
         {"id": "m_header_4", "children": html.Div("% Contribution")},   # Column 4
     )
+
+def generate_metric_row_helper(pow_type):
+    '''
+    Populates data in row objects returned to the data table.
+    '''
+
+    params = list(df_new)
+
+    # Retrieve data for generation type
+    item = params[pow_type]
+
+    # Create ids for data elements
+    div_id = item
+    mean_id = item + "_mean"
+    annual_aggregate_id = item + "_aag"
+    percentage_contribution_id = item + "_perc"
+
+    # Generate row for generation type
+    return generate_metric_row(
+        div_id,
+        None,
+        {"id": div_id, "children": "0"},
+        {"id": mean_id, "children": "0"},
+        {"id": annual_aggregate_id, "children": "0"},
+        {"id": percentage_contribution_id, "children": "0.00%"},
+        )
+    
 
 def generate_metric_row(id, style, col1, col2, col3, col4):
     '''
@@ -217,7 +244,6 @@ def generate_metric_row(id, style, col1, col2, col3, col4):
             ),
         ],
     )
-
 
 def build_side_panel():
     """
