@@ -1,6 +1,5 @@
 import os
 import pathlib
-
 import dash
 import dash_core_components as dcc
 import dash_html_components as html
@@ -13,8 +12,6 @@ app = dash.Dash(__name__,
 )
 
 server = app.server
-
-#hmm
 
 APP_PATH = str(pathlib.Path(__file__).parent.resolve())
 
