@@ -9,6 +9,6 @@
     "\\web_app\\.venv",
     "\\web_app\\data"
   ],
-  "SelectedNode": "\\.venv",
+  "SelectedNode": "\\web_app\\requirements.txt",
   "PreviewInSolutionExplorer": false
 }
