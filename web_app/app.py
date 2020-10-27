@@ -134,6 +134,19 @@ def generate_time_series_scatter():
         figure = fig
         )
 
+def build_table_panel():
+    """
+    Builds table panel with generation data table.
+    """
+    return html.Div(
+        id = "table-container",
+        className = "eight columns",
+        children = [
+            generate_section_banner("Generation Summary Statistics"),
+            generate_time_series_scatter()
+            ]
+        )
+
 def build_side_panel():
     """
     Builds panel containing piecharts.
@@ -191,7 +204,6 @@ def generate_renewable_aggregate_piechart():
         figure = fig
         )
 
-
 def generate_aggregate_piechart():
     """
     Build and return an aggregate piechart.
@@ -233,11 +245,14 @@ def render_tab_content(tab_switch):
     return (
         html.Div(
             id = "status-container",
-            #className = "row",
             children = [
                 html.Div(
                     id = "graphs-container",
-                    children = [build_chart_panel(), build_side_panel()],
+                    children = [
+                        build_chart_panel(),
+                        build_table_panel(),
+                        build_side_panel()
+                       ],
                     ),                
                 ],
             ),
