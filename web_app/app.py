@@ -148,7 +148,7 @@ def build_side_panel():
                 className = "four columns",
                 children = [
                     generate_section_banner("Renewable Energy Mix"),
-                    generate_piechart(),
+                    generate_renewable_aggregate_piechart(),
                     ],
                 ),
             html.Div(
@@ -195,6 +195,36 @@ def generate_piechart():
         )
 
 
+def generate_renewable_aggregate_piechart():
+    """
+    Build and return a renewable aggregate piechart.
+    """
+
+    # df for prototyping
+    aggregate_df = data_insights.return_renewable_aggregate_df(df_new)
+   
+    # Create figure using plotly express
+    fig = px.pie(aggregate_df, 
+                 values = "quantity", 
+                 names = aggregate_df.index, 
+                 color = aggregate_df.index)
+    
+    # Adjust figure styling
+    fig.update_layout(
+        autosize = True,
+        margin = dict(l=50, r=120, t=50, b=120),
+        paper_bgcolor = "rgba(0,0,0,0)",
+        plot_bgcolor = "rgba(0,0,0,0)",
+        font_color = "white",
+        )
+
+    # Wrap and return figure
+    return dcc.Graph(
+        id = "ren_agg_piechart",
+        figure = fig
+        )
+
+
 def generate_aggregate_piechart():
     """
     Build and return an aggregate piechart.
@@ -220,7 +250,7 @@ def generate_aggregate_piechart():
 
     # Wrap and return figure
     return dcc.Graph(
-        id = "piechart",
+        id = "agg_piechart",
         figure = fig
         )
 
