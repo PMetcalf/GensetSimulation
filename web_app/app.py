@@ -7,6 +7,9 @@ from dash.dependencies import Input, Output, State
 import plotly.express as px
 import pandas as pd
 
+# Custom module imports
+from business_logic import data_insights
+
 app = dash.Dash(__name__,
                 meta_tags=[{"name": "viewport", "content": "width=device-width, initial-scale=1"}],
 )
@@ -16,50 +19,6 @@ server = app.server
 APP_PATH = str(pathlib.Path(__file__).parent.resolve())
 
 df_new = pd.read_pickle(os.path.join(APP_PATH, os.path.join("data", "dash_data.pkl")))
-
-
-def return_aggregate_df(df_original):
-    """Return Aggregate Dataframe
-    ======================================
-    Returns a new dataframe of aggregated generation.
-    
-    Args:
-        df_original (DataFrame) - Dataframe with time-series generation data.
-        
-    Returns:
-        df_aggregated (DataFrame) - New dataframe containing aggregated data.
-    """
-
-    # Copy time-series dataframe
-    df_time_series = df_original.copy()
-
-    # Create dict for generation types and aggregate total
-    aggregated_generation = {
-        "Solar": 0,
-        "Wind Offshore": 0,
-        "Wind Onshore": 0,
-        "Hydro Run-of-river and poundage": 0,
-        "Hydro Pumped Storage": 0
-        }
-
-    # Iterate over time-series dataframe and populate aggregate dict
-    for key in aggregated_generation:
-
-        df_generation = df_time_series[df_time_series['powType'] == key]
-
-        generation_sum = df_generation['quantity'].sum()
-
-        aggregated_generation[key] = generation_sum
-
-    # Convert aggregate dict to dataframe
-    aggregate_df = pd.DataFrame.from_dict(aggregated_generation, orient = 'index')
-    
-    aggregate_df.index.rename('powType', inplace=True)
-    aggregate_df.columns = ['quantity']
-
-    # Return dataframe
-    return aggregate_df
-
 
 def build_banner():
     """
@@ -242,7 +201,7 @@ def generate_aggregate_piechart():
     """
 
     # df for prototyping
-    aggregate_df = return_aggregate_df(df_new)
+    aggregate_df = data_insights.return_aggregate_df(df_new)
    
     # Create figure using plotly express
     fig = px.pie(aggregate_df, 
