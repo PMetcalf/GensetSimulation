@@ -166,16 +166,23 @@ def build_table_panel():
         )
 
 def generate_metric_list_header():
+    '''
+    Generates data table header using row generator helper method.
+    '''
     return generate_metric_row(
-        "metric_header",
-        {"height": "3rem", "margin": "1rem 0", "textAlign": "center"},
-        {"id": "m_header_1", "children": html.Div("Generation Type")},
-        {"id": "m_header_2", "children": html.Div("Mean/Daily")},
-        {"id": "m_header_3", "children": html.Div("Aggregate per Annum")},
-        {"id": "m_header_4", "children": html.Div("% Contribution")},
+        "metric_header",    # Object Id
+        {"height": "3rem", "margin": "1rem 0", "textAlign": "center"},  # The style
+        {"id": "m_header_1", "children": html.Div("Generation Type")},  # Column 1
+        {"id": "m_header_2", "children": html.Div("Mean/Daily")},       # Column 2
+        {"id": "m_header_3", "children": html.Div("Aggregate per Annum")},  # Column 3
+        {"id": "m_header_4", "children": html.Div("% Contribution")},   # Column 4
     )
 
 def generate_metric_row(id, style, col1, col2, col3, col4):
+    '''
+    Returns html objects generated as rows to go in a table.
+    '''
+
     if style is None:
         style = {"height": "8rem", "width": "100%"}
 
