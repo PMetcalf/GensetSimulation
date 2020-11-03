@@ -181,7 +181,7 @@ def generate_metric_list_header():
         {"id": "m_header_4", "children": html.Div("% Contribution")},   # Column 4
     )
 
-def generate_metric_row_helper(pow_type):
+def generate_metric_row_helper(pow_type_index):
     '''
     Populates data in row objects returned to the data table.
     '''
@@ -189,7 +189,7 @@ def generate_metric_row_helper(pow_type):
     params = list(df_new)
 
     # Retrieve data for generation type
-    item = params[pow_type]
+    item = params[pow_type_index]
 
     # Create ids for data elements
     div_id = item
