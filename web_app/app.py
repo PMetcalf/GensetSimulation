@@ -155,7 +155,10 @@ def build_table_panel():
                                 id = "metric-rows",
                                 children = [
                                     generate_metric_row_helper(1),
-                                    generate_metric_row_helper(2)
+                                    generate_metric_row_helper(2),
+                                    generate_metric_row_helper(3),
+                                    generate_metric_row_helper(4),
+                                    generate_metric_row_helper(5)
                                     ]
                                 )
                             ]
