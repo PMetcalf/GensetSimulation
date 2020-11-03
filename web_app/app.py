@@ -201,10 +201,10 @@ def generate_metric_row_helper(pow_type_index):
     return generate_metric_row(
         div_id,
         None,
-        {"id": div_id, "children": "0"},
-        {"id": mean_id, "children": "0"},
-        {"id": annual_aggregate_id, "children": "0"},
-        {"id": percentage_contribution_id, "children": "0.00%"},
+        {"id": div_id, "children": div_id}, # TODO: Update children inputs
+        {"id": mean_id, "children": "0"},   # TODO: Update children inputs
+        {"id": annual_aggregate_id, "children": "0"},   # TODO: Update children inputs
+        {"id": percentage_contribution_id, "children": "0.00%"},    # TODO: Update children inputs
         )
     
 

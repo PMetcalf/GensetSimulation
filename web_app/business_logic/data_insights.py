@@ -6,19 +6,35 @@ This file supports data calculation and processing operations.
 '''
 
 # Module Importations
+import datetime
 import pandas as pd
 
-def return_summary_df(df_original, start_date, end_date):
-    """Return Summary Dataframe
+def return_summary_df(df_original, 
+                      start_date = datetime.datetime(2020,1,1, 0, 0, 0), 
+                      end_date = datetime.datetime(2021,1,1, 0, 0, 0)):
+    """Return Stats Summary Dataframe
     ======================================
-    Returns a new dataframe summarising generation data.
+    Returns a new dataframe summarising generation data stats.
     
     Args:
         df_original (DataFrame) - Dataframe with time-series generation data.
+        start_date (Datetime) - Earliest date for inclusion in stats calculations.
+        end_date (Datetime) - Latest date for inclusion in stats calculations.
         
     Returns:
-        df_aggregated (DataFrame) - New dataframe containing aggregated data.
+        df_summary_stats (DataFrame) - New dataframe containing aggregated data.
     """
+    
+    # Copy dataframe
+
+    # Trim dataframe to start and end dates
+
+    # Create dict for new dataframe
+
+    # Iterate over dict keys and populate stats
+
+    # Create and return df from dict
+
     pass
 
 def return_aggregate_df(df_original):
