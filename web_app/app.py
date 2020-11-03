@@ -154,8 +154,8 @@ def build_table_panel():
                             html.Div(
                                 id = "metric-rows",
                                 children = [
-                                    generate_metric_row_helper("Solar"),
-                                    generate_metric_row_helper("Wind Offshore")
+                                    generate_metric_row_helper(1),
+                                    generate_metric_row_helper(2)
                                     ]
                                 )
                             ]
