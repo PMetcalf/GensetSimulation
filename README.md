@@ -30,12 +30,14 @@ Installation & Setup
 
 The following packages are required to support various elements of the technology stack:
 
-**C#:** Microsoft.AspNet.WebApi.Client, Newtonsoft.Json, Microsoft.Azure.Cosmos
-**Python:** numpy, pandas, matplotlib, dash, plotly
+- **C#:** Microsoft.AspNet.WebApi.Client, Newtonsoft.Json, Microsoft.Azure.Cosmos
+- **Python:** numpy, pandas, matplotlib, dash, plotly
 
 Clone 
 ---
-
+Clone this repository from: https://github.com/PMetcalf/uk-power-generation-project.git
 
 Acknowledgements
 ---
+
+This project collects and uses data from Elexon's BMRS site (https://www.bmreports.com/bmrs/?q=help/about-us).
