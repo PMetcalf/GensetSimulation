@@ -10,6 +10,7 @@ Project Structure
 This is an end-to-end acquisition, storage, analysis and visualisation project with elements of the technology stack built for each function, and the project contains a dashboard displaying analysed data.
 
 - Data Acquisition
+  ---
   Acquisition script for requesting data for BMRS API, and database API for data storage and retrieval.
   
 - Data Analytics
