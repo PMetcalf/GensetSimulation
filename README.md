@@ -28,6 +28,10 @@ Project Uses
 Installation & Setup
 ---
 
+The following packages are required to support various elements of the technology stack:
+
+**C#:** Microsoft.AspNet.WebApi.Client, Newtonsoft.Json, Microsoft.Azure.Cosmos
+**Python:** numpy, pandas, matplotlib, dash, plotly
 
 Clone 
 ---
