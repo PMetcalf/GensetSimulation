@@ -4,7 +4,7 @@ This data acquisition and analysis project involves collecting, analysing and vi
 
 Electrical generation from different generation assets is collected and analysed to identify contributions from renewable and non-renewable sources, statistics for each generation type and characterisation of generation profiles. The UK energy grid mix contains a wide-ranging mix of generation types, from nuclear and fossil fuels through to solar, wind and hydro. Each of the different generation types produces different quantities of electricity for the UK market, and does so using different profiles. 
 
-![Image of Correlations](https://github.com/PMetcalf/electric_motor_thermal_modelling/blob/master/Reports/Figures/YC_Measurement_Session_Length_2020_08_25-11_45_21.png)
+![Image of Correlations](https://github.com/PMetcalf/uk-power-generation-project/miscellaneous/windfarm1.jpg)
 
 This project seeks to understand and characterise the generation of power from different assets.
 
