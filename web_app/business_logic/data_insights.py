@@ -9,6 +9,31 @@ This file supports data calculation and processing operations.
 import datetime
 import pandas as pd
 
+def return_min(generation_type, df_original):
+    """Return Min
+    ======================================
+    Returns the minimum generation of a particular generation type, calculated from a supplied dataframe.
+    
+    Args:
+        generation_type (string) - Type of generation to determine mean for.
+        df_original (DataFrame) - Dataframe with time-series generation data.
+        
+    Returns:
+        min (float64) - Minimum value determined for generation type.
+    """
+
+    # Copy dataframe
+    df_min = df_original.copy()
+
+    # Filter dataframe for generation type
+    df_min = df_min[(df_min['powType'] == generation_type)]
+
+    # Calculate minimum generation for type
+    min = df_min['quantity'].min()
+
+    # Return minimum
+    return min
+
 def return_mean(generation_type, df_original):
     """Return Mean
     ======================================
