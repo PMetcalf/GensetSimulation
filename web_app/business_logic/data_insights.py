@@ -23,14 +23,16 @@ def return_mean(generation_type, df_original):
     """
 
     # Copy dataframe
+    df_mean = df_original.copy()
 
     # Filter dataframe for generation type
+    df_mean = df_mean[(df_mean['powType'] == generation_type)]
 
     # Calculate mean generation for type
+    mean = df_mean['quantity'].mean()
 
     # Return mean
-
-    pass
+    return mean
 
 def return_summary_df(df_original, 
                       start_date = datetime.datetime(2020,1,1, 0, 0, 0), 
