@@ -29,7 +29,7 @@ def return_summary_df(df_original,
 
     # Trim dataframe to start and end dates
 
-    # Create dict for new dataframe
+    # Create dict for new dataframe, containing each parameter of interest
 
     # Iterate over dict keys and populate stats
 
