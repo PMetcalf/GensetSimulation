@@ -84,6 +84,31 @@ def return_mean(generation_type, df_original):
     # Return mean
     return mean
 
+def return_sum(generation_type, df_original):
+    """Return Sum
+    ======================================
+    Returns the generation sum of a particular generation type, calculated from a supplied dataframe.
+    
+    Args:
+        generation_type (string) - Type of generation to be summed.
+        df_original (DataFrame) - Dataframe with time-series generation data.
+        
+    Returns:
+        sum_generation (float64) - Summed output determined for generation type.
+    """
+
+    # Copy dataframe
+    df_sum = df_original.copy()
+
+    # Filter dataframe for generation type
+    df_sum = df_sum[(df_sum['powType'] == generation_type)]
+
+    # Calculate summed generation for type
+    sum_generation = df_sum['quantity'].sum()
+
+    # Return sum
+    return sum_generation
+
 def return_summary_df(df_original, 
                       start_date = datetime.datetime(2020,1,1, 0, 0, 0), 
                       end_date = datetime.datetime(2021,1,1, 0, 0, 0)):
