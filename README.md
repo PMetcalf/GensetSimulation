@@ -8,6 +8,10 @@ Electrical generation from different generation assets is collected and analysed
 
 This project seeks to understand and characterise the generation of power from different assets.
 
+Project Objectives
+---
+
+
 Project Structure
 ---
 
@@ -20,10 +24,6 @@ The project is divided into a series folders, each focused on a different elemen
 - **Data Analytics:** Jupyter notebooks and supporting source code for data exploration and analysis.
 
 - **Web App:** Dashboard for displaying data trends and summary statistics.
-
-Project Uses
----
-
 
 Installation & Setup
 ---
