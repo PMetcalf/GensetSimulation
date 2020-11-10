@@ -109,6 +109,27 @@ def return_sum(generation_type, df_original):
     # Return sum
     return sum_generation
 
+def return_total_sum(df_original):
+    """Return Total Sum
+    ======================================
+    Returns the total sum of generation from a supplied dataframe.
+    
+    Args:
+        df_original (DataFrame) - Dataframe with time-series generation data.
+        
+    Returns:
+        total_sum_generation (float64) - Total summed output determined for dataframe.
+    """
+
+    # Copy dataframe
+    df_total_sum = df_original.copy()
+
+    # Calculate summed generation
+    total_sum_generation = df_total_sum['quantity'].sum()
+
+    # Return sum
+    return total_sum_generation
+
 def return_summary_df(df_original, 
                       start_date = datetime.datetime(2020,1,1, 0, 0, 0), 
                       end_date = datetime.datetime(2021,1,1, 0, 0, 0)):
