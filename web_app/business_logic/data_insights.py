@@ -147,16 +147,58 @@ def return_summary_df(df_original,
     """
     
     # Copy dataframe
-
-    # Trim dataframe to start and end dates
+    df_timeseries = df_new.copy()
+    df_timeseries.sort_values(by = ['setDatetime'], inplace = True)
+    
+    # Mask dataframe between start and end dates
+    start_date = datetime.datetime(2020,3,1, 0, 0, 0)
+    end_date = datetime.datetime(2021,1,1, 0, 0, 0)
+    
+    df_timeseries = df_timeseries[(df_timeseries['setDatetime'] > start_date)]
+    df_timeseries = df_timeseries[(df_timeseries['setDatetime'] < end_date)]
+    
+    # Calculate total generation across whole time series
+    total_generation = data_insights.return_total_sum(df_timeseries)
 
     # Create dict for new dataframe, containing each parameter of interest
+    data_summary = {
+        "Solar": [0, 0, 0, 0, 0],
+        "Wind Offshore": [0, 0, 0, 0, 0],
+        "Wind Onshore": [0, 0, 0, 0, 0],
+        "Hydro Run-of-river and poundage": [0, 0, 0, 0, 0],
+        "Hydro Pumped Storage": [0, 0, 0, 0, 0],
+        "Other": [0, 0, 0, 0, 0], 
+        "Nuclear": [0, 0, 0, 0, 0], 
+        "Fossil Oil": [0, 0, 0, 0, 0], 
+        "Fossil Gas": [0, 0, 0, 0, 0], 
+        "Fossil Hard coal": [0, 0, 0, 0, 0], 
+        "Biomass": [0, 0, 0, 0, 0]
+        }
 
     # Iterate over dict keys and populate stats
+    for key in data_summary:
+
+        # Determine statistics for each generation type
+        generation_min = data_insights.return_min(key, df_timeseries)
+        generation_mean = data_insights.return_mean(key, df_timeseries)
+        generation_max = data_insights.return_max(key, df_timeseries)
+        generation_sum = data_insights.return_sum(key, df_timeseries)
+        generation_percent = (generation_sum / total_generation) * 100
+
+        # Update dict with generation statistics
+        data_summary[key][0] = generation_min
+        data_summary[key][1] = generation_mean
+        data_summary[key][2] = generation_max
+        data_summary[key][3] = generation_sum
+        data_summary[key][4] = generation_percent
 
     # Create and return df from dict
+    df_summary = pd.DataFrame.from_dict(data_summary, orient='index')
 
-    pass
+    # Update column labels
+    df_summary.rename(columns = {0: "Min", 1:"Mean", 2:"Max", 3:"Sum", 4:"% Total"}, inplace=True)
+
+    return df_summary
 
 def return_aggregate_df(df_original):
     """Return Aggregate Dataframe
