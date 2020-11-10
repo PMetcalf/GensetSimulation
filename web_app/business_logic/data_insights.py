@@ -9,6 +9,21 @@ This file supports data calculation and processing operations.
 import datetime
 import pandas as pd
 
+def return_mean(generation_type, df_original):
+    """Return Mean
+    ======================================
+    Returns the mean of a particular generation type, calculated from a supplied dataframe.
+    
+    Args:
+        generation_type (string) - Type of generation to determine mean for.
+        df_original (DataFrame) - Dataframe with time-series generation data.
+        
+    Returns:
+        mean (float64) - Arithmetic mean determined for generation type.
+    """
+
+    pass
+
 def return_summary_df(df_original, 
                       start_date = datetime.datetime(2020,1,1, 0, 0, 0), 
                       end_date = datetime.datetime(2021,1,1, 0, 0, 0)):
