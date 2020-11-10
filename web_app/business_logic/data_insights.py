@@ -15,11 +15,11 @@ def return_min(generation_type, df_original):
     Returns the minimum generation of a particular generation type, calculated from a supplied dataframe.
     
     Args:
-        generation_type (string) - Type of generation to determine mean for.
+        generation_type (string) - Type of generation to determine minimum for.
         df_original (DataFrame) - Dataframe with time-series generation data.
         
     Returns:
-        min (float64) - Minimum value determined for generation type.
+        min_generation (float64) - Minimum value determined for generation type.
     """
 
     # Copy dataframe
@@ -29,10 +29,35 @@ def return_min(generation_type, df_original):
     df_min = df_min[(df_min['powType'] == generation_type)]
 
     # Calculate minimum generation for type
-    min = df_min['quantity'].min()
+    min_generation = df_min['quantity'].min()
 
     # Return minimum
-    return min
+    return min_generation
+
+def return_max(generation_type, df_original):
+    """Return Max
+    ======================================
+    Returns the maximum generation of a particular generation type, calculated from a supplied dataframe.
+    
+    Args:
+        generation_type (string) - Type of generation to determine maximum for.
+        df_original (DataFrame) - Dataframe with time-series generation data.
+        
+    Returns:
+        max_generation (float64) - Maximum value determined for generation type.
+    """
+
+    # Copy dataframe
+    df_max = df_original.copy()
+
+    # Filter dataframe for generation type
+    df_max = df_max[(df_max['powType'] == generation_type)]
+
+    # Calculate maximum generation for type
+    max_generation = df_max['quantity'].max()
+
+    # Return maximum
+    return max_generation
 
 def return_mean(generation_type, df_original):
     """Return Mean
