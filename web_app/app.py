@@ -20,6 +20,8 @@ APP_PATH = str(pathlib.Path(__file__).parent.resolve())
 
 df_new = pd.read_pickle(os.path.join(APP_PATH, os.path.join("data", "dash_data.pkl")))
 
+df_summary = data_insights.return_summary_df(df_new)
+
 def build_banner():
     """
     Builds banner displayed at top of page.
@@ -175,10 +177,12 @@ def generate_metric_list_header():
     return generate_metric_row(
         "metric_header",    # Object Id
         {"height": "3rem", "margin": "1rem 0", "textAlign": "center"},  # The style
-        {"id": "m_header_1", "children": html.Div("Generation Type")},  # Column 1
-        {"id": "m_header_2", "children": html.Div("Mean/Daily")},       # Column 2
-        {"id": "m_header_3", "children": html.Div("Aggregate per Annum")},  # Column 3
-        {"id": "m_header_4", "children": html.Div("% Contribution")},   # Column 4
+        {"id": "m_header_1", "children": html.Div("Generation Type")},
+        {"id": "m_header_2", "children": html.Div("Min. [MW]")}, 
+        {"id": "m_header_3", "children": html.Div("Mean [MW]")},
+        {"id": "m_header_4", "children": html.Div("Max. [MW]")}, 
+        {"id": "m_header_5", "children": html.Div("Total [MW]")},  
+        {"id": "m_header_6", "children": html.Div("% Contribution")},   
     )
 
 def generate_metric_row_helper(pow_type_index):
@@ -193,22 +197,26 @@ def generate_metric_row_helper(pow_type_index):
 
     # Create ids for data elements
     div_id = item
+    min_id = item + "_mean"
     mean_id = item + "_mean"
-    annual_aggregate_id = item + "_aag"
-    percentage_contribution_id = item + "_perc"
+    max_id = item + "_mean"
+    total_id = item + "_sum"
+    percent_contribution_id = item + "_perc"
 
     # Generate row for generation type
     return generate_metric_row(
         div_id,
         None,
         {"id": div_id, "children": div_id}, # TODO: Update children inputs
+        {"id": min_id, "children": "0"},   # TODO: Update children inputs
         {"id": mean_id, "children": "0"},   # TODO: Update children inputs
-        {"id": annual_aggregate_id, "children": "0"},   # TODO: Update children inputs
-        {"id": percentage_contribution_id, "children": "0.00%"},    # TODO: Update children inputs
+        {"id": max_id, "children": "0"},   # TODO: Update children inputs
+        {"id": total_id, "children": "0"},   # TODO: Update children inputs
+        {"id": percent_contribution_id, "children": "0.00%"},    # TODO: Update children inputs
         )
     
 
-def generate_metric_row(id, style, col1, col2, col3, col4):
+def generate_metric_row(id, style, col1, col2, col3, col4, col5, col6):
     '''
     Returns html objects generated as rows to go in a table.
     '''
@@ -241,9 +249,21 @@ def generate_metric_row(id, style, col1, col2, col3, col4):
             ),
             html.Div(
                 id = col4["id"],
-                style = {"display": "flex", "textAlign": "center"},
+                style = {"textAlign": "center"},
                 className = "one column",
                 children = col4["children"],
+            ),
+            html.Div(
+                id = col5["id"],
+                style = {"textAlign": "center"},
+                className = "one column",
+                children = col5["children"],
+            ),
+            html.Div(
+                id = col6["id"],
+                style = {"display": "flex", "textAlign": "center"},
+                className = "one column",
+                children = col6["children"],
             ),
         ],
     )
