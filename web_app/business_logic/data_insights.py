@@ -147,7 +147,7 @@ def return_summary_df(df_original,
     """
     
     # Copy dataframe
-    df_timeseries = df_new.copy()
+    df_timeseries = df_original.copy()
     df_timeseries.sort_values(by = ['setDatetime'], inplace = True)
     
     # Mask dataframe between start and end dates
@@ -158,7 +158,7 @@ def return_summary_df(df_original,
     df_timeseries = df_timeseries[(df_timeseries['setDatetime'] < end_date)]
     
     # Calculate total generation across whole time series
-    total_generation = data_insights.return_total_sum(df_timeseries)
+    total_generation = return_total_sum(df_timeseries)
 
     # Create dict for new dataframe, containing each parameter of interest
     data_summary = {
@@ -179,10 +179,10 @@ def return_summary_df(df_original,
     for key in data_summary:
 
         # Determine statistics for each generation type
-        generation_min = data_insights.return_min(key, df_timeseries)
-        generation_mean = data_insights.return_mean(key, df_timeseries)
-        generation_max = data_insights.return_max(key, df_timeseries)
-        generation_sum = data_insights.return_sum(key, df_timeseries)
+        generation_min = return_mean(key, df_timeseries)
+        generation_mean = return_mean(key, df_timeseries)
+        generation_max = return_max(key, df_timeseries)
+        generation_sum = return_sum(key, df_timeseries)
         generation_percent = (generation_sum / total_generation) * 100
 
         # Update dict with generation statistics
