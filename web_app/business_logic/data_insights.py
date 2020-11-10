@@ -22,6 +22,14 @@ def return_mean(generation_type, df_original):
         mean (float64) - Arithmetic mean determined for generation type.
     """
 
+    # Copy dataframe
+
+    # Filter dataframe for generation type
+
+    # Calculate mean generation for type
+
+    # Return mean
+
     pass
 
 def return_summary_df(df_original, 
