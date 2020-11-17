@@ -156,10 +156,17 @@ def build_table_panel():
                             html.Div(
                                 id = "metric-rows",
                                 children = [
+                                    generate_metric_row_helper(0),
                                     generate_metric_row_helper(1),
                                     generate_metric_row_helper(2),
                                     generate_metric_row_helper(3),
-                                    generate_metric_row_helper(4)
+                                    generate_metric_row_helper(4),
+                                    generate_metric_row_helper(5),
+                                    generate_metric_row_helper(6),
+                                    generate_metric_row_helper(7),
+                                    generate_metric_row_helper(8),
+                                    generate_metric_row_helper(9),
+                                    generate_metric_row_helper(10)
                                     ]
                                 )
                             ]
