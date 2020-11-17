@@ -197,9 +197,9 @@ def generate_metric_row_helper(pow_type_index):
 
     # Create ids for data elements
     div_id = item
-    min_id = item + "_mean"
+    min_id = item + "_min"
     mean_id = item + "_mean"
-    max_id = item + "_mean"
+    max_id = item + "_max"
     total_id = item + "_sum"
     percent_contribution_id = item + "_perc"
 

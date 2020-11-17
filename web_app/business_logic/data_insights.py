@@ -193,6 +193,7 @@ def return_summary_df(df_original,
         data_summary[key][4] = generation_percent
 
     # Create and return df from dict
+    print(data_summary)
     df_summary = pd.DataFrame.from_dict(data_summary, orient='index')
 
     # Update column labels
