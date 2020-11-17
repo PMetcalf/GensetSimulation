@@ -23,3 +23,7 @@ df_new = pd.read_pickle(os.path.join(APP_PATH, os.path.join("data", "dash_data.p
 df_summary = data_insights.return_summary_df(df_new)
 
 print(df_summary)
+
+params = df_summary.index.unique()
+
+print(params)

@@ -159,8 +159,7 @@ def build_table_panel():
                                     generate_metric_row_helper(1),
                                     generate_metric_row_helper(2),
                                     generate_metric_row_helper(3),
-                                    generate_metric_row_helper(4),
-                                    generate_metric_row_helper(5)
+                                    generate_metric_row_helper(4)
                                     ]
                                 )
                             ]
@@ -190,10 +189,10 @@ def generate_metric_row_helper(pow_type_index):
     Populates data in row objects returned to the data table.
     '''
 
-    params = list(df_summary)
+    params = df_summary.index.unique()
 
     # Retrieve data for generation type
-    item = params[pow_type]
+    item = params[pow_type_index]
 
     # Create ids for data elements
     div_id = item
