@@ -193,12 +193,11 @@ def return_summary_df(df_original,
         data_summary[key][4] = generation_percent
 
     # Create and return df from dict
-    print(data_summary)
     df_summary = pd.DataFrame.from_dict(data_summary, orient='index')
 
     # Update column labels
     df_summary.rename(columns = {0: "Min", 1:"Mean", 2:"Max", 3:"Sum", 4:"% Total"}, inplace=True)
-    df_summary.rename_axis("pow_type")
+    df_summary.rename_axis("pow_type", axis = "index", inplace = True)
 
     return df_summary
 
