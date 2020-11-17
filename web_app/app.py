@@ -190,10 +190,10 @@ def generate_metric_row_helper(pow_type_index):
     Populates data in row objects returned to the data table.
     '''
 
-    params = list(df_new)
+    params = list(df_summary)
 
     # Retrieve data for generation type
-    item = params[pow_type_index]
+    item = params[pow_type]
 
     # Create ids for data elements
     div_id = item
