@@ -200,11 +200,11 @@ def generate_metric_row_helper(pow_type_index):
 
     # Retrieve data for generation type
     item = params[pow_type_index]
-    min_value = df_summary[df_summary.index == item]['Min']
-    mean_value = df_summary[df_summary.index == item]['Mean']
-    max_value = df_summary[df_summary.index == item]['Max']
-    sum_value = df_summary[df_summary.index == item]['Sum']
-    percent_value = df_summary[df_summary.index == item]['% Total']
+    min_value = round(df_summary[df_summary.index == item]['Min'], 1)
+    mean_value = round(df_summary[df_summary.index == item]['Mean'], 1)
+    max_value = round(df_summary[df_summary.index == item]['Max'], 1)
+    sum_value = round(df_summary[df_summary.index == item]['Sum'], 1)
+    percent_value = round(df_summary[df_summary.index == item]['% Total'], 1)
 
     # Create ids for data elements
     div_id = item
