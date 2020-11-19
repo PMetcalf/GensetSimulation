@@ -218,12 +218,12 @@ def generate_metric_row_helper(pow_type_index):
     return generate_metric_row(
         div_id,
         None,
-        {"id": div_id, "children": div_id}, # TODO: Update children inputs
-        {"id": min_id, "children": min_value},   # TODO: Update children inputs
-        {"id": mean_id, "children": mean_value},   # TODO: Update children inputs
-        {"id": max_id, "children": max_value},   # TODO: Update children inputs
-        {"id": total_id, "children": sum_value},   # TODO: Update children inputs
-        {"id": percent_contribution_id, "children": percent_value},    # TODO: Update children inputs
+        {"id": div_id, "children": div_id}, 
+        {"id": min_id, "children": min_value},   
+        {"id": mean_id, "children": mean_value},   
+        {"id": max_id, "children": max_value},   
+        {"id": total_id, "children": sum_value},   
+        {"id": percent_contribution_id, "children": percent_value},   
         )
     
 

@@ -179,7 +179,7 @@ def return_summary_df(df_original,
     for key in data_summary:
 
         # Determine statistics for each generation type
-        generation_min = return_mean(key, df_timeseries)
+        generation_min = return_min(key, df_timeseries)
         generation_mean = return_mean(key, df_timeseries)
         generation_max = return_max(key, df_timeseries)
         generation_sum = return_sum(key, df_timeseries)
