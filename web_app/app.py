@@ -201,6 +201,10 @@ def generate_metric_row_helper(pow_type_index):
     # Retrieve data for generation type
     item = params[pow_type_index]
     min_value = df_summary[df_summary.index == item]['Min']
+    mean_value = df_summary[df_summary.index == item]['Mean']
+    max_value = df_summary[df_summary.index == item]['Max']
+    sum_value = df_summary[df_summary.index == item]['Sum']
+    percent_value = df_summary[df_summary.index == item]['% Total']
 
     # Create ids for data elements
     div_id = item
@@ -216,10 +220,10 @@ def generate_metric_row_helper(pow_type_index):
         None,
         {"id": div_id, "children": div_id}, # TODO: Update children inputs
         {"id": min_id, "children": min_value},   # TODO: Update children inputs
-        {"id": mean_id, "children": "0"},   # TODO: Update children inputs
-        {"id": max_id, "children": "0"},   # TODO: Update children inputs
-        {"id": total_id, "children": "0"},   # TODO: Update children inputs
-        {"id": percent_contribution_id, "children": "0.00%"},    # TODO: Update children inputs
+        {"id": mean_id, "children": mean_value},   # TODO: Update children inputs
+        {"id": max_id, "children": max_value},   # TODO: Update children inputs
+        {"id": total_id, "children": sum_value},   # TODO: Update children inputs
+        {"id": percent_contribution_id, "children": percent_value},    # TODO: Update children inputs
         )
     
 
