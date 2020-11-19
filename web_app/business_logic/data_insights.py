@@ -197,8 +197,7 @@ def return_summary_df(df_original,
 
     # Update column labels
     df_summary.rename(columns = {0: "Min", 1:"Mean", 2:"Max", 3:"Sum", 4:"% Total"}, inplace=True)
-    #df_summary.rename_axis("pow_type", axis = "index", inplace = True)
-
+    
     return df_summary
 
 def return_aggregate_df(df_original):

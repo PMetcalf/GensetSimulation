@@ -1,12 +1,11 @@
 {
   "ExpandedNodes": [
     "",
-    "\\data_aquisition\\DatabaseController",
-    "\\data_aquisition\\GridDataAcquisitionConsoleApp",
     "\\miscellaneous",
     "\\web_app",
-    "\\web_app\\business_logic"
+    "\\web_app\\business_logic",
+    "\\web_app\\Sample"
   ],
-  "SelectedNode": "\\web_app\\business_logic\\data_insights.py",
+  "SelectedNode": "\\web_app\\Sample\\sample.py",
   "PreviewInSolutionExplorer": false
 }
