@@ -200,6 +200,7 @@ def generate_metric_row_helper(pow_type_index):
 
     # Retrieve data for generation type
     item = params[pow_type_index]
+    min_value = df_summary[df_summary.index == item]['Min']
 
     # Create ids for data elements
     div_id = item
@@ -214,7 +215,7 @@ def generate_metric_row_helper(pow_type_index):
         div_id,
         None,
         {"id": div_id, "children": div_id}, # TODO: Update children inputs
-        {"id": min_id, "children": "0"},   # TODO: Update children inputs
+        {"id": min_id, "children": min_value},   # TODO: Update children inputs
         {"id": mean_id, "children": "0"},   # TODO: Update children inputs
         {"id": max_id, "children": "0"},   # TODO: Update children inputs
         {"id": total_id, "children": "0"},   # TODO: Update children inputs
