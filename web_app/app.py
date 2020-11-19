@@ -140,35 +140,30 @@ def build_table_panel():
     """
     Builds table panel with generation data table.
     """
+    
     return html.Div(
-        id = "table-container",
-        className = "row",
+        id = "data-summary-outer",
+        className = "eight columns",
         children = [
+            generate_section_banner("Generation Summary Statistics"),
             html.Div(
-                id = "metric-summary",
-                className = "eight columns",
+                id = "metric-div",
                 children = [
-                    generate_section_banner("Generation Summary Statistics"),
+                    generate_metric_list_header(),
                     html.Div(
-                        id = "metric-div",
+                        id = "metric-rows",
                         children = [
-                            generate_metric_list_header(),
-                            html.Div(
-                                id = "metric-rows",
-                                children = [
-                                    generate_metric_row_helper(0),
-                                    generate_metric_row_helper(1),
-                                    generate_metric_row_helper(2),
-                                    generate_metric_row_helper(3),
-                                    generate_metric_row_helper(4),
-                                    generate_metric_row_helper(5),
-                                    generate_metric_row_helper(6),
-                                    generate_metric_row_helper(7),
-                                    generate_metric_row_helper(8),
-                                    generate_metric_row_helper(9),
-                                    generate_metric_row_helper(10)
-                                    ]
-                                )
+                            generate_metric_row_helper(0),
+                            generate_metric_row_helper(1),
+                            generate_metric_row_helper(2),
+                            generate_metric_row_helper(3),
+                            generate_metric_row_helper(4),
+                            generate_metric_row_helper(5),
+                            generate_metric_row_helper(6),
+                            generate_metric_row_helper(7),
+                            generate_metric_row_helper(8),
+                            generate_metric_row_helper(9),
+                            generate_metric_row_helper(10)
                             ]
                         )
                     ]
