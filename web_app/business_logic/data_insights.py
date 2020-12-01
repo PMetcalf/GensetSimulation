@@ -130,6 +130,22 @@ def return_total_sum(df_original):
     # Return sum
     return total_sum_generation
 
+def rename_dict_keys():
+    """Rename Dict Keys
+    ======================================
+    Renames some of the keys in the dict, for table precentation.
+    
+    Args:
+        dict_original (dict) - Dictionary with original key names.
+        
+    Returns:
+        dict_final (dict) - Dictionary with final key names.
+    """
+
+    # Replace keys using pop method
+
+    # Return dictionary
+
 def return_summary_df(df_original, 
                       start_date = datetime.datetime(2020,1,1, 0, 0, 0), 
                       end_date = datetime.datetime(2021,1,1, 0, 0, 0)):
@@ -191,6 +207,10 @@ def return_summary_df(df_original,
         data_summary[key][2] = generation_max
         data_summary[key][3] = generation_sum
         data_summary[key][4] = generation_percent
+
+    # Rename certain keys in dictionary
+
+    # Sort dictionary order
 
     # Create and return df from dict
     df_summary = pd.DataFrame.from_dict(data_summary, orient='index')
