@@ -130,7 +130,7 @@ def return_total_sum(df_original):
     # Return sum
     return total_sum_generation
 
-def rename_dict_keys():
+def rename_dict_keys(dict_original):
     """Rename Dict Keys
     ======================================
     Renames some of the keys in the dict, for table precentation.
@@ -142,9 +142,24 @@ def rename_dict_keys():
         dict_final (dict) - Dictionary with final key names.
     """
 
+    # Copy original dict
+    dict_final = copy.deepcopy(dict_original)
+
+    # Replacement keys
+    key_old_1 = "Hydro Run-of-river and poundage"
+    key_new_1 = "Hydro"
+    key_old_2 = "Hydro Pumped Storage"
+    key_new_2 = "Hydro Storage"
+    key_old_3 = "Fossil Hard coal"
+    key_new_3 = "Fossil Coal"
+
     # Replace keys using pop method
+    for key in dict_final:
+        if key == key_old_1:
+            dict_final[key_new_1] = dict_final.pop(key_old_1)
 
     # Return dictionary
+    return dict_final
 
 def return_summary_df(df_original, 
                       start_date = datetime.datetime(2020,1,1, 0, 0, 0), 
@@ -209,6 +224,7 @@ def return_summary_df(df_original,
         data_summary[key][4] = generation_percent
 
     # Rename certain keys in dictionary
+    data_summary = rename_dict_keys(data_summary) 
 
     # Sort dictionary order
 
