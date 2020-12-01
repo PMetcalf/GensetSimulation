@@ -68,13 +68,6 @@ def build_tabs():
                         className = "custom-tab",
                         selected_className = "custom-tab--selected",
                     ),
-                 #   dcc.Tab(    # Remove once solution validated
-                  #      id = "Prediction-tab",
-                  #      label = "Prediction Data",
-                  #      value = "tab2",
-                  #      className = "custom-tab",
-                  #      selected_className = "custom-tab--selected",
-                    #),
                 ],
             )
         ],
@@ -142,7 +135,7 @@ def build_table_panel():
     """
     return html.Div(
         id = "data-summary-outer",
-        className = "eight columns",
+        className = "row",
         children = [
             generate_section_banner("Generation Summary Statistics"),
             html.Div(
