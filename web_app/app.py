@@ -260,7 +260,7 @@ def generate_metric_row(id, style, col1, col2, col3, col4, col5, col6):
             ),
             html.Div(
                 id = col6["id"],
-                style = {"display": "flex", "textAlign": "center"},
+                style = {"textAlign": "center"},
                 className = "one column",
                 children = col6["children"],
             ),
