@@ -234,8 +234,6 @@ def return_summary_df(df_original,
     # Rename certain keys in dictionary
     data_summary = rename_dict_keys(data_summary) 
 
-    # Sort dictionary order
-
     # Create and return df from dict
     df_summary = pd.DataFrame.from_dict(data_summary, orient='index')
 
