@@ -140,7 +140,6 @@ def build_table_panel():
     """
     Builds table panel with generation data table.
     """
-    
     return html.Div(
         id = "data-summary-outer",
         className = "eight columns",
@@ -171,6 +170,7 @@ def build_table_panel():
             ]
         )
 
+    
 def generate_metric_list_header():
     '''
     Generates data table header using row generator helper method.

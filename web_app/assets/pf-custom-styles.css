@@ -255,12 +255,12 @@ body {
 }
 
 #data-summary-outer {
-    height: 100%;
-    margin: 0;
+    position: relative;
+    z-index: 4;
+    width: 100%;
     border-left: #1E2130 solid 0.8rem;
     border-top: #1E2130 solid 0.8rem;
     border-right: #1E2130 solid 0.8rem;
-    flex: 1 1 auto;
 }
 
 #ooc-piechart-outer {

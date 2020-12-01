@@ -3,9 +3,10 @@
     "",
     "\\miscellaneous",
     "\\web_app",
+    "\\web_app\\assets",
     "\\web_app\\business_logic",
     "\\web_app\\Sample"
   ],
-  "SelectedNode": "\\web_app\\Sample\\sample.py",
+  "SelectedNode": "\\web_app\\assets\\pf-custom-styles.css",
   "PreviewInSolutionExplorer": false
 }
