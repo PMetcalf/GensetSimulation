@@ -22,6 +22,8 @@ Repository Structure
 
 This is an end-to-end acquisition, storage, analysis and visualisation project with elements of the technology stack built for each stage, including Jupyter Notebooks for data analyis and a web-based dashboard for data visualisation.
 
+![Project Pipeline Design](https://github.com/PMetcalf/uk-power-generation-project/blob/PF_201001/miscellaneous/PF_Project Structure_2020-12-01.jpg)
+
 The project is divided into a series of subfolders:
 
 - **Data Acquisition:** Acquisition script for requesting data for BMRS API, and database controller for data storage and retrieval with Azure Cosmos DB.
