@@ -6,6 +6,7 @@ This file supports data calculation and processing operations.
 '''
 
 # Module Importations
+import copy
 import datetime
 import pandas as pd
 
@@ -155,8 +156,15 @@ def rename_dict_keys(dict_original):
 
     # Replace keys using pop method
     for key in dict_final:
+        
         if key == key_old_1:
             dict_final[key_new_1] = dict_final.pop(key_old_1)
+
+        if key == key_old_2:
+            dict_final[key_new_2] = dict_final.pop(key_old_2)
+
+        if key == key_old_3:
+            dict_final[key_new_3] = dict_final.pop(key_old_3)
 
     # Return dictionary
     return dict_final
