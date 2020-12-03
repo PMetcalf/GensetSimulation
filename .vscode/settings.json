@@ -1,4 +1,4 @@
 {
     "python.pythonPath": "D:\\Python\\Python374\\python.exe",
-    "python.dataScience.notebookFileRoot": "${workspaceFolder}"
+    "jupyter.notebookFileRoot": "${workspaceFolder}"
 }
