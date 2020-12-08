@@ -1,12 +1,13 @@
 {
   "ExpandedNodes": [
     "",
+    "\\data_analytics",
+    "\\data_analytics\\data",
+    "\\data_analytics\\data\\interim",
+    "\\data_aquisition",
     "\\miscellaneous",
-    "\\web_app",
-    "\\web_app\\assets",
-    "\\web_app\\business_logic",
-    "\\web_app\\Sample"
+    "\\web_app"
   ],
-  "SelectedNode": "\\miscellaneous\\windfarm1.jpg",
+  "SelectedNode": "\\web_app",
   "PreviewInSolutionExplorer": false
 }
