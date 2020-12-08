@@ -1,13 +1,16 @@
 {
   "ExpandedNodes": [
     "",
-    "\\data_analytics",
-    "\\data_analytics\\data",
-    "\\data_analytics\\data\\interim",
     "\\data_aquisition",
     "\\miscellaneous",
-    "\\web_app"
+    "\\web_app",
+    "\\web_app\\.azure",
+    "\\web_app\\.venv",
+    "\\web_app\\assets",
+    "\\web_app\\business_logic",
+    "\\web_app\\data",
+    "\\web_app\\Sample"
   ],
-  "SelectedNode": "\\web_app",
+  "SelectedNode": "\\web_app\\app.py",
   "PreviewInSolutionExplorer": false
 }
