@@ -6,4 +6,4 @@ ADD . /code/
 RUN pip install -r requirements.txt
 
 EXPOSE 5000
-CMD ["python", "/code/app.py"]
+CMD ["python", "/code/app.py", "runserver", "0.0.0.0:5000"]
