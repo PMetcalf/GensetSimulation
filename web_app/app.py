@@ -50,7 +50,7 @@ def build_banner():
 
 def build_tabs():
     """
-    Builds tab used to contain data visualisation collections.
+    Builds tabs used for About, Visualisation & Prediction (Beta).
     """
     return html.Div(
         id = "tabs",
@@ -70,7 +70,7 @@ def build_tabs():
                     ),
                     dcc.Tab(
                         id = "Time-series-tab",
-                        label = "Historic Datas",
+                        label = "Historic Data",
                         value = "tab2",
                         className = "custom-tab",
                         selected_className = "custom-tab--selected",

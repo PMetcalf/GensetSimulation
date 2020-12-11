@@ -142,7 +142,7 @@ body {
     cursor: pointer;
 }
 
-#Specs-tab.custom-tab, #Time-series-tab.custom-tab {
+#About-tab.custom-tab, #Time-series-tab.custom-tab {
     background-color: #161a28;
     letter-spacing: 1px;
     color: inherit;
@@ -156,11 +156,11 @@ body {
     height: 18px;
 }
 
-#Specs-tab.custom-tab--selected, #Time-series-tab.custom-tab--selected {
+#About-tab.custom-tab--selected, #Time-series-tab.custom-tab--selected {
     border-bottom: #91dfd2 solid 4px !important;
 }
 
-#Specs-tab.custom-tab {
+#About-tab.custom-tab {
     margin-right: 3px;
 }
 
