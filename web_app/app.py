@@ -62,9 +62,16 @@ def build_tabs():
                 className = "custom-tabs",
                 children = [
                     dcc.Tab(
-                        id = "Time-series-tab",
-                        label = "Historic Data",
+                        id = "About-tab",
+                        label = "About",
                         value = "tab1",
+                        className = "custom-tab",
+                        selected_className = "custom-tab--selected",
+                    ),
+                    dcc.Tab(
+                        id = "Time-series-tab",
+                        label = "Historic Datas",
+                        value = "tab2",
                         className = "custom-tab",
                         selected_className = "custom-tab--selected",
                     ),
