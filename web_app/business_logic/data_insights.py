@@ -131,10 +131,30 @@ def return_total_sum_MWh(df_original):
     # Return sum
     return total_sum_generation_MWh
 
+def rename_dataframe_powertypes():
+    """Rename Dataframe Powertypes
+    ======================================
+    Renames some of the powertypes in the dataframe, for table presentation.
+    
+    Args:
+        df_original (df) - Original dataframe.
+        
+    Returns:
+        df_final (df) - Revised dataframe with renamed power types.
+    """
+
+    # Copy original dataframe
+
+    # Replace each of the powertypes in turn
+
+    # Return the new dataframe
+
+
+
 def rename_dict_keys(dict_original):
     """Rename Dict Keys
     ======================================
-    Renames some of the keys in the dict, for table precentation.
+    Renames some of the keys in the dict, for table presentation.
     
     Args:
         dict_original (dict) - Dictionary with original key names.
