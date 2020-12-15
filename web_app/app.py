@@ -362,17 +362,16 @@ def generate_aggregate_piechart():
 
 def build_tab_1():
     return html.Div(
-            id="set-specs-intro-container",
-            # className='twelve columns',
-            children=html.P(
+            id = "set-specs-intro-container",
+            children = html.P(
                 "Here is an introduction to the website."
                 )
             )
 
 @app.callback(
-    [Output("app-content", "children")],
-    [Input("app-tabs", "value")],
-)
+    Output("app-content", "children"),
+    Input("app-tabs", "value")
+    )
 def render_tab_content(tab_switch):
     """
     Render content of tab upon request.
