@@ -20,7 +20,7 @@ APP_PATH = str(pathlib.Path(__file__).parent.resolve())
 
 df_new = pd.read_pickle(os.path.join(APP_PATH, os.path.join("data", "dash_data.pkl")))
 
-df_summary = data_insights.return_summary_df(df_new)
+summary_df = data_insights.return_summary_df(df_new)
 
 def build_banner():
     """
@@ -182,7 +182,7 @@ def generate_metric_list_header():
         {"id": "m_header_2", "children": html.Div("Min. [MW]")}, 
         {"id": "m_header_3", "children": html.Div("Mean [MW]")},
         {"id": "m_header_4", "children": html.Div("Max. [MW]")}, 
-        {"id": "m_header_5", "children": html.Div("Total [MW]")},  
+        {"id": "m_header_5", "children": html.Div("Total [MWhr]")},  
         {"id": "m_header_6", "children": html.Div("% Contribution")},   
     )
 
@@ -191,15 +191,15 @@ def generate_metric_row_helper(pow_type_index):
     Populates data in row objects returned to the data table.
     '''
 
-    params = df_summary.index.unique()
+    params = summary_df.index.unique()
 
     # Retrieve data for generation type
     item = params[pow_type_index]
-    min_value = round(df_summary[df_summary.index == item]['Min'], 1)
-    mean_value = round(df_summary[df_summary.index == item]['Mean'], 1)
-    max_value = round(df_summary[df_summary.index == item]['Max'], 1)
-    sum_value = round(df_summary[df_summary.index == item]['Sum'], 1)
-    percent_value = round(df_summary[df_summary.index == item]['% Total'], 1)
+    min_value = round(summary_df[summary_df.index == item]['Min'], 1)
+    mean_value = round(summary_df[summary_df.index == item]['Mean'], 1)
+    max_value = round(summary_df[summary_df.index == item]['Max'], 1)
+    sum_value = round(summary_df[summary_df.index == item]['Sum'], 1)
+    percent_value = round(summary_df[summary_df.index == item]['% Total'], 1)
 
     # Create ids for data elements
     div_id = item
@@ -335,15 +335,12 @@ def generate_aggregate_piechart():
     """
     Build and return an aggregate piechart.
     """
-
-    # df for prototyping
-    aggregate_df = data_insights.return_aggregate_df(df_new)
    
     # Create figure using plotly express
-    fig = px.pie(aggregate_df, 
-                 values = "quantity", 
-                 names = aggregate_df.index, 
-                 color = aggregate_df.index)
+    fig = px.pie(summary_df, 
+                 values = "Sum", 
+                 names = summary_df.index, 
+                 color = summary_df.index)
     
     # Adjust figure styling
     fig.update_layout(
