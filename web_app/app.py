@@ -18,12 +18,12 @@ server = app.server
 
 APP_PATH = str(pathlib.Path(__file__).parent.resolve())
 
+# Load data
 df_new = pd.read_pickle(os.path.join(APP_PATH, os.path.join("data", "dash_data.pkl")))
-
 df_new = data_insights.rename_dataframe_powertypes(df_new)
 
+# Create summary dataframes
 summary_df = data_insights.return_summary_df(df_new, is_renewable = False)
-
 renewable_summary_df = data_insights.return_summary_df(df_new, is_renewable = True)
 
 def build_banner():

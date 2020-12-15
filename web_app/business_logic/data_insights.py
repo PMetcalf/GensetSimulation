@@ -151,7 +151,7 @@ def rename_dataframe_powertypes(df_original):
     df_final['powType'] = df_final['powType'].replace({'Hydro Pumped Storage': 'Hydro Storage'})
     df_final['powType'] = df_final['powType'].replace({'Fossil Oil': 'Oil'})
     df_final['powType'] = df_final['powType'].replace({'Fossil Gas': 'Gas'})
-    df_final['powType'] = df_final['powType'].replace({'Fossil Hard coal"': 'Coal'})
+    df_final['powType'] = df_final['powType'].replace({'Fossil Hard coal': 'Coal'})
 
     # Return the new dataframe
     return df_final
@@ -243,13 +243,13 @@ def return_summary_df(df_original,
             "Solar": [0, 0, 0, 0, 0],
             "Wind Offshore": [0, 0, 0, 0, 0],
             "Wind Onshore": [0, 0, 0, 0, 0],
-            "Hydro Run-of-river and poundage": [0, 0, 0, 0, 0],
-            "Hydro Pumped Storage": [0, 0, 0, 0, 0],
+            "Hydro": [0, 0, 0, 0, 0],
+            "Hydro Storage": [0, 0, 0, 0, 0],
             "Other": [0, 0, 0, 0, 0], 
             "Nuclear": [0, 0, 0, 0, 0], 
-            "Fossil Oil": [0, 0, 0, 0, 0], 
-            "Fossil Gas": [0, 0, 0, 0, 0], 
-            "Fossil Hard coal": [0, 0, 0, 0, 0], 
+            "Oil": [0, 0, 0, 0, 0], 
+            "Gas": [0, 0, 0, 0, 0], 
+            "Coal": [0, 0, 0, 0, 0], 
             "Biomass": [0, 0, 0, 0, 0]
             }
     else:
@@ -257,8 +257,8 @@ def return_summary_df(df_original,
             "Solar": [0, 0, 0, 0, 0],
             "Wind Offshore": [0, 0, 0, 0, 0],
             "Wind Onshore": [0, 0, 0, 0, 0],
-            "Hydro Run-of-river and poundage": [0, 0, 0, 0, 0],
-            "Hydro Pumped Storage": [0, 0, 0, 0, 0],
+            "Hydro": [0, 0, 0, 0, 0],
+            "Hydro Storage": [0, 0, 0, 0, 0],
             "Biomass": [0, 0, 0, 0, 0]
             }
 
@@ -279,9 +279,6 @@ def return_summary_df(df_original,
         data_summary[key][2] = generation_max
         data_summary[key][3] = generation_sum_MWh
         data_summary[key][4] = generation_percent
-
-    # Rename certain keys in dictionary
-    data_summary = rename_dict_keys(data_summary) 
 
     # Create and return df from dict
     df_summary = pd.DataFrame.from_dict(data_summary, orient='index')
