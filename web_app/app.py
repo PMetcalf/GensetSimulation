@@ -101,7 +101,7 @@ def build_chart_panel():
         id = "timeseries-chart-container",
         className = "eight columns",
         children = [
-            generate_section_banner("Generation Time Series"),
+            generate_section_banner("Generation History"),
             generate_time_series_scatter()
             ]
         )
@@ -186,7 +186,7 @@ def generate_metric_list_header():
         {"id": "m_header_2", "children": html.Div("Min. [MW]")}, 
         {"id": "m_header_3", "children": html.Div("Mean [MW]")},
         {"id": "m_header_4", "children": html.Div("Max. [MW]")}, 
-        {"id": "m_header_5", "children": html.Div("Total [MWhr]")},  
+        {"id": "m_header_5", "children": html.Div("Total [GWhr]")},  
         {"id": "m_header_6", "children": html.Div("% Contribution")},   
     )
 
