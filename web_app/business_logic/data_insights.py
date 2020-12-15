@@ -131,7 +131,7 @@ def return_total_sum_MWh(df_original):
     # Return sum
     return total_sum_generation_MWh
 
-def rename_dataframe_powertypes():
+def rename_dataframe_powertypes(df_original):
     """Rename Dataframe Powertypes
     ======================================
     Renames some of the powertypes in the dataframe, for table presentation.
@@ -144,11 +144,13 @@ def rename_dataframe_powertypes():
     """
 
     # Copy original dataframe
+    df_final = df_original.copy()
 
     # Replace each of the powertypes in turn
+    df_final['powType'] = df_final['powType'].replace({'Hydro Pumped Storage': 'Hydro Storage'})
 
     # Return the new dataframe
-
+    return df_final
 
 
 def rename_dict_keys(dict_original):

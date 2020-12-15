@@ -19,8 +19,8 @@ server = app.server
 APP_PATH = str(pathlib.Path(__file__).parent.resolve())
 
 df_new = pd.read_pickle(os.path.join(APP_PATH, os.path.join("data", "dash_data.pkl")))
-#df_new = data_insights.rename_dict_keys
 
+df_new = data_insights.rename_dataframe_powertypes(df_new)
 
 summary_df = data_insights.return_summary_df(df_new, is_renewable = False)
 
