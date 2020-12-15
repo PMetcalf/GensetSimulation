@@ -85,8 +85,8 @@ def return_mean(generation_type, df_original):
     # Return mean
     return mean
 
-def return_sum_MWh(generation_type, df_original):
-    """Return Sum MWh
+def return_sum_GWh(generation_type, df_original):
+    """Return Sum GWh
     ======================================
     Returns the generation sum of a particular generation type, calculated from a supplied dataframe.
     
@@ -95,7 +95,7 @@ def return_sum_MWh(generation_type, df_original):
         df_original (DataFrame) - Dataframe with time-series generation data.
         
     Returns:
-        sum_generation_MWh (float64) - Summed output determined for generation type.
+        sum_generation_GWh (float64) - Summed output determined for generation type.
     """
 
     # Copy dataframe
@@ -105,31 +105,37 @@ def return_sum_MWh(generation_type, df_original):
     df_sum = df_sum[(df_sum['powType'] == generation_type)]
 
     # Calculate summed generation for type
-    sum_generation_MWh = (df_sum['quantity'].sum()) * 0.5 # Df is summarised in 30 min segments
+    sum_generation_GWh = (df_sum['quantity'].sum()) * 0.5 # Df is summarised in 30 min segments
+
+    # Convert to GWh
+    sum_generation_GWh = sum_generation_GWh * 0.001
 
     # Return sum
-    return sum_generation_MWh
+    return sum_generation_GWh
 
-def return_total_sum_MWh(df_original):
-    """Return Total Sum MWh
+def return_total_sum_GWh(df_original):
+    """Return Total Sum GWh
     ======================================
-    Returns the total sum of generation from a supplied dataframe in MWh.
+    Returns the total sum of generation from a supplied dataframe in GWh.
     
     Args:
         df_original (DataFrame) - Dataframe with time-series generation data.
         
     Returns:
-        total_sum_generation_MWh (float64) - Total summed output determined for dataframe.
+        total_sum_generation_GWh (float64) - Total summed output determined for dataframe.
     """
 
     # Copy dataframe
     df_total_sum = df_original.copy()
 
     # Calculate summed generation
-    total_sum_generation_MWh = (df_total_sum['quantity'].sum()) * 0.5 # Df summarised in 30 min segments
+    total_sum_generation_GWh = (df_total_sum['quantity'].sum()) * 0.5 # Df summarised in 30 min segments
+
+    # Convert to GWh
+    total_sum_generation_GWh = total_sum_generation_GWh * 0.001
 
     # Return sum
-    return total_sum_generation_MWh
+    return total_sum_generation_GWh
 
 def rename_dataframe_powertypes(df_original):
     """Rename Dataframe Powertypes
@@ -155,7 +161,6 @@ def rename_dataframe_powertypes(df_original):
 
     # Return the new dataframe
     return df_final
-
 
 def rename_dict_keys(dict_original):
     """Rename Dict Keys
@@ -235,7 +240,7 @@ def return_summary_df(df_original,
     df_timeseries = df_timeseries[(df_timeseries['setDatetime'] < end_date)]
     
     # Calculate total generation across whole time series
-    total_generation_MWh = return_total_sum_MWh(df_timeseries)
+    total_generation_GWh = return_total_sum_GWh(df_timeseries)
 
     # Create dict for new dataframe, containing each parameter of interest
     if is_renewable == False:
@@ -270,14 +275,14 @@ def return_summary_df(df_original,
         generation_min = return_min(key, df_timeseries)
         generation_mean = return_mean(key, df_timeseries)
         generation_max = return_max(key, df_timeseries)
-        generation_sum_MWh = return_sum_MWh(key, df_timeseries)
-        generation_percent = (generation_sum_MWh / total_generation_MWh) * 100
+        generation_sum_GWh = return_sum_GWh(key, df_timeseries)
+        generation_percent = (generation_sum_GWh / total_generation_GWh) * 100
 
         # Update dict with generation statistics
         data_summary[key][0] = generation_min
         data_summary[key][1] = generation_mean
         data_summary[key][2] = generation_max
-        data_summary[key][3] = generation_sum_MWh
+        data_summary[key][3] = generation_sum_GWh
         data_summary[key][4] = generation_percent
 
     # Create and return df from dict
