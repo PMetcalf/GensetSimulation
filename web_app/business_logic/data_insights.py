@@ -151,8 +151,12 @@ def rename_dict_keys(dict_original):
     key_new_1 = "Hydro"
     key_old_2 = "Hydro Pumped Storage"
     key_new_2 = "Hydro Storage"
-    key_old_3 = "Fossil Hard coal"
-    key_new_3 = "Coal"
+    key_old_3 = "Fossil Oil"
+    key_new_3 = "Oil"
+    key_old_4 = "Fossil Gas"
+    key_new_4 = "Gas"
+    key_old_5 = "Fossil Hard coal"
+    key_new_5 = "Coal"
 
     # Replace keys using pop method
     for key in dict_final:
@@ -165,6 +169,12 @@ def rename_dict_keys(dict_original):
 
         if key == key_old_3:
             dict_final[key_new_3] = dict_final.pop(key_old_3)
+
+        if key == key_old_4:
+            dict_final[key_new_4] = dict_final.pop(key_old_4)
+
+        if key == key_old_5:
+            dict_final[key_new_5] = dict_final.pop(key_old_5)
 
     # Return dictionary
     return dict_final
