@@ -152,7 +152,7 @@ def rename_dict_keys(dict_original):
     key_old_2 = "Hydro Pumped Storage"
     key_new_2 = "Hydro Storage"
     key_old_3 = "Fossil Hard coal"
-    key_new_3 = "Fossil Coal"
+    key_new_3 = "Coal"
 
     # Replace keys using pop method
     for key in dict_final:
