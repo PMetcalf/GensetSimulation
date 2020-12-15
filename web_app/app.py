@@ -299,7 +299,7 @@ def build_side_panel():
                 id = "aam-piechart-outer",
                 className = "four columns",
                 children = [
-                    generate_section_banner("Aggregated Annual Mix"),
+                    generate_section_banner("Full Energy Mix"),
                     generate_aggregate_piechart(),
                     ],
                 ),
