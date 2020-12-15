@@ -20,7 +20,9 @@ APP_PATH = str(pathlib.Path(__file__).parent.resolve())
 
 df_new = pd.read_pickle(os.path.join(APP_PATH, os.path.join("data", "dash_data.pkl")))
 
-summary_df = data_insights.return_summary_df(df_new)
+summary_df = data_insights.return_summary_df(df_new, is_renewable = False)
+
+renewable_summary_df = data_insights.return_summary_df(df_new, is_renewable = True)
 
 def build_banner():
     """
@@ -307,14 +309,11 @@ def generate_renewable_aggregate_piechart():
     Build and return a renewable aggregate piechart.
     """
 
-    # df for prototyping
-    aggregate_df = data_insights.return_renewable_aggregate_df(df_new)
-   
     # Create figure using plotly express
-    fig = px.pie(aggregate_df, 
-                 values = "quantity", 
-                 names = aggregate_df.index, 
-                 color = aggregate_df.index)
+    fig = px.pie(renewable_summary_df, 
+                 values = "Sum", 
+                 names = renewable_summary_df.index, 
+                 color = renewable_summary_df.index)
     
     # Adjust figure styling
     fig.update_layout(

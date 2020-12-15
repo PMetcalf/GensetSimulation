@@ -181,15 +181,17 @@ def rename_dict_keys(dict_original):
 
 def return_summary_df(df_original, 
                       start_date = datetime.datetime(2020,1,1, 0, 0, 0), 
-                      end_date = datetime.datetime(2021,1,1, 0, 0, 0)):
+                      end_date = datetime.datetime(2021,1,1, 0, 0, 0),
+                      is_renewable = False):
     """Return Stats Summary Dataframe
     ======================================
-    Returns a new dataframe summarising generation data stats.
+    Returns a new dataframe summarising generation data stats. Can be set to only return renwable summary.
     
     Args:
         df_original (DataFrame) - Dataframe with time-series generation data.
         start_date (Datetime) - Earliest date for inclusion in stats calculations.
         end_date (Datetime) - Latest date for inclusion in stats calculations.
+        is_renewable (False) -  Indicates whether to return a summary for renewable generation only.
         
     Returns:
         df_summary_stats (DataFrame) - New dataframe containing aggregated data.
@@ -210,19 +212,30 @@ def return_summary_df(df_original,
     total_generation_MWh = return_total_sum_MWh(df_timeseries)
 
     # Create dict for new dataframe, containing each parameter of interest
-    data_summary = {
-        "Solar": [0, 0, 0, 0, 0],
-        "Wind Offshore": [0, 0, 0, 0, 0],
-        "Wind Onshore": [0, 0, 0, 0, 0],
-        "Hydro Run-of-river and poundage": [0, 0, 0, 0, 0],
-        "Hydro Pumped Storage": [0, 0, 0, 0, 0],
-        "Other": [0, 0, 0, 0, 0], 
-        "Nuclear": [0, 0, 0, 0, 0], 
-        "Fossil Oil": [0, 0, 0, 0, 0], 
-        "Fossil Gas": [0, 0, 0, 0, 0], 
-        "Fossil Hard coal": [0, 0, 0, 0, 0], 
-        "Biomass": [0, 0, 0, 0, 0]
-        }
+    if is_renewable == False:
+         data_summary = {
+            "Solar": [0, 0, 0, 0, 0],
+            "Wind Offshore": [0, 0, 0, 0, 0],
+            "Wind Onshore": [0, 0, 0, 0, 0],
+            "Hydro Run-of-river and poundage": [0, 0, 0, 0, 0],
+            "Hydro Pumped Storage": [0, 0, 0, 0, 0],
+            "Other": [0, 0, 0, 0, 0], 
+            "Nuclear": [0, 0, 0, 0, 0], 
+            "Fossil Oil": [0, 0, 0, 0, 0], 
+            "Fossil Gas": [0, 0, 0, 0, 0], 
+            "Fossil Hard coal": [0, 0, 0, 0, 0], 
+            "Biomass": [0, 0, 0, 0, 0]
+            }
+    else:
+        data_summary = {
+            "Solar": [0, 0, 0, 0, 0],
+            "Wind Offshore": [0, 0, 0, 0, 0],
+            "Wind Onshore": [0, 0, 0, 0, 0],
+            "Hydro Run-of-river and poundage": [0, 0, 0, 0, 0],
+            "Hydro Pumped Storage": [0, 0, 0, 0, 0],
+            "Biomass": [0, 0, 0, 0, 0]
+            }
+
 
     # Iterate over dict keys and populate stats
     for key in data_summary:
@@ -251,46 +264,3 @@ def return_summary_df(df_original,
     df_summary.rename(columns = {0: "Min", 1:"Mean", 2:"Max", 3:"Sum", 4:"% Total"}, inplace=True)
     
     return df_summary
-
-def return_renewable_aggregate_df(df_original):
-    """Return Renewable Aggregate Dataframe
-    ======================================
-    Returns a new dataframe of aggregated renewable generation.
-    
-    Args:
-        df_original (DataFrame) - Dataframe with time-series generation data.
-        
-    Returns:
-        df_renewable_aggregated (DataFrame) - New dataframe containing aggregated data.
-    """
-
-    # Copy time-series dataframe
-    df_time_series = df_original.copy()
-
-    # Create dict for generation types and aggregate total
-    aggregated_generation = {
-        "Solar": 0,
-        "Wind Offshore": 0,
-        "Wind Onshore": 0,
-        "Hydro Run-of-river and poundage": 0,
-        "Hydro Pumped Storage": 0,
-        "Biomass": 0
-        }
-
-    # Iterate over time-series dataframe and populate aggregate dict
-    for key in aggregated_generation:
-
-        df_generation = df_time_series[df_time_series['powType'] == key]
-
-        generation_sum = df_generation['quantity'].sum()
-
-        aggregated_generation[key] = generation_sum
-
-    # Convert aggregate dict to dataframe
-    aggregate_df = pd.DataFrame.from_dict(aggregated_generation, orient = 'index')
-    
-    aggregate_df.index.rename('powType', inplace=True)
-    aggregate_df.columns = ['quantity']
-
-    # Return dataframe
-    return aggregate_df
