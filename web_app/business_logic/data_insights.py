@@ -147,7 +147,11 @@ def rename_dataframe_powertypes(df_original):
     df_final = df_original.copy()
 
     # Replace each of the powertypes in turn
+    df_final['powType'] = df_final['powType'].replace({'Hydro Run-of-river and poundage': 'Hydro'})
     df_final['powType'] = df_final['powType'].replace({'Hydro Pumped Storage': 'Hydro Storage'})
+    df_final['powType'] = df_final['powType'].replace({'Fossil Oil': 'Oil'})
+    df_final['powType'] = df_final['powType'].replace({'Fossil Gas': 'Gas'})
+    df_final['powType'] = df_final['powType'].replace({'Fossil Hard coal"': 'Coal'})
 
     # Return the new dataframe
     return df_final
