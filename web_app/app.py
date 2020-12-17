@@ -123,7 +123,7 @@ def build_chart_panel():
     """
     return html.Div(
         id = "general-section-container",
-        className = "eight columns",
+        className = "twelve columns",
         children = [
             generate_section_banner("Time-Series Data"),
             generate_time_series_scatter()
@@ -168,11 +168,13 @@ def build_table_panel():
     """
     Builds table panel with generation data table.
     """
+    #id = "data-summary-outer",
+
     return html.Div(
-        id = "data-summary-outer",
+        id = "general-section-container",
         className = "row",
         children = [
-            generate_section_banner("Generation Summary Statistics"),
+            generate_section_banner("Summary Statistics"),
             html.Div(
                 id = "metric-div",
                 children = [
