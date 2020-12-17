@@ -290,14 +290,14 @@ body {
     margin: 0;
     border-left: #1E2130 solid 0.8rem;
     border-top: #1E2130 solid 0.8rem;
-    border-right: #1E2130 solid 0.4rem;
+    border-right: #1E2130 solid 0.8rem;
     flex: 1 1 auto;
 }
 
 #aam-piechart-outer {
     height: 100%;
     margin: 0;
-    border-left: #1E2130 solid 0.4rem;
+    border-left: #1E2130 solid 0.8rem;
     border-top: #1E2130 solid 0.8rem;
     border-right: #1E2130 solid 0.8rem;
     flex: 1 1 auto;

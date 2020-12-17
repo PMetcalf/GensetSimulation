@@ -315,7 +315,7 @@ def build_side_panel():
             # Energy Piechart
             html.Div(
                 id = "rem-piechart-outer",
-                className = "four columns",
+                className = "Four columns",
                 children = [
                     generate_section_banner("Renewable Energy Mix"),
                     generate_renewable_aggregate_piechart(),
@@ -323,7 +323,7 @@ def build_side_panel():
                 ),
             html.Div(
                 id = "aam-piechart-outer",
-                className = "four columns",
+                className = "Four columns",
                 children = [
                     generate_section_banner("Full Energy Mix"),
                     generate_aggregate_piechart(),
