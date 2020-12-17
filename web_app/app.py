@@ -421,10 +421,10 @@ def render_tab_content(tab_switch):
         html.Div(
             id = "status-container",
             children = [
+                build_intro_panel(),
                 html.Div(
                     id = "graphs-container",
                     children = [
-                        build_intro_panel(),
                         build_chart_panel(),
                         build_table_panel(),
                         build_side_panel()
