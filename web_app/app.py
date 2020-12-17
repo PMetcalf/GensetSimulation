@@ -93,9 +93,33 @@ def generate_section_banner(title):
         children = title
                     )
 
+def build_intro_panel():
+    """
+    Builds intro panel for historic data panel
+    """
+    return html.Div(
+        id = "quick-stats",
+        className = "row",
+        children = [
+            html.Div(
+                id = "card-1",
+                children = [
+                    generate_section_banner("Electricity Generation Data"),
+                    html.P('This tab contains historic electricity generation data.'),
+            ],
+                ),
+            html.Div(
+                id = "card-1",
+                children = [
+                    html.P('Select start and end dates below.')
+            ],
+                ),
+            ],
+        )
+
 def build_chart_panel():
     """
-    Builds chart panel with data visualisations.
+    Builds chart panel with data visualisations
     """
     return html.Div(
         id = "timeseries-chart-container",
@@ -400,6 +424,7 @@ def render_tab_content(tab_switch):
                 html.Div(
                     id = "graphs-container",
                     children = [
+                        build_intro_panel(),
                         build_chart_panel(),
                         build_table_panel(),
                         build_side_panel()

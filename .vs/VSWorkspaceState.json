@@ -1,8 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\data_aquisition",
-    "\\miscellaneous",
+    "\\data_analytics",
+    "\\data_analytics\\notebooks",
     "\\web_app",
     "\\web_app\\.azure",
     "\\web_app\\.venv",
@@ -11,6 +11,6 @@
     "\\web_app\\data",
     "\\web_app\\Sample"
   ],
-  "SelectedNode": "\\web_app\\business_logic\\data_insights.py",
+  "SelectedNode": "\\data_analytics\\notebooks\\1.0-pm-eda.ipynb",
   "PreviewInSolutionExplorer": false
 }
