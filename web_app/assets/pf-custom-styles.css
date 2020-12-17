@@ -179,6 +179,21 @@ body {
 /* Main Dashboard Tab
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
+#top-section-container {
+    height: 40rem;
+    flex-direction: row;
+    display: flex;
+    max-width: 100%;
+    /*width: 100%;*/
+}
+
+#general-section-container {
+    position: relative;
+    z-index: 4;
+    width: 100%;
+    border-top: #1E2130 solid 0.8rem;
+}
+
 #aggregates-container {
     height: 40rem;
     flex-direction: row;
@@ -240,9 +255,7 @@ body {
     position: relative;
     z-index: 4;
     width: 100%;
-    border-left: #1E2130 solid 0.8rem;
     border-top: #1E2130 solid 0.8rem;
-    border-right: #1E2130 solid 0.8rem;
 }
 
 #metric-summary-session {
