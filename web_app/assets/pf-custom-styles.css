@@ -180,11 +180,8 @@ body {
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 
 #top-section-container {
-    height: 40rem;
-    flex-direction: row;
-    display: flex;
-    max-width: 100%;
-    /*width: 100%;*/
+    position: relative;
+    width: 100%;
 }
 
 #general-section-container {

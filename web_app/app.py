@@ -122,7 +122,7 @@ def build_chart_panel():
     Builds chart panel with data visualisations
     """
     return html.Div(
-        id = "general-section-container",
+        id = "top-section-container",
         className = "twelve columns",
         children = [
             generate_section_banner("Time-Series Data"),
