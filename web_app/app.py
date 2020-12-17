@@ -4,6 +4,7 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output, State
+from datetime import date
 import plotly.express as px
 import pandas as pd
 
@@ -114,6 +115,16 @@ def build_intro_panel():
                     html.P('Select start and end dates below.')
             ],
                 ),
+            html.Div([
+                dcc.DatePickerRange(
+                    id='my-date-picker-range',
+                    min_date_allowed=date(1995, 8, 5),
+                    max_date_allowed=date(2017, 9, 19),
+                    initial_visible_month=date(2017, 8, 5),
+                    end_date=date(2017, 8, 25)
+                    ),
+                html.Div(id='output-container-date-picker-range')
+                ]),
             ],
         )
 
