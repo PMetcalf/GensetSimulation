@@ -1,9 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\data_analytics",
-    "\\data_analytics\\notebooks",
-    "\\web_app",
+    "\\data_aquisition",
+    "\\data_aquisition\\BMRS Webservice",
+    "\\data_aquisition\\GridDataAcquisitionConsoleApp\\Models",
     "\\web_app\\.azure",
     "\\web_app\\.venv",
     "\\web_app\\assets",
@@ -11,6 +11,6 @@
     "\\web_app\\data",
     "\\web_app\\Sample"
   ],
-  "SelectedNode": "\\data_analytics\\notebooks\\1.0-pm-eda.ipynb",
+  "SelectedNode": "\\data_aquisition\\BMRS Webservice",
   "PreviewInSolutionExplorer": false
 }
