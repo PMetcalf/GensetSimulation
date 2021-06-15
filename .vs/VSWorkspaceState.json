@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\data_analytics",
+    "\\data_analytics\\notebooks",
+    "\\web_app",
+    "\\web_app\\.azure",
+    "\\web_app\\.venv",
+    "\\web_app\\assets",
+    "\\web_app\\business_logic",
+    "\\web_app\\data",
+    "\\web_app\\Sample"
+  ],
+  "SelectedNode": "\\data_analytics\\notebooks\\1.0-pm-eda.ipynb",
+  "PreviewInSolutionExplorer": false
+}
