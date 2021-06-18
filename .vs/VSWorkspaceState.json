@@ -3,14 +3,8 @@
     "",
     "\\data_aquisition",
     "\\data_aquisition\\BMRS Webservice",
-    "\\data_aquisition\\GridDataAcquisitionConsoleApp\\Models",
-    "\\web_app\\.azure",
-    "\\web_app\\.venv",
-    "\\web_app\\assets",
-    "\\web_app\\business_logic",
-    "\\web_app\\data",
-    "\\web_app\\Sample"
+    "\\data_aquisition\\BmrsDataAcquisition"
   ],
-  "SelectedNode": "\\data_aquisition\\BMRS Webservice",
+  "SelectedNode": "\\data_aquisition\\BmrsDataAcquisition\\BmrsDataAcquisition.sln",
   "PreviewInSolutionExplorer": false
 }
