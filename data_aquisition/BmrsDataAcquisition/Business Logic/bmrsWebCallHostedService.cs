@@ -14,10 +14,11 @@ namespace BmrsDataAcquisition.Business_Logic
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            _timer = new Timer(BmrsWebCall, null, 0, 10000);
+            _timer = new Timer(BmrsWebCall, null, 0, 100000);   // Interval specified in milliseconds
             return Task.CompletedTask;
         }
 
+        // This is the routine called by the timer
         void BmrsWebCall(object state)
         {
             Debug.WriteLine("Hello World!");
