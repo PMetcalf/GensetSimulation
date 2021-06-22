@@ -65,6 +65,7 @@ namespace DatabaseController.Controllers
         public async Task<ActionResult<B1620_data_model>> GetEarliestDataEntryAsync()
         {
             // Construct SQL query
+            string sQLquery = "SELECT TOP 1 * FROM c ORDER BY c.id";
 
             // Retrieve data asynchronously via database service
             B1620_data_model data = await cosmosDbService.GetEarliestDataEntryAsync();
