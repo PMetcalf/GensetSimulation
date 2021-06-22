@@ -56,6 +56,33 @@ namespace DatabaseController.Controllers
         }
 
         /// <summary>
+        /// Http GET method, returning earliest dataset by passing SQL query.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("Earliest", Name = "Get")]
+        [ActionName("GetAsync")]    // Attribute naming overcomes bug in aspnet core 3.1
+        public async Task<ActionResult<B1620_data_model>> GetEarliestDataEntryAsync()
+        {
+            // Construct SQL query
+
+            // Retrieve data asynchronously via database service
+            B1620_data_model data = await cosmosDbService.GetEarliestDataEntryAsync();
+
+            // Handle missing data
+            if (data == null)
+            {
+                return NotFound();
+            }
+
+            // Return result
+            else
+            {
+                return data;
+            }
+        }
+
+        /// <summary>
         /// Http Post method, adding data to database
         /// </summary>
         /// <param name="data"></param>
