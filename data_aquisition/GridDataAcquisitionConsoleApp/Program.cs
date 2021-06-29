@@ -21,6 +21,11 @@ namespace GridDataAcquisitionConsoleApp
             // Point http client to database webservice
             InitialiseDatabaseClient();
 
+            var response = await RetrieveEarliestDataEntryAsync();
+
+            Console.WriteLine($"StatusCode: {response.StatusCode}");
+            Console.WriteLine($"StatusCode: {response.Content}");
+
             try
             {
                 // Collect data from this date
@@ -244,9 +249,11 @@ namespace GridDataAcquisitionConsoleApp
         /// </summary>
         /// <param ></param>
         /// <returns></returns>
-        static async Task<HttpStatusCode> RetrieveEarliestDataEntry()
+        static async Task<HttpResponseMessage> RetrieveEarliestDataEntryAsync()
         {
-            HttpResponseMessage response = await databaseClient.GetAsync()
+            HttpResponseMessage response = await databaseClient.GetAsync("GetEarliest");
+
+            return response;
         }
 
 

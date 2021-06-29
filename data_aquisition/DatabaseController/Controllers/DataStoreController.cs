@@ -60,8 +60,8 @@ namespace DatabaseController.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet("Earliest", Name = "Get")]
-        [ActionName("GetAsync")]    // Attribute naming overcomes bug in aspnet core 3.1
+        [HttpGet(Name = "GetEarliest")]
+        [ActionName("GetEarliestAsync")]    // Attribute naming overcomes bug in aspnet core 3.1
         public async Task<ActionResult<B1620_data_model>> GetEarliestDataAsync()
         {
             // Retrieve data asynchronously via database service
