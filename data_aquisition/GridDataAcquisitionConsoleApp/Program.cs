@@ -251,7 +251,7 @@ namespace GridDataAcquisitionConsoleApp
         /// <returns></returns>
         static async Task<HttpResponseMessage> RetrieveEarliestDataEntryAsync()
         {
-            HttpResponseMessage response = await databaseClient.GetAsync("GetEarliest");
+            HttpResponseMessage response = await databaseClient.GetAsync("datastore/");
 
             return response;
         }

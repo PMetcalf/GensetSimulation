@@ -58,7 +58,7 @@ namespace DatabaseController.Controllers
         /// <summary>
         /// Http GET method, returning earliest dataset by passing SQL query.
         /// </summary>
-        /// <param name="id"></param>
+        /// <param></param>
         /// <returns></returns>
         [HttpGet(Name = "GetEarliest")]
         [ActionName("GetEarliestAsync")]    // Attribute naming overcomes bug in aspnet core 3.1
@@ -76,7 +76,8 @@ namespace DatabaseController.Controllers
             else
             {
                 // Return result
-                return CreatedAtAction("Earliest Date:", new { id = data.Id }, data);
+                Console.WriteLine(data.DocId);
+                return data;
             }
         }
 
