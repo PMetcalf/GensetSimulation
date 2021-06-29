@@ -56,28 +56,28 @@ namespace DatabaseController.Services
         /// <returns></returns>
         public async Task<B1620_data_model> GetEarliestDataAsync()
         {
-            // sql query for returning top value
-            //string sqlquery = "SELECT TOP 1 * FROM c ORDER BY c.id";
-
             try
             {
-                // Create iterator using sql query
+                B1620_data_model data = null;
+
                 QueryDefinition queryDefinition = new QueryDefinition("SELECT TOP 1 * FROM c ORDER BY c.id");
 
+                // Create iterator using sql query
                 using FeedIterator<B1620_data_model> feedIterator = this.container.GetItemQueryIterator<B1620_data_model>(
                     queryDefinition,
                     null,
                     null);
 
+                // Return single value in iterator as earliest data entry
                 while (feedIterator.HasMoreResults)
                 {
                     foreach (var item in await feedIterator.ReadNextAsync())
                     {
-                        B1620_data_model data = item;
-
-                        return data;
+                        data = item;
                     }
                 }
+
+                return data;
             }
             catch
             {

@@ -12,5 +12,7 @@ namespace DatabaseController.Services
         Task AddDataAsync(B1620_data_model data);
 
         Task<B1620_data_model> GetDataAsync(string id);
+
+        Task<B1620_data_model> GetEarliestDataAsync();
     }
 }

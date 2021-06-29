@@ -65,7 +65,7 @@ namespace DatabaseController.Controllers
         public async Task<ActionResult<B1620_data_model>> GetEarliestDataAsync()
         {
             // Retrieve data asynchronously via database service
-            B1620_data_model data = await cosmosDbService.GetEarliestDataEntryAsync();
+            B1620_data_model data = await cosmosDbService.GetEarliestDataAsync();
 
             // Handle missing data
             if (data == null)
