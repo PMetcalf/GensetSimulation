@@ -61,8 +61,8 @@ namespace DatabaseController.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("Earliest", Name = "Get")]
-        [ActionName("GetEarliestAsync")]    // Attribute naming overcomes bug in aspnet core 3.1
-        public async Task<ActionResult<B1620_data_model>> GetEarliestDataEntryAsync()
+        [ActionName("GetAsync")]    // Attribute naming overcomes bug in aspnet core 3.1
+        public async Task<ActionResult<B1620_data_model>> GetEarliestDataAsync()
         {
             // Construct SQL query
             string sQLquery = "SELECT TOP 1 * FROM c ORDER BY c.id";
