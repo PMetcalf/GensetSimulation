@@ -240,6 +240,17 @@ namespace GridDataAcquisitionConsoleApp
         }
 
         /// <summary>
+        /// Retrieves earliest data entry in database via http 
+        /// </summary>
+        /// <param ></param>
+        /// <returns></returns>
+        static async Task<HttpStatusCode> RetrieveEarliestDataEntry()
+        {
+            HttpResponseMessage response = await databaseClient.GetAsync()
+        }
+
+
+        /// <summary>
         /// Sends data in json format to database via http post 
         /// </summary>
         /// <param name="data"></param>

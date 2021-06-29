@@ -73,10 +73,10 @@ namespace DatabaseController.Controllers
                 return NotFound();
             }
 
-            // Return result
             else
             {
-                return data;
+                // Return result
+                return CreatedAtAction("Earliest Date:", new { id = data.Id }, data);
             }
         }
 
