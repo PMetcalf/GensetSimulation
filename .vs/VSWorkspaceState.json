@@ -3,8 +3,9 @@
     "",
     "\\data_aquisition",
     "\\data_aquisition\\BMRS Webservice",
-    "\\data_aquisition\\BmrsDataAcquisition"
+    "\\data_aquisition\\BmrsDataAcquisition",
+    "\\data_aquisition\\GridDataAcquisitionConsoleApp"
   ],
-  "SelectedNode": "\\data_aquisition\\BmrsDataAcquisition\\BmrsDataAcquisition.sln",
+  "SelectedNode": "\\data_aquisition\\GridDataAcquisitionConsoleApp\\GridDataAcquisitionConsoleApp.sln",
   "PreviewInSolutionExplorer": false
 }

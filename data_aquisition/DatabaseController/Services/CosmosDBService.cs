@@ -54,12 +54,12 @@ namespace DatabaseController.Services
         /// Retreives earliest data item from container.
         /// </summary>
         /// <returns></returns>
-        public async Task<B1620_data_model> GetEarliestDataEntryAsync()
+        public async Task<B1620_data_model> GetEarliestDataEntryAsync(string query)
         {
             try
             {
                 // Request response with sql query
-                ItemResponse<B1620_data_model> response = await this.container.ReadItemAsync<B1620_data_model>();
+                ItemResponse<B1620_data_model> response = await this.container.GetItemQueryIterator<B1620_data_model>(query);
 
                 return response.Resource;
             }
