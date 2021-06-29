@@ -64,9 +64,6 @@ namespace DatabaseController.Controllers
         [ActionName("GetAsync")]    // Attribute naming overcomes bug in aspnet core 3.1
         public async Task<ActionResult<B1620_data_model>> GetEarliestDataAsync()
         {
-            // Construct SQL query
-            string sQLquery = "SELECT TOP 1 * FROM c ORDER BY c.id";
-
             // Retrieve data asynchronously via database service
             B1620_data_model data = await cosmosDbService.GetEarliestDataEntryAsync();
 
