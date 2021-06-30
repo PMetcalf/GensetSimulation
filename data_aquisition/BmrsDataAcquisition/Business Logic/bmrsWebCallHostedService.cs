@@ -14,6 +14,8 @@ namespace BmrsDataAcquisition.Business_Logic
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
+            // Start 
+
             _timer = new Timer(BmrsWebCall, null, 0, 100000);   // Interval specified in milliseconds
             return Task.CompletedTask;
         }
