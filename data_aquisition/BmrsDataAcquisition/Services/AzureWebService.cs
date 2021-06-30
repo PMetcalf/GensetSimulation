@@ -14,7 +14,7 @@ namespace BmrsDataAcquisition.Services
         /// <summary>
         /// Points http client to database webservice (for data POST / GET)
         /// </summary>
-        public static void InitialiseAzureHttpClient()
+        public void InitialiseAzureHttpClient()
         {
             // Set base address
             azureHttpClient.BaseAddress = new Uri("https://localhost:5001/");
@@ -32,7 +32,7 @@ namespace BmrsDataAcquisition.Services
         /// </summary>
         /// <param ></param>
         /// <returns></returns>
-        public static async Task<HttpResponseMessage> RetrieveEarliestDataEntryAsync()
+        public async Task<HttpResponseMessage> RetrieveEarliestDataEntryAsync()
         {
             HttpResponseMessage response = await azureHttpClient.GetAsync("datastore/");
 
