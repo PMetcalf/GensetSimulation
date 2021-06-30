@@ -27,11 +27,13 @@ namespace BmrsDataAcquisition.Services
                 new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
         }
 
+
+
         /// <summary>
-        /// Retrieves earliest data entry in database via http 
+        /// Retrieves earliest data entry in database via http GET
         /// </summary>
         /// <param ></param>
-        /// <returns></returns>
+        /// <returns>Data Entry(HttpResponseMessage)</returns>
         public async Task<HttpResponseMessage> RetrieveEarliestDataEntryAsync()
         {
             HttpResponseMessage response = await azureHttpClient.GetAsync("datastore/");

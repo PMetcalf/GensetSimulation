@@ -21,7 +21,7 @@ namespace BmrsDataAcquisition.Business_Logic
             // Start webservices
             azureWebService.InitialiseAzureHttpClient();
 
-            _timer = new Timer(BmrsWebCallAsync, null, 0, 100000);   // Interval specified in milliseconds
+            _timer = new Timer(BmrsWebCallAsync, null, 0, 5000);   // Interval specified in milliseconds
             return Task.CompletedTask;
         }
 
