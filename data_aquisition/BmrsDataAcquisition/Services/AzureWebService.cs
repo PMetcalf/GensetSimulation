@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace BmrsDataAcquisition.Services
 {
@@ -13,7 +14,7 @@ namespace BmrsDataAcquisition.Services
         /// <summary>
         /// Points http client to database webservice (for data POST / GET)
         /// </summary>
-        static void InitialiseAzureHttpClient()
+        public static void InitialiseAzureHttpClient()
         {
             // Set base address
             azureHttpClient.BaseAddress = new Uri("https://localhost:5001/");
@@ -24,6 +25,18 @@ namespace BmrsDataAcquisition.Services
             // Add default headers for database interaction
             azureHttpClient.DefaultRequestHeaders.Accept.Add(
                 new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+        }
+
+        /// <summary>
+        /// Retrieves earliest data entry in database via http 
+        /// </summary>
+        /// <param ></param>
+        /// <returns></returns>
+        public static async Task<HttpResponseMessage> RetrieveEarliestDataEntryAsync()
+        {
+            HttpResponseMessage response = await azureHttpClient.GetAsync("datastore/");
+
+            return response;
         }
     }
 }
