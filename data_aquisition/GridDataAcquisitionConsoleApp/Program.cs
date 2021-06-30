@@ -24,7 +24,7 @@ namespace GridDataAcquisitionConsoleApp
             var response = await RetrieveEarliestDataEntryAsync();
 
             Console.WriteLine($"StatusCode: {response.StatusCode}");
-            Console.WriteLine($"StatusCode: {response.Content}");
+            Console.WriteLine($"Body: {response.Content.ReadAsStringAsync().Result}");
 
             try
             {
