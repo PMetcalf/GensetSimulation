@@ -1,4 +1,5 @@
 ﻿using GridDataAcquisitionConsoleApp.Models;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,16 @@ namespace GridDataAcquisitionConsoleApp
             // Point http client to database webservice
             InitialiseDatabaseClient();
 
+            // Prototype retrieval for earliest data entry
             var response = await RetrieveEarliestDataEntryAsync();
 
+            // Retrieve data as JSON string
             Console.WriteLine($"StatusCode: {response.StatusCode}");
-            Console.WriteLine($"Body: {response.Content.ReadAsStringAsync().Result}");
+            string result = response.Content.ReadAsStringAsync().Result;
+
+            // Parse date from data string converted into dictionary
+            Dictionary<string, string> dataAttributes = JsonConvert.DeserializeObject<Dictionary<string, string>>(result);
+            string orig_date = dataAttributes["setDate"];
 
             try
             {
