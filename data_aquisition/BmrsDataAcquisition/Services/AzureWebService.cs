@@ -27,7 +27,21 @@ namespace BmrsDataAcquisition.Services
                 new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
         }
 
+        /// <summary>
+        /// Retrieves earliest data entry in database via http GET
+        /// </summary>
+        /// <param ></param>
+        /// <returns></returns>
+        public async Task<Tuple<int, DateTime>> ReturnEarliestDate()
+        {
+            // Retrieve earliest data entry
 
+            // Parse returned data to obtain period
+
+            // Parse returned data to obtain date
+            
+            // Return data as tuple
+        }
 
         /// <summary>
         /// Retrieves earliest data entry in database via http GET

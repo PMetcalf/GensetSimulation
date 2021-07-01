@@ -34,6 +34,12 @@ namespace BmrsDataAcquisition.Business_Logic
 
             string result = response.Content.ReadAsStringAsync().Result;
             Debug.WriteLine(result);
+
+            // Determine earliest entry in storage
+
+            // Call BMRS service for next earliest entry
+
+            // Send returned data to storage
         }
 
         public Task StopAsync(CancellationToken cancellationToken)
