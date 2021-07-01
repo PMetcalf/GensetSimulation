@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -31,14 +33,14 @@ namespace BmrsDataAcquisition.Services
         /// Retrieves earliest data entry in database via http GET
         /// </summary>
         /// <param ></param>
-        /// <returns></returns>
+        /// <returns>EarliestDate (Tuple(Int, DateTime))</returns>
         public async Task<Tuple<int, DateTime>> ReturnEarliestDate()
         {
             // Retrieve earliest data entry
+            HttpResponseMessage earliestData = await RetrieveEarliestDataEntryAsync();
 
-            // Parse returned data to obtain period
-
-            // Parse returned data to obtain date
+            // Parse response into dictionary
+            string dataAsJSON = earliestData.Content.ReadAsStringAsync().Result;
             
             // Return data as tuple
         }
@@ -47,12 +49,29 @@ namespace BmrsDataAcquisition.Services
         /// Retrieves earliest data entry in database via http GET
         /// </summary>
         /// <param ></param>
-        /// <returns>Data Entry(HttpResponseMessage)</returns>
-        public async Task<HttpResponseMessage> RetrieveEarliestDataEntryAsync()
+        /// <returns>response (HttpResponseMessage)</returns>
+        private async Task<HttpResponseMessage> RetrieveEarliestDataEntryAsync()
         {
             HttpResponseMessage response = await azureHttpClient.GetAsync("datastore/");
 
             return response;
         }
+
+        /// <summary>
+        /// Converts response token into dictionary
+        /// </summary>
+        /// <param >response (HttpResponseMessage)</param>
+        /// <returns>responseDictionary (Dictionary<string, string></string>))</returns>
+        private Dictionary<string, string> ReturnResponseAsDictionary(HttpResponseMessage response)
+        {
+            // Retrieve content from response
+            string dataAsJSON = response.Content.ReadAsStringAsync().Result;
+
+            // Parse content into dictionary
+            Dictionary<string, string> responseDictionary = JsonConvert.DeserializeObject<Dictionary<string, string>>(dataAsJSON);
+
+            // Return dictionary
+            return responseDictionary;
+        }
     }
-}
+}       
