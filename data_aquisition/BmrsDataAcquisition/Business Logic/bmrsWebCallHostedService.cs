@@ -30,12 +30,10 @@ namespace BmrsDataAcquisition.Business_Logic
         {
             Debug.WriteLine("Making webcall ...");
 
-            HttpResponseMessage response = await azureWebService.RetrieveEarliestDataEntryAsync();
-
-            string result = response.Content.ReadAsStringAsync().Result;
-            Debug.WriteLine(result);
-
             // Determine earliest entry in storage
+            Tuple<string, string> result = await azureWebService.ReturnEarliestDate();
+            
+            Debug.WriteLine(result);
 
             // Call BMRS service for next earliest entry
 

@@ -34,15 +34,20 @@ namespace BmrsDataAcquisition.Services
         /// </summary>
         /// <param ></param>
         /// <returns>EarliestDate (Tuple(Int, DateTime))</returns>
-        public async Task<Tuple<int, DateTime>> ReturnEarliestDate()
+        public async Task<Tuple<string, string>> ReturnEarliestDate()
         {
             // Retrieve earliest data entry
             HttpResponseMessage earliestData = await RetrieveEarliestDataEntryAsync();
 
             // Parse response into dictionary
-            string dataAsJSON = earliestData.Content.ReadAsStringAsync().Result;
-            
+            Dictionary<string, string> responseDictionary = ReturnResponseAsDictionary(earliestData);
+
             // Return data as tuple
+            string stringPeriod = responseDictionary["setPeriod"];
+            string stringDate = responseDictionary["setDate"];
+            Tuple<string, string> earliestDate = new Tuple<string, string>(stringPeriod, stringDate);
+
+            return earliestDate;
         }
 
         /// <summary>
