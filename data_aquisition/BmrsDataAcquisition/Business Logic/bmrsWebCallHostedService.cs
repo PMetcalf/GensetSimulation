@@ -1,4 +1,5 @@
-﻿using BmrsDataAcquisition.Services;
+﻿using BmrsDataAcquisition.Models;
+using BmrsDataAcquisition.Services;
 using Microsoft.Extensions.Hosting;
 using System;
 using System.Collections.Generic;
@@ -17,6 +18,8 @@ namespace BmrsDataAcquisition.Business_Logic
         private AzureWebService azureWebService = new AzureWebService();
 
         private BMRSWebService bmrsWebService = new BMRSWebService();
+
+        private DataSerialiser dataSerialiser = new DataSerialiser();
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
@@ -53,8 +56,12 @@ namespace BmrsDataAcquisition.Business_Logic
                 Debug.WriteLine(response);
 
                 // Convert data to storage format
+                if (response.Contains("Success But No data available") == false)    // TODO:Invert to only work for success
+                {
+                    List<B1620DataModel> serialisedData = dataSerialiser.ReturnDataAsJSON(response);
 
-                // Send converted data to storage
+                    // Send converted data to storage
+                }
             }
         }
 
