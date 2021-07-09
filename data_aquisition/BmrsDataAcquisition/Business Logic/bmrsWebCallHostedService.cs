@@ -36,9 +36,15 @@ namespace BmrsDataAcquisition.Business_Logic
             
             Debug.WriteLine(result);
 
-            // Call BMRS service for next earliest entry
+            // Calculate date to request data for
 
-            // Send returned data to storage
+            // Iterate over periods for date
+
+                // Request data from BMRS API
+
+                // Convert data to storage format
+
+                // Send converted data to storage
         }
 
         public Task StopAsync(CancellationToken cancellationToken)
