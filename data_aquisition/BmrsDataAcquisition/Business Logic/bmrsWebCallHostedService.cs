@@ -34,7 +34,7 @@ namespace BmrsDataAcquisition.Business_Logic
             // Determine earliest entry in storage
             Tuple<string, string> result = await azureWebService.ReturnEarliestDate();
             
-            Debug.WriteLine(result);
+            Debug.WriteLine(("Earliest Date:", result));
 
             // Calculate date to request data for
 
