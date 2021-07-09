@@ -14,7 +14,9 @@ namespace BmrsDataAcquisition.Business_Logic
     {
         private Timer _timer;
 
-        private AzureWebService azureWebService = new AzureWebService(); 
+        private AzureWebService azureWebService = new AzureWebService();
+
+        private BMRSWebService bmrsWebService = new BMRSWebService();
 
         public Task StartAsync(CancellationToken cancellationToken)
         {
@@ -22,7 +24,7 @@ namespace BmrsDataAcquisition.Business_Logic
             azureWebService.InitialiseAzureHttpClient();
 
             _timer = new Timer(BmrsWebCallAsync, null, 0, 86400000
-                );   // Interval specified in milliseconds (24 hrs)
+                );   // 86400000 Interval specified in milliseconds (24 hrs)
             return Task.CompletedTask;
         }
 
@@ -37,14 +39,23 @@ namespace BmrsDataAcquisition.Business_Logic
             Debug.WriteLine(("Earliest Date:", result));
 
             // Calculate date to request data for
+            DateTime earliestDate = DateTime.Parse(result.Item2);
+            DateTime requestDate = earliestDate.AddDays(-1);
 
             // Iterate over periods for date
+            for (int period = 1; period < 51; period ++)
+            {
+                Debug.WriteLine("Making BMRS Call ...");
 
                 // Request data from BMRS API
+                string response = await bmrsWebService.GetBMRSDataAsync(requestDate, period);
+
+                Debug.WriteLine(response);
 
                 // Convert data to storage format
 
                 // Send converted data to storage
+            }
         }
 
         public Task StopAsync(CancellationToken cancellationToken)
