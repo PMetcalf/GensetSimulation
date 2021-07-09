@@ -11,8 +11,6 @@ namespace BmrsDataAcquisition.Services
         // Http is used for database interactions
         static HttpClient azureHttpClient = new HttpClient();
 
-        // Webservice initialisation routine (if needed)
-
         /// <summary>
         /// Points http client to database webservice (for data POST / GET)
         /// </summary>

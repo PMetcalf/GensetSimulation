@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\data_aquisition",
-    "\\data_aquisition\\BmrsDataAcquisition"
+    "\\data_aquisition\\DatabaseController",
+    "\\data_aquisition\\GridDataAcquisitionConsoleApp"
   ],
-  "SelectedNode": "\\data_aquisition\\BmrsDataAcquisition\\BmrsDataAcquisition.sln",
+  "SelectedNode": "\\data_aquisition\\DatabaseController\\DatabaseController.sln",
   "PreviewInSolutionExplorer": false
 }
